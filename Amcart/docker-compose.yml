@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  amcart.web:
+    image: ${DOCKER_REGISTRY}amcartweb
+    build:
+      context: .
+      dockerfile: Web\Amcart.Web\Dockerfile
+
+  amcart.web.api:
+    image: ${DOCKER_REGISTRY}amcartwebapi
+    build:
+      context: .
+      dockerfile: Service\Amcart.Web.API\Dockerfile
+
