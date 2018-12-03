@@ -1,11 +1,9 @@
-﻿using Amcart.Core.Domain.Domain;
+﻿using Amcart.Core.Domain;
 using Amcart.Core.Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace Amcart.Core.Data.DataAccess
 {

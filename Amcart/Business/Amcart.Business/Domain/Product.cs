@@ -1,8 +1,5 @@
-﻿using Amcart.Core.Domain.Domain;
-using System;
-using System.Collections.Generic;
+﻿using Amcart.Core.Domain;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Amcart.Business.Domain
 {
@@ -56,8 +53,6 @@ namespace Amcart.Business.Domain
         [Range(1, 15, ErrorMessage = "Please enter a valid Proposal Issue Days Limit")]
         public int ProposalIssueDaysLimit { get; set; }
 
-
-
         /// <summary>
         /// Gets or sets the remarks.
         /// </summary>
@@ -68,19 +63,5 @@ namespace Amcart.Business.Domain
         [StringLength(100)]
         [Required]
         public string Remarks { get; set; }
-
-        /// <summary>
-        /// Called when [validate while create].
-        /// </summary>
-        /// <returns></returns>
-        protected override IEnumerable<ValidationResult> OnValidateWhileCreate()
-        {
-            //if (LineOfBusinessTypeID != PolicyTypeID)
-            //{
-            //    yield return new ValidationResult("Line of Business Type ID is not equal to Policy Type ID", new[] { "LineOfBusinessTypeID","PolicyTypeID" });
-            //}
-
-            return null;
-        }
     }
 }

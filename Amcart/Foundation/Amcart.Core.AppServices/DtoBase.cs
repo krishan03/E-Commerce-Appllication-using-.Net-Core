@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,7 +12,7 @@ namespace Amcart.Core.AppServices
         /// </summary>
         /// <value>The identifier.</value>
 
-        public int Id { get; set; }
+        public ObjectId Id { get; set; }
 
         /// <summary>
         /// Gets or sets the automatic off set.

@@ -36,7 +36,7 @@ namespace Amcart.Business.AppService
             Product product = mapper.Map<ProductDTO, Product>(item);
             product.IsActive = true;
 
-            product.CreatedOnDate = DateTimeOffset.Now;
+            product.CreatedOnDate = DateTime.Now;
 
             OperationResult result;
             //- As a normal practice just use repository and UoW to do CUD operations, else see #4 below.
