@@ -7,6 +7,6 @@ namespace Amcart.Business.Product
     {
         public string Name { get; set; }
 
-        public List<Tag> Tags { get; set; }
+        public List<string> Tags { get; set; }
     }
 }

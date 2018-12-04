@@ -17,6 +17,6 @@ namespace Amcart.Business.Product
 
         public IList<string> DynamicCategories { get; set; }
 
-        public IList<TagGroup> Tags { get; set; }
+        public IList<TagGroup> TagGroups { get; set; }
     }
 }
