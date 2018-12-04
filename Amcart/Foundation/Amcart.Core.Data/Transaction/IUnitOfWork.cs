@@ -1,5 +1,4 @@
 ﻿using Amcart.Core.ValueObjects;
-using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,10 +13,6 @@ namespace Amcart.Core.Data.Transaction
         OperationResult Commit();
 
         void Rollback();
-
-
-
-        IDbContextTransaction BeginTransaction();
 
         Task<int> SaveAsyc();
     }

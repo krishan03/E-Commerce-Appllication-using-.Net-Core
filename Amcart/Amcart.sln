@@ -37,9 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amcart.Web.API", "Service\A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amcart.Web.IAM", "Service\Amcart.Web.IAM\Amcart.Web.IAM.csproj", "{C91CB550-371C-47D8-9756-3E68A94B5031}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmCart.Business.Product", "Business\AmCart.Business.Product\AmCart.Business.Product.csproj", "{80E3E2BF-0541-47D7-BEAD-C013BD7C6646}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amcart.Business.Product", "Business\AmCart.Business.Product\Amcart.Business.Product.csproj", "{80E3E2BF-0541-47D7-BEAD-C013BD7C6646}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmCart.Web.Product", "Service\AmCart.Web.Product\AmCart.Web.Product.csproj", "{61A75780-B86A-494C-A528-B86FAB8AE488}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.Web.Product", "Service\AmCart.Web.Product\AmCart.Web.Product.csproj", "{61A75780-B86A-494C-A528-B86FAB8AE488}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

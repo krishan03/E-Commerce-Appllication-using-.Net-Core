@@ -9,7 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Foundation\Amcart.Core.Data\Amcart.Core.Data.csproj" />
     <ProjectReference Include="..\..\Foundation\Amcart.Core.Domain\Amcart.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\Foundation\Amcart.Core\Amcart.Core.csproj" />
   </ItemGroup>
 
 </Project>

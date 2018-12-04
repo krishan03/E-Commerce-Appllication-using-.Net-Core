@@ -1,6 +1,6 @@
 ﻿using Amcart.Core.Domain;
 
-namespace AmCart.Business.Product.Domain
+namespace Amcart.Business.Product
 {
     public class Tag : DomainBase
     {

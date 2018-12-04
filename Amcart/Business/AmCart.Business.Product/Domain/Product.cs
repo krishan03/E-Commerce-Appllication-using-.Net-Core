@@ -1,7 +1,7 @@
 ﻿using Amcart.Core.Domain;
 using System.Collections.Generic;
 
-namespace AmCart.Business.Product.Domain
+namespace Amcart.Business.Product
 {
     public class Product : DomainBase
     {

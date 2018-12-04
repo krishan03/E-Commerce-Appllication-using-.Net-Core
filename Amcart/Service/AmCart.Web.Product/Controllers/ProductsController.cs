@@ -2,19 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Amcart.Business.Product;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AmCart.Web.Product.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ProductsController : ControllerBase
     {
+        private readonly IProductRepository productRepository;
+
+        public ProductsController(IProductRepository productRepository)
+        {
+            this.productRepository = productRepository;
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<IEnumerable<Amcart.Business.Product.Product>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return await productRepository.GetAllProductsAsync();
         }
 
         // GET api/values/5

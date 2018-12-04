@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Amcart.Business.Product;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,15 @@ namespace AmCart.Web.Product
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddSingleton<IProductRepository, ProductRepository>();
+
+            services.Configure<DBSettings>(options =>
+            {
+                options.ConnectionString
+                    = Configuration.GetSection("MongoConnection:ConnectionString").Value;
+                options.Database
+                    = Configuration.GetSection("MongoConnection:Database").Value;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
