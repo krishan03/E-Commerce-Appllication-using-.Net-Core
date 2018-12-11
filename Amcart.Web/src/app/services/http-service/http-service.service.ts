@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AppSettings } from 'src/app/appsettings';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpServiceService {
 
-  private _baseUrl: string = "http://localhost:47039/api/"
+  private _baseUrl: string = AppSettings.API_ENDPOINT;
 
   constructor(private _httpClient: HttpClient) { }
 

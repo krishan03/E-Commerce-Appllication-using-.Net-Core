@@ -16,6 +16,7 @@ import { HeaderModule } from './header/header.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { FooterModule } from './footer/footer.module';
 import { LoginRegisterModule } from './login-register/login-register.module';
+import { ProductListingModule } from './product-listing/product-listing.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LoginRegisterModule } from './login-register/login-register.module';
     HeaderModule,
     NavbarModule,
     FooterModule,
-    LoginRegisterModule
+    LoginRegisterModule,
+    ProductListingModule
   ],
   providers: [
     // AuthGuard

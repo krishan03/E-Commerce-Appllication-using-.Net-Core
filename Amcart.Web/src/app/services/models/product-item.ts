@@ -1,6 +1,7 @@
 export class ProductItem{
+    Image:string;
     Label:string;
-    OldCost:number;
+    OldCost?:number;
     NewCost:number;
     Name:string;
     Rating:number;
