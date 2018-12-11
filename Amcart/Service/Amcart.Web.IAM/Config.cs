@@ -52,7 +52,7 @@ namespace Amcart.Web.IAM
                 new TestUser
                 {
                     SubjectId = "1",
-                    Username = "rahul",
+                    Username = "kashishkumar",
                     Password = "Passw0rd"
                 }
             };

@@ -26,22 +26,19 @@ namespace Amcart.Web.IAM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IClientRepository, ClientRepository>();
-            services.AddSingleton<IUserRepository, UserRepository>();
-            services.Configure<DbSettings>(options =>
-            {
-                options.ConnectionString
-                    = Configuration.GetSection("MongoConnection:ConnectionString").Value;
-                options.Database
-                    = Configuration.GetSection("MongoConnection:Database").Value;
-            });
-
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.AddCors(o => o.AddPolicy("AMCartIAMCorsPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -66,11 +63,11 @@ namespace Amcart.Web.IAM
                 app.UseHsts();
             }
 
+            app.UseCors("AMCartIAMCorsPolicy");
             app.UseIdentityServer();
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
