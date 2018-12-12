@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { AccessTokenService } from 'src/app/services/access-token.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,8 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginRegisterComponent implements OnInit {
   loginForm: FormGroup;
-  constructor(private _accessToken: AccessTokenService,
-    private ngRouter: Router) {
+  constructor(private router: Router) {
     this.loginForm = new FormGroup({
       userName: new FormControl(''),
       password: new FormControl(''),
@@ -23,12 +21,6 @@ export class LoginRegisterComponent implements OnInit {
   }
 
   onSubmit = () => {
-    debugger;
-    this._accessToken.GetToken(this.loginForm.value).subscribe((resp)=>{
-      if(resp){
-        this.ngRouter.navigate(['/home']);
-      }
-    });
   }
 
 }

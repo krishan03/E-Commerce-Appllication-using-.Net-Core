@@ -3,30 +3,22 @@ import { Routes } from "../../node_modules/@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { LoginRegisterComponent } from "./login-register/login-register/login-register.component";
+import { LoginCallbackComponent } from "./login-callback/login-callback.component";
 
 export const routes: Routes = [
     {
-        path:'', 
-        component: LoginRegisterComponent, 
+        path:'callback', 
+        component: LoginCallbackComponent, 
         pathMatch: 'full'
     },
     {
-        path:'signin', 
-        component: LoginRegisterComponent, 
-        pathMatch: 'full'
-    },
-    {
-        path:'home', 
-        component: HomeComponent, 
+        path: '',
+        component: HomeComponent,
         pathMatch: 'full'
     },
     {
         path:'profile', 
         component: ProfileComponent, 
-        // canActivate: [AuthGuard]
-    },
-    {
-        path: '**',
-        redirectTo: ''
+        canActivate: [AuthGuard]
     }
 ];

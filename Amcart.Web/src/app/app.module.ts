@@ -9,24 +9,23 @@ import { routes } from './app-routes';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth-guard';
 import { ProfileComponent } from './profile/profile.component';
-// import { IAppState, rootReducer, INITIAL_STATE } from './store/store';
-// import { NgRedux, NgReduxModule } from '@angular-redux/store'
-// import { AjaxModule } from 'utility/ajax'
 import { HeaderModule } from './header/header.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { FooterModule } from './footer/footer.module';
 import { LoginRegisterModule } from './login-register/login-register.module';
 import { ProductListingModule } from './product-listing/product-listing.module';
+import { LoginCallbackComponent } from './login-callback/login-callback.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoginCallbackComponent
   ],
   imports: [
     HttpClientModule,
-    // OAuthModule.forRoot(),
+    OAuthModule.forRoot(),
     RouterModule.forRoot(routes),
     BrowserModule,
     // NgReduxModule,
@@ -37,7 +36,7 @@ import { ProductListingModule } from './product-listing/product-listing.module';
     ProductListingModule
   ],
   providers: [
-    // AuthGuard
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
