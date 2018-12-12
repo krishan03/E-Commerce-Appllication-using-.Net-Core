@@ -9,6 +9,8 @@ namespace AmCart.Business.IAM
 
         public string Secret { get; set; }
 
+        public string GrantType { get; set; }
+
         public IList<string> Scopes { get; set; }
     }
 }

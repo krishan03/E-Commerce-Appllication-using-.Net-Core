@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Amcart.Core.Data.DataAccess;
+﻿using Amcart.Core.Data.DataAccess;
 using AmCart.Business.IAM;
+using IdentityServer4.Services;
+using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +23,19 @@ namespace Amcart.Web.IAM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IClientRepository, ClientRepository>();
+            services.AddSingleton<IUserRepository, UserRepository>();
+            services.AddSingleton<IGrantRepository, GrantRepository>();
+            services.AddSingleton<IRoleRepository, RoleRepository>();
+
+            services.Configure<DbSettings>(options =>
+            {
+                options.ConnectionString
+                    = Configuration.GetSection("MongoConnection:ConnectionString").Value;
+                options.Database
+                    = Configuration.GetSection("MongoConnection:Database").Value;
+            });
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -45,9 +55,13 @@ namespace Amcart.Web.IAM
             // configure identity server with in-memory stores, keys, clients and scopes
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
-                .AddInMemoryIdentityResources(Config.GetIdentityResources())
-                .AddInMemoryClients(Config.GetClients())
-                .AddTestUsers(Config.GetUsers());
+                .AddClients()
+                .AddIdentityApiResources()
+                .AddPersistedGrants();
+
+            services.AddIdentity<User, Role>().AddUserStore<UserStore>().AddRoleStore<RoleStore>();
+            services.AddTransient<IResourceOwnerPasswordValidator, ResourceOwnerPasswordValidator>();
+            services.AddTransient<IProfileService, ProfileService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

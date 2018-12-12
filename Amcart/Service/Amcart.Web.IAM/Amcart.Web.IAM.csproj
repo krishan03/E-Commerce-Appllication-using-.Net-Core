@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Shared\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Business\AmCart.Business.IAM\AmCart.Business.IAM.csproj" />
   </ItemGroup>
 

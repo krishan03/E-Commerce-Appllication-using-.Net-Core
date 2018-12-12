@@ -30,5 +30,30 @@ namespace AmCart.Business.IAM
                 return _database.GetCollection<Client>("Client");
             }
         }
+
+        public IMongoCollection<Role> Roles
+        {
+            get
+            {
+                return _database.GetCollection<Role>("Role");
+            }
+        }
+
+        public IMongoCollection<Grant> Grants
+        {
+            get
+            {
+                return _database.GetCollection<Grant>("Grant");
+            }
+        }
+
+        public IMongoCollection<Permission> Permissions
+        {
+            get
+            {
+                return _database.GetCollection<Permission>("Permission");
+            }
+        }
+
     }
 }

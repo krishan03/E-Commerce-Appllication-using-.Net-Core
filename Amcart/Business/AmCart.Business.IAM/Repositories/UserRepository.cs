@@ -1,8 +1,8 @@
 ﻿using Amcart.Core.Data.DataAccess;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmCart.Business.IAM
@@ -16,11 +16,35 @@ namespace AmCart.Business.IAM
             dbContext = new IAMDbContext(settings);
         }
 
-        public async Task<IEnumerable<User>> GetUsersAsync()
+        public async Task<User> GetUserAsync(string id)
         {
             try
             {
-                return await dbContext.Users.Find(_ => true).ToListAsync();
+                return await dbContext.Users.Find(u => u.Id == new ObjectId(id)).FirstOrDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<User> GetUserByUsernameAsync(string username)
+        {
+            try
+            {
+                return await dbContext.Users.Find(u => u.Username == username).FirstOrDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<User> ValidateUserAsync(string username, string password)
+        {
+            try
+            {
+                return await dbContext.Users.Find(u => u.Username == username && u.Password == password).FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {

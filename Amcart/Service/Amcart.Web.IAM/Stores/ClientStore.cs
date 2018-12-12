@@ -4,7 +4,7 @@ using IdentityServer4.Stores;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Amcart.Web.IAM.Stores
+namespace Amcart.Web.IAM
 {
     public class ClientStore : IClientStore
     {
@@ -26,8 +26,12 @@ namespace Amcart.Web.IAM.Stores
                 {
                     new Secret(client.Secret.Sha256())
                 },
-                AllowedGrantTypes = GrantTypes.ResourceOwnerPasswordAndClientCredentials,
+                AllowedGrantTypes = client.GrantType == "Implicit" ? GrantTypes.Implicit : GrantTypes.ClientCredentials,
                 RequireConsent = false,
+                // where to redirect to after login
+                RedirectUris = { "http://localhost:5002/signin-oidc", "http://localhost:5100/callback" },
+                // where to redirect to after logout
+                PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
                 AllowedScopes = client.Scopes,
                 AllowAccessTokensViaBrowser = true
             };

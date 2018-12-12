@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Business\Amcart.Business\Amcart.Business.csproj" />
     <ProjectReference Include="..\..\Foundation\Amcart.Core.WebMVC\Amcart.Core.WebMVC.csproj" />
     <ProjectReference Include="..\..\PlugIn\Amcar.Logging.NLog\Amcar.Logging.NLog.csproj" />
   </ItemGroup>

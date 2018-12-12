@@ -1,0 +1,36 @@
+@model LoginViewModel
+
+<!-- page body content begin -->
+<div class="pg-body">
+    <div class="container login-register">
+        <div class="row">
+            <div class="whith-f-t">
+                <p>Login / register with facebook or  twitter</p><br>
+                <a href="#" class="facebook"><span class="icon-social-facebook"></span>facebook</a>
+                <a href="#" class="twitter"><span class="icon-social-twitter"></span>twitter</a>
+            </div>
+            <hr />
+            <div class="col-12 login">
+                <form asp-route="Login" class="validation-engine col-xs-12 col-sm-6">
+                    <h6>LOGIN</h6>
+                    <fieldset>
+                        <div class="required form-group">
+                            <p>Email adress *</p>
+                            <input type="text" name="Username" class="form-control validate[required]" asp-for="Username" data-prompt-position="topLeft">
+                        </div>
+                        <div class="required form-group">
+                            <p>Password *</p>
+                            <input type="password" name="password" class="form-control validate[required]" asp-for="Password" data-prompt-position="topLeft">
+                        </div>
+                        <p>
+                            <input asp-for="RememberLogin" type="checkbox" name="remember" id="checkbox1" class="stl" value="2">
+                            <label for="checkbox1" class="stl"><span></span>Remember me</label>
+                            <a href="#">Fogot your password?</a><br>
+                        </p>
+                        <input type="submit" name="login" class="btn btn-third-col" value="Login">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

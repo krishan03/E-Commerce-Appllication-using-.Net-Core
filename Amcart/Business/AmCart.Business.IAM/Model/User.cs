@@ -5,6 +5,8 @@ namespace AmCart.Business.IAM
 {
     public class User : DomainBase
     {
+        public string Username { get; set; }
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
@@ -14,6 +16,8 @@ namespace AmCart.Business.IAM
         public string Password { get; set; }
 
         public bool IsVerified { get; set; }
+
+        public Role Role { get; set; }
 
         public IList<string> Permissions { get; set; }
     }
