@@ -29,9 +29,9 @@ namespace Amcart.Web.IAM
                 AllowedGrantTypes = client.GrantType == "Implicit" ? GrantTypes.Implicit : GrantTypes.ClientCredentials,
                 RequireConsent = false,
                 // where to redirect to after login
-                RedirectUris = { "http://localhost:5002/signin-oidc", "http://localhost:5100/callback" },
+                RedirectUris = client.RedirectUris,
                 // where to redirect to after logout
-                PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+                PostLogoutRedirectUris = client.PostLogoutRedirectUris,
                 AllowedScopes = client.Scopes,
                 AllowAccessTokensViaBrowser = true
             };

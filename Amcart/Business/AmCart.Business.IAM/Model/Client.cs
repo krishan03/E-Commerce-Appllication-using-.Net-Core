@@ -12,5 +12,9 @@ namespace AmCart.Business.IAM
         public string GrantType { get; set; }
 
         public IList<string> Scopes { get; set; }
+
+        public IList<string> RedirectUris { get; set; }
+
+        public IList<string> PostLogoutRedirectUris { get; set; }
     }
 }
