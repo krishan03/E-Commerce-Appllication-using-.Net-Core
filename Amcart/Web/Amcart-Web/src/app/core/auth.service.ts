@@ -12,8 +12,8 @@ export class AuthService {
     var settings = {
       authority: Constants.stsAuthority,
       client_id: Constants.clientId,
-      redirect_uri: `${Constants.clientRoot}assets/signin-callback.html`,
-      silent_redirect_uri: `${Constants.clientRoot}assets/silent-callback.html`,
+      redirect_uri: `${Constants.clientRoot}login-callback`,
+      silent_redirect_uri: `${Constants.clientRoot}logout-callback`,
       post_logout_redirect_uri: `${Constants.clientRoot}`,
       response_type: 'id_token token',
       scope: Constants.clientScope
