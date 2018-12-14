@@ -1,0 +1,17 @@
+<div class="col-md-3 col-sm-6 pl-item">
+  <figure>
+    <a href="#">
+      <img src='{{product.Image}}'>
+    </a>
+    <label *ngIf='product.Label' class="pl-badge">{{product.Label}}</label>
+    <app-product-caption></app-product-caption>
+  </figure>
+  <div class="pl-caption">
+    <p class="pl-price-block">
+      <span *ngIf='product.OldCost' class="pl-price-old">$ {{product.OldCost}}</span>
+      <span class="pl-price"> $ {{ product.NewCost }}</span>
+    </p>
+    <p class="pl-name">{{ product.Name }}</p>
+    <span class="stars-rating stars-4"><span class="stars"></span></span>
+  </div>
+</div>
