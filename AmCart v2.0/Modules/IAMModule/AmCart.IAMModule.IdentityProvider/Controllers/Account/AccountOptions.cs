@@ -8,7 +8,7 @@ namespace AmCart.IAMModule.IdentityProvider
         public static bool AllowRememberLogin = true;
         public static TimeSpan RememberMeLoginDuration = TimeSpan.FromDays(30);
 
-        public static bool ShowLogoutPrompt = true;
+        public static bool ShowLogoutPrompt = false;
         public static bool AutomaticRedirectAfterSignOut = false;
 
         public static readonly string WindowsAuthenticationSchemeName = Microsoft.AspNetCore.Server.IISIntegration.IISDefaults.AuthenticationScheme;

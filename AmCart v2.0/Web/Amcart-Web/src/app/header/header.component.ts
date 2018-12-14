@@ -15,4 +15,12 @@ export class HeaderComponent implements OnInit {
   login() {
     this.authService.redirectToLogin();
   }
+
+  logout() {
+    this.authService.redirectToLogout();
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
 }

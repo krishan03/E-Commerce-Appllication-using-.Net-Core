@@ -12,7 +12,8 @@ export class LoginCallbackComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.authService.loginCallback().then(() => {
+    this.authService.loginCallback().then(user => {
+      this.authService.storeUserDetails(user);
       this.router.navigate(['']);
     }, error => {
         console.error(error);

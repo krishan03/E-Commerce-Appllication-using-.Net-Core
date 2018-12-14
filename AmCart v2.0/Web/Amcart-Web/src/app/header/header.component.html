@@ -9,9 +9,13 @@
             </a>
           </li>
           <li class="btn-group dropdown">
-            <a (click)="login()" class="pm_item" data-toggle="dropdown" title="login">
+            <a *ngIf="!isLoggedIn()" (click)="login()" class="pm_item" data-toggle="dropdown" title="login">
               <i class="icon-login"></i>
               <span class="hidden-sm hidden-xs">Login</span>
+            </a>
+            <a *ngIf="isLoggedIn()" (click)="logout()" class="pm_item" data-toggle="dropdown" title="logout">
+              <i class="icon-logout"></i>
+              <span class="hidden-sm hidden-xs">Logout</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" role="menu">
               <span class="dropdown-triangle-up"></span>

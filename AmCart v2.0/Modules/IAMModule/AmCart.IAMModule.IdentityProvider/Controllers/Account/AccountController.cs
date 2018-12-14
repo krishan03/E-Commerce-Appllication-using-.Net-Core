@@ -123,7 +123,7 @@ namespace AmCart.IAMModule.IdentityProvider
             var vm = await BuildLoggedOutViewModelAsync(model.LogoutId);
             if (User?.Identity.IsAuthenticated == true)
             {
-                await HttpContext.SignOutAsync();
+                await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
                 await _events.RaiseAsync(new UserLogoutSuccessEvent(User.GetSubjectId(), User.GetDisplayName()));
             }
 
@@ -133,7 +133,7 @@ namespace AmCart.IAMModule.IdentityProvider
                 return SignOut(new AuthenticationProperties { RedirectUri = url }, vm.ExternalAuthenticationScheme);
             }
 
-            return View("LoggedOut", vm);
+            return Redirect(vm.PostLogoutRedirectUri);
         }
 
         private async Task<LoginViewModel> BuildLoginViewModelAsync(string returnUrl)
