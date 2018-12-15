@@ -10,7 +10,7 @@ namespace AmCart.ProductModule.Data.DBContext
         private readonly IMongoDatabase _database = null;
 
 
-        public ProductDbContext(IOptions<DBSettings> settings)
+        public ProductDbContext(IOptions<AmCart.Core.Data.DBSettings> settings)
         {
             var client = new MongoClient(settings.Value.ConnectionString);
             if (client != null)

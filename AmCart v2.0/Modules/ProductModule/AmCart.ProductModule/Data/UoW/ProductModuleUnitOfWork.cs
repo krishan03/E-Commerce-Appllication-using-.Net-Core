@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AmCart.ProductModule.Data.UoW
 {
-   public  class ProductModuleUnitOfWork : UnitOfWork, IProductModuleUnitOfWork
+    public class ProductModuleUnitOfWork : UnitOfWork, IProductModuleUnitOfWork
     {
         /// <summary>
         /// The service provider

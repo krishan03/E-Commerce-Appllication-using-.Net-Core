@@ -19,14 +19,16 @@ namespace AmCart.ProductModule.AppServices
         private IProductModuleUnitOfWork unitOfWork;
         private IExceptionManager exceptionManager;
         private IProductRepository productRepository;
+        private IProductMongoDBUnitOfWork mongoUnitOfWork;
 
 
-        public ProductAppService(IProductModuleUnitOfWork unitOfWork, IProductRepository productRepository, IMapper mapper, IExceptionManager exceptionManager) : base(unitOfWork, exceptionManager)
+        public ProductAppService(IProductModuleUnitOfWork unitOfWork, IProductMongoDBUnitOfWork mongoUnitOfWork, IProductRepository productRepository, IMapper mapper, IExceptionManager exceptionManager) : base(unitOfWork, exceptionManager)
         {
             this.mapper = mapper;
             //this.unitOfWork = unitOfWork;
             //this.exceptionManager = exceptionManager;
             this.productRepository = productRepository;
+            this.mongoUnitOfWork = mongoUnitOfWork;
 
         }
 
@@ -74,7 +76,7 @@ namespace AmCart.ProductModule.AppServices
             //IEnumerable<Product> productList = productRepository.Get(x => x.IsActive).ToList<Product>();
             //List<ProductDTO> prodcutDTOList = new List<ProductDTO>();
             //prodcutDTOList = mapper.Map<IEnumerable<Product>, List<ProductDTO>>(productList);
-            IEnumerable<Product> productList = await productRepository.GetAllProductsAsync();
+            IEnumerable<Product> productList = await mongoUnitOfWork.MongoDBRepository.GetAll();
             Message message = new Message(string.Empty, "Return Successfully");
             return new OperationResult<IEnumerable<Product>>(productList, true, message);
         }

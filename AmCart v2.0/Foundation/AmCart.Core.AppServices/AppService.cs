@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AmCart.Core.AppServices
 {
-    public abstract class AppService : IAppService
+    public abstract class AppService
     {
         /// <summary>
         /// The _exception manager

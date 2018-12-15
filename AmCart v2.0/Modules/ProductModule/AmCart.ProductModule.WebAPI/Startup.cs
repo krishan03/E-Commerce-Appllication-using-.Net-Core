@@ -51,6 +51,7 @@ namespace AmCart.ProductModule.WebAPI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.RegisterRepositories();
             services.AddScoped<IProductModuleUnitOfWork, ProductModuleUnitOfWork>();
+          
             services.AddDbContext<ProductModuleDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             Core.Logging.ILogger logger = new Logging.NLog.Logger();
             exceptionManager = new ExceptionManager(logger);
@@ -60,13 +61,14 @@ namespace AmCart.ProductModule.WebAPI
             services.AddScoped<Core.Logging.ILogger, Logging.NLog.Logger>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.Configure<DBSettings>(options =>
+            services.Configure<Core.Data.DBSettings>(options =>
             {
                 options.ConnectionString
                     = Configuration.GetSection("MongoConnection:ConnectionString").Value;
                 options.Database
                     = Configuration.GetSection("MongoConnection:Database").Value;
             });
+            services.AddScoped<IProductMongoDBUnitOfWork, ProductMongoDBUnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

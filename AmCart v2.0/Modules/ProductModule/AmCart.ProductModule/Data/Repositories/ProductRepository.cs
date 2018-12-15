@@ -1,10 +1,11 @@
-﻿using AmCart.Core.Data;
+﻿
 using AmCart.ProductModule.Data.DBContext;
 using AmCart.ProductModule.Domain;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace AmCart.ProductModule.Data.Repositories
@@ -13,7 +14,7 @@ namespace AmCart.ProductModule.Data.Repositories
     {
         private readonly ProductDbContext _context = null;
 
-        public ProductRepository(IOptions<DBSettings> settings)
+        public ProductRepository(IOptions<AmCart.Core.Data.DBSettings> settings)
         {
             _context = new ProductDbContext(settings);
         }
@@ -30,6 +31,6 @@ namespace AmCart.ProductModule.Data.Repositories
             }
         }
 
-       
+
     }
 }
