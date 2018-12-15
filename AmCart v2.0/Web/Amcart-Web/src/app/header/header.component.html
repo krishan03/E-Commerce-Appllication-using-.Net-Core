@@ -1,147 +1,3 @@
-<div id="top-bar">
-  <div class="container">
-    <div class="pull-right">
-      <div id="user-top-bar">
-        <ul class="list-inline">
-          <li class="btn-group dropdown">
-            <a *ngIf="!isLoggedIn()" (click)="login()" class="pm_item" title="login">
-              <i class="icon-login"></i>
-              <span class="hidden-sm hidden-xs">Login</span>
-            </a>
-            <a *ngIf="isLoggedIn()" (click)="logout()" class="pm_item" title="logout">
-              <i class="icon-logout"></i>
-              <span class="hidden-sm hidden-xs">Logout</span>
-            </a>
-          </li>
-          <li class="btn-group hidden-xs dropdown">
-            <a href="#" class="pm_item" data-toggle="dropdown" title="Wishlist">
-              <i class="icon-heart"></i>
-              <span class="hidden-sm">Wishlist</span> (
-              <span class="dd-products-count">2</span>)
-            </a>
-            <div class="dropdown-menu dropdown-menu-right larger" role="menu" title="Compare Products">
-              <span class="dropdown-triangle-up"></span>
-              <a href="#" class="dd-close-btn">
-                <i class="icon_close"></i>
-              </a>
-              <div class="dropdown-head">
-                <h4 class="pull-left">My Wishlist</h4>
-              </div>
-              <div class="dd-wrapper">
-                <div class="dd-list-empty">There is no product in whishlist!</div>
-                <div id="wishlist-product-group" class="dropdown-product-list">
-                  <div class="dd-product-group" id="pr1">
-                    <div class="dd-product-box pull-left">
-                      <a href="#" title="product name">
-                        <img src="assets/images/pr_2-small.jpg" alt="product name">
-                      </a>
-                    </div>
-                    <div class="dd-product-desc pull-left">
-                      <a class="title">Beautiful Fit Velvet Sweater For Him</a>
-                      <div class="qty">1 x
-                        <span class="active">$700.00</span>
-                      </div>
-                      <button type="button" class="btn btn-sm btn-third-col">Add to Cart</button>
-                      <a href="#" class="close-btn ddr">
-                        <i class="icon_close"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="dd-product-group" id="pr2">
-                    <div class="dd-product-box pull-left">
-                      <a href="#" title="product name">
-                        <img src="assets/images/pr_3-small.jpg" alt="product name">
-                      </a>
-                    </div>
-                    <div class="dd-product-desc pull-left">
-                      <a class="title">Beautiful Fit Velvet Sweater For Her</a>
-                      <div class="qty">1 x
-                        <span class="active">$800.00</span>
-                      </div>
-                      <button type="button" class="btn btn-sm btn-third-col">Add to Cart</button>
-                      <a href="#" class="close-btn ddr">
-                        <i class="icon_close"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="text-center clear-all-btn">
-                    <a href="#" class="close-btn">
-                      <i class="icon_close"></i>
-                      <span>Clear all</span>
-                    </a>
-                  </div>
-                </div>
-                <a href="wishlist.html" class="btn btn-md btn-third-col btn-w100">Go to Wishlist</a>
-              </div>
-            </div>
-          </li>
-          <li class="btn-group hidden-xs dropdown">
-            <a href="#" class="pm_item" data-toggle="dropdown">
-              <i class="icon-shuffle"></i>
-              <span class="hidden-sm">Compare</span> (
-              <span class="dd-products-count">2</span>)
-            </a>
-            <div class="dropdown-menu dropdown-menu-right larger" role="menu">
-              <span class="dropdown-triangle-up"></span>
-              <a href="#" class="dd-close-btn">
-                <i class="icon_close"></i>
-              </a>
-              <div class="dropdown-head">
-                <h4 class="pull-left">Compare List</h4>
-              </div>
-              <div class="dd-wrapper">
-                <div class="dd-list-empty">There is no product to compare!</div>
-                <div id="compare-product-group" class="dropdown-product-list">
-                  <div class="dd-product-group" id="pr3">
-                    <div class="dd-product-box pull-left">
-                      <a href="#" title="product name">
-                        <img src="assets/images/pr_2-small.jpg" alt="product name">
-                      </a>
-                    </div>
-                    <div class="dd-product-desc pull-left">
-                      <a class="title">Beautiful Fit Velvet Sweater For Him</a>
-                      <div class="qty">1 x
-                        <span class="active">$700.00</span>
-                      </div>
-                      <button type="button" class="btn btn-sm btn-third-col">Add to Cart</button>
-                      <a href="#" class="close-btn ddr">
-                        <i class="icon_close"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="dd-product-group" id="pr4">
-                    <div class="dd-product-box pull-left">
-                      <a href="#" title="product name">
-                        <img src="assets/images/pr_3-small.jpg" alt="product name">
-                      </a>
-                    </div>
-                    <div class="dd-product-desc pull-left">
-                      <a class="title">Beautiful Fit Velvet Sweater For Here</a>
-                      <div class="qty">1 x
-                        <span class="active">$800.00</span>
-                      </div>
-                      <button type="button" class="btn btn-sm btn-third-col">Add to Cart</button>
-                      <a href="#" class="close-btn ddr">
-                        <i class="icon_close"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="text-center clear-all-btn">
-                    <a id="clear-compare-products" class="close-btn">
-                      <i class="icon_close"></i>
-                      <span>Clear all</span>
-                    </a>
-                  </div>
-                </div>
-                <a href="compare.html" class="btn btn-md btn-third-col btn-w100">Go to Comparision List</a>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 <div id="header-bar">
   <div class="container">
     <div class="row">
@@ -233,50 +89,8 @@
       <ul class="nav-menu">
         <li class="nav-item">
           <a href="#">
-            <i class="icon-screen-desktop"></i> Home</a>
-          <div class="sub-nav">
-            <ul class="sub-nav-group">
-              <li class="has-sub-nav">
-                <a href="#">
-                  <span>Clothes version</span>
-                </a>
-                <div class="sub-nav">
-                  <ul class="sub-nav-group">
-                    <li>
-                      <a href="home-1-clothes.html">
-                        <span>Boxed Versihon</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="home-1-clothes-full-width.html">
-                        <span>Full version</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <a href="home-2-furniture.html">
-                  <span>Furniture version</span>
-                </a>
-              </li>
-              <li>
-                <a href="home-3-bookstore.html">
-                  <span>Bookstore version</span>
-                </a>
-              </li>
-              <li>
-                <a href="home-4-electronics.html">
-                  <span>Electronics version</span>
-                </a>
-              </li>
-              <li>
-                <a href="home-5-flower.html">
-                  <span>Flower version</span>
-                </a>
-              </li>
-            </ul>
-          </div>
+            <i class="icon-screen-desktop"></i> Home
+          </a>
         </li>
         <li class="nav-item">
           <a href="#">
@@ -750,10 +564,26 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="category.html">
-            <span>
-              <i class="icon-wallet"></i> Sale</span>
+          <a *ngIf="!isLoggedIn()" (click)="login()" title="login">
+            <i class="icon-login"></i> Login
           </a>
+          <a *ngIf="isLoggedIn()">
+            <i class="icon-user"></i> Rahul
+          </a>
+          <div *ngIf="isLoggedIn()" class="sub-nav">
+            <ul class="sub-nav-group">
+              <li>
+                <a (click)="navigateToProfile()">
+                  <span>Profile</span>
+                </a>
+              </li>
+              <li>
+                <a (click)="logout()">
+                  <span>Logout</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </nav>

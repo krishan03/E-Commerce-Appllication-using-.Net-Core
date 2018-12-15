@@ -5,7 +5,7 @@ namespace AmCart.CustomerModule
 {
     public class CartProduct : DomainBase
     {
-        public ShortProduct Product { get; set; }
+        public ProductLite Product { get; set; }
 
         public int Quantity { get; set; }
 

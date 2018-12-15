@@ -18,7 +18,7 @@ namespace AmCart.CustomerModule
 
         public IList<Address> Addresses { get; set; }
 
-        public IList<ShortProduct> Wishlist { get; set; }
+        public IList<ProductLite> Wishlist { get; set; }
 
         public IList<CartProduct> Cart { get; set; }
     }

@@ -4,13 +4,11 @@ using System.Collections.Generic;
 
 namespace AmCart.CustomerModule
 {
-    public class ShortProduct : DomainBase
+    public class ProductLite : DomainBase
     {
-        public ObjectId ProductId { get; set; }
-
         public bool InStock { get; set; }
 
-        public string ProductName { get; set; }
+        public string Name { get; set; }
 
         public string ShortDescription { get; set; }
 
