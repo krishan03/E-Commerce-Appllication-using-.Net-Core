@@ -1,0 +1,7 @@
+namespace AmCart.IAMModule.IdentityProvider
+{
+    public class LogoutViewModel : LogoutInputModel
+    {
+        public bool ShowLogoutPrompt { get; set; } = true;
+    }
+}

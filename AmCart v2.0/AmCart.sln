@@ -77,9 +77,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomerModule", "CustomerM
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OrderModule", "OrderModule", "{B46E43EE-460E-4328-A138-F1EC3A8305E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmCart.CustomerModule", "Modules\CustomerModule\AmCart.CustomerModule\AmCart.CustomerModule.csproj", "{2F2229FA-9D9E-4B98-AB71-0BDD51F4EA58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.CustomerModule", "Modules\CustomerModule\AmCart.CustomerModule\AmCart.CustomerModule.csproj", "{2F2229FA-9D9E-4B98-AB71-0BDD51F4EA58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmCart.OrderModule", "Modules\OrderModule\AmCart.OrderModule\AmCart.OrderModule.csproj", "{0C30646B-BE61-4B12-AB0B-D5ECF1897150}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.OrderModule", "Modules\OrderModule\AmCart.OrderModule\AmCart.OrderModule.csproj", "{0C30646B-BE61-4B12-AB0B-D5ECF1897150}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmCart.CustomerModule.WebAPI", "Modules\CustomerModule\AmCart.CustomerModule.WebAPI\AmCart.CustomerModule.WebAPI.csproj", "{07479F61-2F72-4EAA-86EE-7E938832711C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -143,6 +145,10 @@ Global
 		{0C30646B-BE61-4B12-AB0B-D5ECF1897150}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C30646B-BE61-4B12-AB0B-D5ECF1897150}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C30646B-BE61-4B12-AB0B-D5ECF1897150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07479F61-2F72-4EAA-86EE-7E938832711C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07479F61-2F72-4EAA-86EE-7E938832711C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07479F61-2F72-4EAA-86EE-7E938832711C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07479F61-2F72-4EAA-86EE-7E938832711C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -165,6 +171,7 @@ Global
 		{B46E43EE-460E-4328-A138-F1EC3A8305E0} = {580AD110-C597-4013-96A0-E2EECD5B2B48}
 		{2F2229FA-9D9E-4B98-AB71-0BDD51F4EA58} = {161DCE7A-5F41-48AC-950E-40F85B432922}
 		{0C30646B-BE61-4B12-AB0B-D5ECF1897150} = {B46E43EE-460E-4328-A138-F1EC3A8305E0}
+		{07479F61-2F72-4EAA-86EE-7E938832711C} = {161DCE7A-5F41-48AC-950E-40F85B432922}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD081000-213D-4B6E-8961-7F95F16E9A36}

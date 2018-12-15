@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginCallbackComponent } from './login-callback/login-callback.component';
 import { LogoutCallbackComponent } from './logout-callback/logout-callback.component';
+import { SilentCallbackComponent } from './silent-callback/silent-callback.component';
 
 @NgModule({
   imports: [
@@ -9,11 +10,13 @@ import { LogoutCallbackComponent } from './logout-callback/logout-callback.compo
   ],
   declarations: [
     LoginCallbackComponent, 
-    LogoutCallbackComponent
+    LogoutCallbackComponent, 
+    SilentCallbackComponent
   ],
   exports: [
     LoginCallbackComponent,
-    LogoutCallbackComponent
+    LogoutCallbackComponent,
+    SilentCallbackComponent
   ]
 })
 export class AuthModule { }

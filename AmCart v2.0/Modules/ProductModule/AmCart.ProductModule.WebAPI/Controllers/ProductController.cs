@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AmCart.Core.ValueObjects;
+﻿using AmCart.Core.ValueObjects;
 using AmCart.Core.WebMVC.Filters;
 using AmCart.ProductModule.AppServices;
-using AmCart.ProductModule.AppServices.DTOs;
 using AmCart.ProductModule.Domain;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace AmCart.ProductModule.WebAPI.Controllers
+namespace AmCart.ProductModule.WebAPI
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -30,7 +26,6 @@ namespace AmCart.ProductModule.WebAPI.Controllers
         [HttpGet]
         [AllowAnonymous]
         [ExceptionFilterWebApi]
-
         public async Task<OperationResult<IEnumerable<Product>>> GetAllProductsAsync()
         {
             //Message msg = new Message("ExternalService", "error");

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,8 +13,8 @@ export class LoginCallbackComponent implements OnInit {
 
   ngOnInit() {
     this.authService.loginCallback().then(user => {
-      this.authService.storeUserDetails(user);
-      this.router.navigate(['']);
+      let returnUrl = sessionStorage.getItem('returnUrl') || '';
+      this.router.navigate([returnUrl]);
     }, error => {
         console.error(error);
     });

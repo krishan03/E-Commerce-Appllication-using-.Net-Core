@@ -39,9 +39,8 @@ namespace AmCart.IAMModule.IdentityProvider
             _events = events;
         }
 
-        /// <summary>
-        /// Entry point into the login workflow
-        /// </summary>
+        #region Public Methods
+
         [HttpGet]
         public async Task<IActionResult> Login(string returnUrl)
         {
@@ -135,6 +134,10 @@ namespace AmCart.IAMModule.IdentityProvider
 
             return Redirect(vm.PostLogoutRedirectUri);
         }
+
+        #endregion
+
+        #region Private Methods
 
         private async Task<LoginViewModel> BuildLoginViewModelAsync(string returnUrl)
         {
@@ -244,5 +247,7 @@ namespace AmCart.IAMModule.IdentityProvider
 
             return vm;
         }
+
+        #endregion
     }
 }
