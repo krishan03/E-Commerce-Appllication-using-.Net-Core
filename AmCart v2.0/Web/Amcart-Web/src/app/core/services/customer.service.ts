@@ -8,13 +8,13 @@ import { Constants } from "src/app/app-settings";
 })
 export class CustomerService {
 
-    baseUrl = Constants.customerApiRoot;
+    baseUrl = Constants.AppConstants.customerApiRoot;
     customerContext: CustomerContext
 
     constructor(private httpService: HttpService) { }
 
     loadCustomerContext() {
-        this.httpService.Get<CustomerContext>(`${Constants.customerApiRoot}customer/context`)
+        this.httpService.Get<CustomerContext>(`${Constants.AppConstants.customerApiRoot}customer/context`)
         .subscribe(context => {
             this.customerContext = context;
         }, error => console.log(error));

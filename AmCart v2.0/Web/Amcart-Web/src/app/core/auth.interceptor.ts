@@ -12,7 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
     constructor(private authService: AuthService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if(request.url.startsWith(Constants.customerApiRoot)) {
+        if(request.url.startsWith(Constants.AppConstants.customerApiRoot)) {
             let accessToken = this.authService.getAccessToken();
             if(accessToken != '') {
                 let headers = new HttpHeaders({

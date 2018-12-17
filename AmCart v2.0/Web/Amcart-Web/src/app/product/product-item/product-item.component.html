@@ -1,17 +1,17 @@
-<div class="col-md-3 col-sm-6 pl-item">
+<div *ngIf='product' class="col-md-3 col-sm-6 pl-item">
   <figure>
     <a href="product-page.html">
-      <img alt="" src="assets/images/products/thumbs/1.jpg">
+      <img alt="" src="https://images-na.ssl-images-amazon.com/images/I/91ysYq8AuCL.jpg">
     </a>
     <label class="pl-badge">NEW</label>
     <app-product-caption></app-product-caption>
   </figure>
   <div class="pl-caption">
     <p class="pl-price-block">
-      <span class="pl-price-old">$ 950.00</span>
-      <span class="pl-price">$ 900.00</span>
+      <!-- <span class="pl-price-old">$ 950.00</span> -->
+      <span class="pl-price">$ {{product?.Price}}</span>
     </p>
-    <p class="pl-name">Pure Cotton Shirt Slim Fit</p>
+    <p class="pl-name">{{product?.Name}}</p>
     <span class="stars-rating stars-4">
       <span class="stars"></span>
     </span>

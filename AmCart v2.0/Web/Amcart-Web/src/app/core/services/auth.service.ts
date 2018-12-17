@@ -13,14 +13,14 @@ export class AuthService {
   constructor(private customerService: CustomerService) {
     Log.logger = console;
     var settings = {
-      authority: Constants.stsAuthority,
-      client_id: Constants.clientId,
-      redirect_uri: `${Constants.clientRoot}login-callback`,
-      post_logout_redirect_uri: `${Constants.clientRoot}logout-callback`,
+      authority: Constants.AppConstants.stsAuthority,//Constants.stsAuthority,
+      client_id: Constants.AppConstants.clientId,
+      redirect_uri: `${Constants.AppConstants.clientRoot}login-callback`,
+      post_logout_redirect_uri: `${Constants.AppConstants.clientRoot}logout-callback`,
       response_type: 'id_token token',
-      scope: Constants.clientScope,
+      scope: Constants.AppConstants.clientScope,
       automaticSilentRenew: true,
-      silent_redirect_uri: `${Constants.clientRoot}silent-callback`
+      silent_redirect_uri: `${Constants.AppConstants.clientRoot}silent-callback`
     };
     this.userManager = new UserManager(settings);
 

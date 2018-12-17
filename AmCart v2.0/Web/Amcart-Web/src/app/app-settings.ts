@@ -1,8 +1,13 @@
-export class Constants {
-    public static stsAuthority = 'http://localhost:5000/';
-    public static clientId = '5c0a5b04e54cce9c38588e6f';
-    public static clientRoot = 'http://localhost:5200/';
-    public static clientScope = 'openid profile';  
-    public static productApiRoot = 'http://localhost:4100/api/';
-    public static customerApiRoot = 'http://localhost:4000/api/';
-}
+export namespace Constants {
+    export class AppConstants {
+        public static readonly stsAuthority = 'http://localhost:5000/';
+        public static readonly clientId = '5c0a5b04e54cce9c38588e6f';
+        public static readonly clientRoot = 'http://localhost:5200/';
+        public static readonly clientScope = 'openid profile';
+        public static readonly productApiRoot = 'http://localhost:51766/api/';
+        public static readonly customerApiRoot = 'http://localhost:4000/api/';
+    }
+    export class Urls {
+        public static readonly ProductList = 'product';
+    }
+} 

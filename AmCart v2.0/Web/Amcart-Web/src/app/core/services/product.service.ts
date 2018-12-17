@@ -9,7 +9,7 @@ import { Constants } from "src/app/app-settings";
 })
 export class ProductService {
     
-    baseUrl: string = Constants.productApiRoot;
+    baseUrl: string = Constants.AppConstants.productApiRoot;
 
     constructor(private httpService: HttpService){ }
 
@@ -18,9 +18,9 @@ export class ProductService {
         return this.httpService.Get<Array<Product>>(url);
     }
     
-    public getNewArrivedProducts(): Observable<Array<Product>> {
+    public getNewArrivedProducts(): Observable<any> {
         let url = this.baseUrl + 'product';
-        return this.httpService.Get<Array<Product>>(url);
+        return this.httpService.Get<any>(url);
     }
     
     public getSpecialProducts(): Observable<Array<Product>> {
