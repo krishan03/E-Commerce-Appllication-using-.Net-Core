@@ -6,7 +6,3 @@ export class Constants {
     public static productApiRoot = 'http://localhost:4100/api/';
     public static customerApiRoot = 'http://localhost:4000/api/';
 }
-
-export class Urls {
-    public static GET_PRODUCTS = "Products";
-}
