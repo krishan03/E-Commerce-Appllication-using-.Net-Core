@@ -13,24 +13,35 @@ namespace AmCart.CustomerModule.WebAPI
     [Authorize]
     public class CustomerController : ControllerBase
     {
+        private readonly ICustomerRepository customerRepository;
+
+        public CustomerController(ICustomerRepository repository)
+        {
+            this.customerRepository = repository;
+        }
+
         [HttpGet]
         [ExceptionFilterWebApi]
         public async Task<OperationResult<Customer>> GetProfileAsync()
         {
-            return new OperationResult<Customer>(new Customer(), true, new Message("", ""));
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier);
+            Customer customer = await this.customerRepository.GetByUserId(userId.Value);
+            return new OperationResult<Customer>(customer, true, new Message("", ""));
         }
 
         [HttpGet("context")]
         [ExceptionFilterWebApi]
-        public async Task<CustomerContext> GetContextAsync()
+        public async Task<OperationResult<CustomerContext>> GetContextAsync()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier);
-            Customer customer = null; // Get customer based on userId;
-            return new CustomerContext()
+            Customer customer = await this.customerRepository.GetByUserId(userId.Value);
+            CustomerContext customerContext = new CustomerContext()
             {
                 Customer = customer,
                 Claims = this.User.Claims.Select(c => new SimpleClaim() { Type = c.Type, Value = c.Value }).ToList()
             };
+
+            return new OperationResult<CustomerContext>(customerContext, true, new Message("", ""));
         }
     }
 }

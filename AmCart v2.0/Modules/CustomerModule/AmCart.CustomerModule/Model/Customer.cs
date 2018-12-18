@@ -7,7 +7,6 @@ namespace AmCart.CustomerModule
 {
     public class Customer : DomainBase
     {
-        [BsonId]
         public ObjectId UserId  { get; set; }
 
         public string Gender { get; set; }

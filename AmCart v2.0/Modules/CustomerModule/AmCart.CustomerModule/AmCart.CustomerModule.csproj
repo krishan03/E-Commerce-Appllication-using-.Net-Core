@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\AmCart.Core.Data\AmCart.Core.Data.csproj" />
     <ProjectReference Include="..\..\..\Foundation\AmCart.Core.Domain\AmCart.Core.Domain.csproj" />
   </ItemGroup>
 
