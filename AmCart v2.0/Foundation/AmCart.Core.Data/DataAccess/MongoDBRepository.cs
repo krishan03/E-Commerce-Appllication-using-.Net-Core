@@ -1,5 +1,6 @@
 ﻿using AmCart.Core.Domain;
 using AmCart.Core.Domain.Repository;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,15 @@ namespace AmCart.Core.Data.DataAccess
             Connection = connection;
             this.collection = Connection.database.GetCollection<TEntity>(collectionName);
         }
-        public void Add(TEntity entity)
+        public async Task Add(TEntity entity)
         {
-            collection.InsertOneAsync(entity);
+            await collection.InsertOneAsync(entity);
+        }
+
+        public async Task Delete(string id)
+        {
+            var filter = Builders<TEntity>.Filter.Eq("_id", ObjectId.Parse(id));
+            await collection.DeleteOneAsync(filter);
         }
 
         public async Task<IEnumerable<TEntity>> GetAll()
@@ -28,6 +35,19 @@ namespace AmCart.Core.Data.DataAccess
 
             return await collection.Find(_ => true).ToListAsync();
 
+        }
+
+        public async Task<IEnumerable<TEntity>> GetById(string id)
+        {
+            var filter = Builders<TEntity>.Filter.Eq("_id", ObjectId.Parse(id));
+            var entity = await collection.FindAsync(filter);
+            return entity.ToList();
+        }
+
+        public async Task Update(TEntity entity)
+        {
+            var filter = Builders<TEntity>.Filter.Eq("_id", ObjectId.Parse(entity.Id));
+            await collection.ReplaceOneAsync(filter, entity);
         }
 
         async System.Threading.Tasks.Task<IEnumerable<TEntity>> IMongoDBRepository<TEntity>.GetAll()

@@ -1,6 +1,7 @@
 ﻿using AmCart.Core.ValueObjects;
 using AmCart.Core.WebMVC.Filters;
 using AmCart.ProductModule.AppServices;
+using AmCart.ProductModule.AppServices.DTOs;
 using AmCart.ProductModule.Domain;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -26,7 +27,7 @@ namespace AmCart.ProductModule.WebAPI
         [HttpGet]
         [AllowAnonymous]
         [ExceptionFilterWebApi]
-        public async Task<OperationResult<IEnumerable<Product>>> GetAllProductsAsync()
+        public async Task<OperationResult<IEnumerable<ProductDTO>>> GetAllProductsAsync()
         {
             //Message msg = new Message("ExternalService", "error");
             //return new OperationResult<IEnumerable<ProductDTO>>(null, false, msg);

@@ -20,7 +20,8 @@ namespace AmCart.IAMModule
         {
             try
             {
-                return await dbContext.Users.Find(u => u.Id == new ObjectId(id)).FirstOrDefaultAsync();
+                var filter = Builders<User>.Filter.Eq("_id", ObjectId.Parse(id));
+                return await dbContext.Users.Find(filter).FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {

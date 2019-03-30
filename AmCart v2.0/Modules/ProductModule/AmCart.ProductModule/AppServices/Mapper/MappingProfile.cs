@@ -11,7 +11,9 @@ namespace AmCart.ProductModule.AppServices.Mapper
     {
         public MappingProfile() : base("MappingProfile")
         {
-           // CreateMap<ProductDTO, Product>().ReverseMap();
+           CreateMap<ProductDTO, Product>().ReverseMap();
+            CreateMap<CategoryDTO, Category>().ReverseMap();
+            CreateMap<TagGroupDTO, TagGroup>().ReverseMap();
         }
     }
 }

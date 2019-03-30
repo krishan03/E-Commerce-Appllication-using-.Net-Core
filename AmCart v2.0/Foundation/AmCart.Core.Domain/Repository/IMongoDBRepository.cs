@@ -9,7 +9,13 @@ namespace AmCart.Core.Domain.Repository
     {
         Task<IEnumerable<TEntity>> GetAll();
 
-        void Add(TEntity entity);
+        Task Add(TEntity entity);
+
+        Task Update(TEntity entity);
+
+        Task Delete(string id);
+
+        Task<IEnumerable<TEntity>> GetById(string id);
 
 
     }
