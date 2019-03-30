@@ -24,6 +24,7 @@ namespace AmCart.ProductModule.WebAPI.Controllers
             this.mapper = mapper;
         }
 
+        [HttpGet]
         public async Task<OperationResult<IEnumerable<TagGroupDTO>>> GetAllCategoriesAsync()
         {
             return await tagGroupAppService.GetAllTagGroupAsync();

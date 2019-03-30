@@ -25,9 +25,28 @@ namespace AmCart.ProductModule.WebAPI.Controllers
             this.mapper = mapper;
         }
 
+        [HttpGet]
         public async Task<OperationResult<IEnumerable<CategoryDTO>>> GetAllCategoriesAsync()
         {
             return await categoryAppService.GetAllCategoriesAsync();
+        }
+
+        [HttpPost]
+        public async Task<OperationResult<CategoryDTO>> Create(CategoryDTO categoryDTO)
+        {
+            return await categoryAppService.CreateAsync(categoryDTO);
+        }
+
+        [HttpPut]
+        public async Task<OperationResult<CategoryDTO>> Update(CategoryDTO categoryDTO)
+        {
+            return await categoryAppService.UpdateAsync(categoryDTO);
+        }
+
+        [HttpDelete]
+        public async Task<OperationResult<IEnumerable<CategoryDTO>>> Delete(string id)
+        {
+            return await categoryAppService.DeleteAsync(id);
         }
     }
 }
