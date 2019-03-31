@@ -24,5 +24,21 @@ namespace AmCart.ProductModule.Data.DBContext
                 return _database.GetCollection<Product>("Product");
             }
         }
+
+        public IMongoCollection<Category> Categories
+        {
+            get
+            {
+                return _database.GetCollection<Category>("Category");
+            }
+        }
+
+        public IMongoCollection<TagGroup> TagGroup
+        {
+            get
+            {
+                return _database.GetCollection<TagGroup>("TagGroup");
+            }
+        }
     }
 }

@@ -8,4 +8,13 @@
     <ProjectReference Include="..\..\..\Foundation\AmCart.Core.Domain\AmCart.Core.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\DBContext\" />
+    <Folder Include="Data\UoW\" />
+    <Folder Include="Data\Repositories\" />
+    <Folder Include="AppServices\Mapper\" />
+    <Folder Include="AppServices\DTOs\" />
+    <Folder Include="AppServices\" />
+  </ItemGroup>
+
 </Project>

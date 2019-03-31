@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AmCart.ProductModule.Data.UoW
 {
-    public interface IProductMongoDBUnitOfWork : IMongoDBUnitOfWork<Product>
+    public  interface ITagGroupUnitOfWork :IMongoDBUnitOfWork<TagGroup>
     {
     }
 }

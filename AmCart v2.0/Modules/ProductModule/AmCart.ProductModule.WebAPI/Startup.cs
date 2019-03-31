@@ -80,7 +80,9 @@ namespace AmCart.ProductModule.WebAPI
 			services.AddScoped<IMapper>(sp => _mapperConfiguration.CreateMapper());
 			services.AddScoped<IExceptionManager, ExceptionManager>();
 			services.AddScoped<IProductAppService, ProductAppService>();
-			services.AddScoped<Core.Logging.ILogger, Logging.NLog.Logger>();
+            services.AddScoped<ICategoryAppService, CategoryAppService>();
+            services.AddScoped<ITagGroupAppService, TagGroupAppService>();
+            services.AddScoped<Core.Logging.ILogger, Logging.NLog.Logger>();
 			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 			services.Configure<Core.Data.DBSettings>(options =>
@@ -91,7 +93,9 @@ namespace AmCart.ProductModule.WebAPI
 					= Configuration.GetSection("MongoConnection:Database").Value;
 			});
 			services.AddScoped<IProductMongoDBUnitOfWork, ProductMongoDBUnitOfWork>();
-		}
+            services.AddScoped<ICategoryUnitOfWork, CategoryUnitOfWork>();
+            services.AddScoped<ITagGroupUnitOfWork, TagGroupUnitOfWork>();
+        }
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure( IApplicationBuilder app, IHostingEnvironment env )

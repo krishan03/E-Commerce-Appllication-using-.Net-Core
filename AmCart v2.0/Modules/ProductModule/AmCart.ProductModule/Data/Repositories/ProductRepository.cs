@@ -31,6 +31,21 @@ namespace AmCart.ProductModule.Data.Repositories
             }
         }
 
+        public async Task<IEnumerable<Category>> GetAllCategoriessAsync()
+        {
+            try
+            {
+                return await _context.Categories
+                        .Find(_ => true).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
 
     }
 }

@@ -22,7 +22,8 @@ namespace AmCart.IAMModule
         {
             try
             {
-                return await dbContext.Clients.Find(document => document.Id == ObjectId.Parse(clientId)).FirstOrDefaultAsync();
+                var filter = Builders<Client>.Filter.Eq("_id", ObjectId.Parse(clientId));
+                return await dbContext.Clients.Find(filter).FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {
