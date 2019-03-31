@@ -1,5 +1,4 @@
 @model LoginViewModel
-
 <!-- page body content begin -->
 <div class="pg-body">
     <div class="container login-register">
@@ -10,6 +9,7 @@
                 <a href="#" class="twitter"><span class="icon-social-twitter"></span>twitter</a>
             </div>
             <hr />
+            @Html.ValidationSummary(true, "", new { @class = "custom-validation-summary" })
             <div class="col-12 login">
                 <form asp-route="Login" class="validation-engine col-xs-12 col-sm-6">
                     <h6>LOGIN</h6>
@@ -28,6 +28,29 @@
                             <a href="#">Fogot your password?</a><br>
                         </p>
                         <input type="submit" name="login" class="btn btn-third-col" value="Login">
+                    </fieldset>
+                </form>
+                <form asp-route="Login" class="validation-engine col-xs-12 col-sm-6">
+                    <h6>REGISTER</h6>
+                    <fieldset>
+                        @Html.Hidden("RequestToRegister", "true")
+                        <div class="required form-group">
+                            <p>First Name *</p>
+                            <input type="text" name="Firstname" class="form-control validate[required]" asp-for="Firstname" data-prompt-position="topLeft">
+                        </div>
+                        <div class="required form-group">
+                            <p>Last Name *</p>
+                            <input type="text" name="Lastname" class="form-control validate[required]" asp-for="Lastname" data-prompt-position="topLeft">
+                        </div>
+                        <div class="required form-group">
+                            <p>Email adress *</p>
+                            <input type="text" name="Username" class="form-control validate[required]" asp-for="Username" data-prompt-position="topLeft">
+                        </div>
+                        <div class="required form-group">
+                            <p>Password *</p>
+                            <input type="password" name="password" class="form-control validate[required]" asp-for="Password" data-prompt-position="topLeft">
+                        </div>
+                        <input type="submit" name="register" class="btn btn-third-col" value="REGISTER">
                     </fieldset>
                 </form>
             </div>

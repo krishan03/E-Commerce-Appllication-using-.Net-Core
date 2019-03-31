@@ -27,5 +27,17 @@ namespace AmCart.IAMModule
                 throw ex;
             }
         }
+
+        public async Task<Role> GetRoleByName(string name)
+        {
+            try
+            {
+                return await dbContext.Roles.Find(u => u.Name == name).FirstOrDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

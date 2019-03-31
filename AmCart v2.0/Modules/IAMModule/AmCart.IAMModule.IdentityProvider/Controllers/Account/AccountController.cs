@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -45,7 +46,6 @@ namespace AmCart.IAMModule.IdentityProvider
         public async Task<IActionResult> Login(string returnUrl)
         {
             var vm = await BuildLoginViewModelAsync(returnUrl);
-
             if (vm.IsExternalLoginOnly)
             {
                 return RedirectToAction("Challenge", "External", new { provider = vm.ExternalLoginScheme, returnUrl });
@@ -53,54 +53,61 @@ namespace AmCart.IAMModule.IdentityProvider
 
             return View(vm);
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginInputModel model, string button)
         {
-            var context = await _interaction.GetAuthorizationContextAsync(model.ReturnUrl);
-            if (ModelState.IsValid)
+            if (model.RequestToRegister)
             {
-                var user = await _userStore.FindByNameAsync(model.Username, new CancellationToken());
-                if (user != null && user.Password == model.Password)
+                return await Register(model);
+            }
+            else
+            {
+                var context = await _interaction.GetAuthorizationContextAsync(model.ReturnUrl);
+                if (ModelState.IsValid)
                 {
-                    await _events.RaiseAsync(new UserLoginSuccessEvent(user.Username, user.Id.ToString(), user.Username));
-                    AuthenticationProperties props = null;
-                    if (AccountOptions.AllowRememberLogin && model.RememberLogin)
+                    var user = await _userStore.FindByNameAsync(model.Username, new CancellationToken());
+                    if (user != null && user.Password == model.Password)
                     {
-                        props = new AuthenticationProperties
+                        await _events.RaiseAsync(new UserLoginSuccessEvent(user.Username, user.Id.ToString(), user.Username));
+                        AuthenticationProperties props = null;
+                        if (AccountOptions.AllowRememberLogin && model.RememberLogin)
                         {
-                            IsPersistent = true,
-                            ExpiresUtc = DateTimeOffset.UtcNow.Add(AccountOptions.RememberMeLoginDuration)
+                            props = new AuthenticationProperties
+                            {
+                                IsPersistent = true,
+                                ExpiresUtc = DateTimeOffset.UtcNow.Add(AccountOptions.RememberMeLoginDuration)
+                            };
                         };
-                    };
 
-                    await HttpContext.SignInAsync(user.Id.ToString(), user.Username, props);
-                    if (context != null)
-                    {
-                        return Redirect(model.ReturnUrl);
+                        await HttpContext.SignInAsync(user.Id.ToString(), user.Username, props);
+                        if (context != null)
+                        {
+                            return Redirect(model.ReturnUrl);
+                        }
+
+                        if (Url.IsLocalUrl(model.ReturnUrl))
+                        {
+                            return Redirect(model.ReturnUrl);
+                        }
+                        else if (string.IsNullOrEmpty(model.ReturnUrl))
+                        {
+                            return Redirect("~/");
+                        }
+                        else
+                        {
+                            throw new Exception("invalid return URL");
+                        }
                     }
 
-                    if (Url.IsLocalUrl(model.ReturnUrl))
-                    {
-                        return Redirect(model.ReturnUrl);
-                    }
-                    else if (string.IsNullOrEmpty(model.ReturnUrl))
-                    {
-                        return Redirect("~/");
-                    }
-                    else
-                    {
-                        throw new Exception("invalid return URL");
-                    }
+                    await _events.RaiseAsync(new UserLoginFailureEvent(model.Username, "invalid credentials"));
+                    ModelState.AddModelError("", AccountOptions.InvalidCredentialsErrorMessage);
                 }
 
-                await _events.RaiseAsync(new UserLoginFailureEvent(model.Username, "invalid credentials"));
-                ModelState.AddModelError("", AccountOptions.InvalidCredentialsErrorMessage);
+                var vm = await BuildLoginViewModelAsync(model);
+                return View(vm);
             }
-
-            var vm = await BuildLoginViewModelAsync(model);
-            return View(vm);
         }
 
         [HttpGet]
@@ -133,6 +140,40 @@ namespace AmCart.IAMModule.IdentityProvider
             }
 
             return Redirect(vm.PostLogoutRedirectUri);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(LoginInputModel model)
+        {
+            var context = await _interaction.GetAuthorizationContextAsync(model.ReturnUrl);
+            if (ModelState.IsValid)
+            {
+                var user = await _userStore.FindByNameAsync(model.Username, new CancellationToken());
+                if (user != null)
+                {
+                    ModelState.AddModelError("", "This email id is already registered with us.");
+                }
+                else
+                {
+                    User userToRegister = new User()
+                    {
+                        Username = model.Username,
+                        FirstName = model.Firstname,
+                        LastName = model.Lastname,
+                        EmailId = model.Username,
+                        IsVerified = false,
+                        CreatedOnDate = DateTime.Now,
+                        IsActive = true,
+                        Password = model.Password,
+                        ModifiedOnDate = DateTime.Now
+                    };
+                    await _userStore.CreateAsync(userToRegister, new CancellationToken());
+                }
+            }
+
+            var vm = await BuildLoginViewModelAsync(model);
+            return View("Login", vm);
         }
 
         #endregion

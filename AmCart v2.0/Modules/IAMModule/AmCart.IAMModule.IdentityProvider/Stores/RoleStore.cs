@@ -1,5 +1,4 @@
-﻿using AmCart.IAMModule;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,9 +34,9 @@ namespace AmCart.IAMModule.IdentityProvider
             return await this.roleRepository.GetRole(roleId);
         }
 
-        public Task<Role> FindByNameAsync(string normalizedRoleName, CancellationToken cancellationToken)
+        public async Task<Role> FindByNameAsync(string normalizedRoleName, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return await this.roleRepository.GetRoleByName(normalizedRoleName);
         }
 
         public Task<string> GetNormalizedRoleNameAsync(Role role, CancellationToken cancellationToken)

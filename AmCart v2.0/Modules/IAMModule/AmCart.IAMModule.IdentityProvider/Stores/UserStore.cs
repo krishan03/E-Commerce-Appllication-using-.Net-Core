@@ -1,5 +1,4 @@
-﻿using AmCart.IAMModule;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,9 +14,10 @@ namespace AmCart.IAMModule.IdentityProvider
             this.userRepository = userRepository;
         }
 
-        public Task<IdentityResult> CreateAsync(User user, CancellationToken cancellationToken)
+        public async Task<IdentityResult> CreateAsync(User user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            await this.userRepository.CreateAsync(user);
+            return new IdentityResult();
         }
 
         public Task<IdentityResult> DeleteAsync(User user, CancellationToken cancellationToken)
