@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ProductService } from '../core/services/product.service';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product-item';
+import { APIResponse } from '../models/response';
 
 @Component({
   selector: 'app-home',
@@ -10,36 +11,41 @@ import { Product } from '../models/product-item';
 })
 export class HomeComponent implements OnInit {
 
-  newArrivedProducts: Array<Product>
-  specialProducts: Array<Product>
-  bestSellingProducts: Array<Product>
+  newArrivedProducts: Product[]
+  specialProducts: Product[]
+  bestSellingProducts: Product[]
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private ref: ChangeDetectorRef) {
+    this.newArrivedProducts = [];
+    this.specialProducts = [];
+    this.bestSellingProducts = [];
   }
 
   ngOnInit() {
     this.getNewArrivedProducts().subscribe(products => 
       {
-        this.newArrivedProducts = products;
+        this.newArrivedProducts = products.Data;
+        this.ref.markForCheck();
       });
       this.getSpecialProducts().subscribe(products => {
-        this.specialProducts = products
+        this.specialProducts = products.Data;
+        this.ref.markForCheck();
       });
       this.getBestsellingProducts().subscribe(products =>{
-  
-      this.bestSellingProducts = products
+        this.bestSellingProducts = products.Data;
+        this.ref.markForCheck();
       });
   }
 
-  getNewArrivedProducts(): Observable<Array<Product>> {
+  getNewArrivedProducts(): Observable<APIResponse> {
     return this.productService.getNewArrivedProducts();
   }
 
-  getSpecialProducts(): Observable<Array<Product>> {
+  getSpecialProducts(): Observable<APIResponse> {
     return this.productService.getSpecialProducts();
   }
 
-  getBestsellingProducts(): Observable<Array<Product>> {
+  getBestsellingProducts(): Observable<APIResponse> {
     return this.productService.getBestsellingProducts();
   }
 }

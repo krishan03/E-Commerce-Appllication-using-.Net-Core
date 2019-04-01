@@ -83,17 +83,17 @@
     </div>
     <div class="tab-content tab-no-style">
       <div class="tab-pane fade in active" id="pl-new-products">
-        <div class="products-list pl-carousel">
+        <div *ngIf="newArrivedProducts != null" class="products-list pl-carousel">
           <div class="pl-controls">
             <a href="#" class="pl-ctl-left"></a>
             <a href="#" class="pl-ctl-right"></a>
           </div>
           <ul class="pl-pages">
             <li class="active">
-              <app-product-list products="specialProducts"></app-product-list>
+              <app-product-list [data]="newArrivedProducts"></app-product-list>
             </li>
             <li>
-              <app-product-list products="specialProducts"></app-product-list>
+              <app-product-list [data]="newArrivedProducts"></app-product-list>
             </li>
           </ul>
           <div class="pl-controls plc-bottom">
@@ -103,17 +103,17 @@
         </div>
       </div>
       <div class="tab-pane fade" id="pl-special">
-        <div class="products-list pl-carousel">
+        <div *ngIf="specialProducts != null" class="products-list pl-carousel">
           <div class="pl-controls">
             <a href="#" class="pl-ctl-left"></a>
             <a href="#" class="pl-ctl-right"></a>
           </div>
           <ul class="pl-pages">
             <li class="active">
-              <app-product-list products="specialProducts"></app-product-list>
+              <app-product-list [data]="specialProducts"></app-product-list>
             </li>
             <li>
-              <app-product-list products="specialProducts"></app-product-list>
+              <app-product-list [data]="specialProducts"></app-product-list>
             </li>
           </ul>
           <div class="pl-controls plc-bottom">
@@ -123,17 +123,17 @@
         </div>
       </div>
       <div class="tab-pane fade" id="pl-bestsellers">
-        <div class="products-list pl-carousel">
+        <div *ngIf="bestSellingProducts != null" class="products-list pl-carousel">
           <div class="pl-controls">
             <a href="#" class="pl-ctl-left"></a>
             <a href="#" class="pl-ctl-right"></a>
           </div>
           <ul class="pl-pages">
             <li class="active">
-              <app-product-list products="bestSellingProducts"></app-product-list>
+              <app-product-list [data]="bestSellingProducts"></app-product-list>
             </li>
             <li>
-              <app-product-list products="bestSellingProducts"></app-product-list>
+              <app-product-list [data]="bestSellingProducts"></app-product-list>
             </li>
           </ul>
           <div class="pl-controls plc-bottom">
