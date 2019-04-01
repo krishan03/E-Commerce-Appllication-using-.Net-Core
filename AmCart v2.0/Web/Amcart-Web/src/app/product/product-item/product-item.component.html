@@ -1,7 +1,7 @@
 <div *ngIf='product' class="col-md-3 col-sm-6 pl-item">
   <figure>
     <a href="product-page.html">
-      <img alt="" src="https://images-na.ssl-images-amazon.com/images/I/91ysYq8AuCL.jpg">
+      <img alt="" [src]="{{product.ImageUrl[0]}}">
     </a>
     <label class="pl-badge">NEW</label>
     <app-product-caption></app-product-caption>

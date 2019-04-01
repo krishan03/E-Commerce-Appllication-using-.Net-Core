@@ -93,5 +93,7 @@ namespace AmCart.ProductModule.Domain
         public IList<string> DynamicCategories { get; set; }
 
         public IList<TagGroup> TagGroups { get; set; }
+
+        public IList<string> ImageUrl { get; set; } 
     }
 }

@@ -11,4 +11,5 @@ export class Product {
     Price: number
     TagGroups: TagGroup[]
     Thumbnail: string
+    ImageUrl: string[]
 }

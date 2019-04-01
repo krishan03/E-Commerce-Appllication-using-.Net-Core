@@ -163,10 +163,8 @@ namespace AmCart.IAMModule.IdentityProvider
                         LastName = model.Lastname,
                         EmailId = model.Username,
                         IsVerified = false,
-                        CreatedOnDate = DateTime.Now,
                         IsActive = true,
-                        Password = model.Password,
-                        ModifiedOnDate = DateTime.Now
+                        Password = model.Password
                     };
                     await _userStore.CreateAsync(userToRegister, new CancellationToken());
                 }
