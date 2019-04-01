@@ -1,12 +1,12 @@
 <div class="col-md-3 hidden-sm hidden-xs">
   <div id="shopping-cart-wrapper" class="dropdown">
-    <a href="#" class="shp-ca" attr.data-toggle="{{isUserLoggedIn ? 'dropdown' : ''}}">
+    <a href="#" class="shp-ca" attr.data-toggle="{{isUserLoggedIn && cartItems.length > 0 ? 'dropdown' : ''}}">
       <div class="s-bag-1">
         <i class="icon-bag"></i>
       </div>
       <div class="s-cart-pan">
         <div *ngIf="isUserLoggedIn" class="s-bag-2">
-          <span class="dd-products-count">2</span> item(s) / <span class="active dd-products-price">$230.00</span>
+          <span class="dd-products-count">{{cartItems.length}}</span> item(s) <span *ngIf="cartItems.length > 0" class="active dd-products-price">/ ${{totalPrice}}</span>
         </div>
         <div *ngIf="!isUserLoggedIn" class="s-bag-2">
           Please Login to shop.
@@ -17,11 +17,11 @@
       <span class="dropdown-triangle-up"></span>
       <a href="#" class="dd-close-btn"><i class="icon_close"></i></a>
       <div class="dropdown-head">
-        <h4 class="pull-left">2 items in the shopping bag</h4>
+        <h4 class="pull-left">{{cartItems.length}} items in the shopping bag</h4>
       </div>
       <div class="dd-wrapper">
-        <div class="dd-list-empty">There is no product in shopping cart!</div>
-        <div id="cart-product-group" class="dropdown-product-list">
+        <div *ngIf="cartItems.length == 0" class="dd-list-empty">There is no product in shopping cart!</div>
+        <div *ngIf="cartItems.length > 0" id="cart-product-group" class="dropdown-product-list">
           <div class="dd-product-group" id="pr5">
             <div class="dd-product-box pull-left">
               <a href="product-page.html" title="product name">
@@ -52,7 +52,7 @@
             </span>
           </div>
         </div>
-        <div class="row no-gutter">
+        <div *ngIf="cartItems.length > 0" class="row no-gutter">
           <div class="col-xs-6">
             <a href="shopping-cart.html" class="btn btn-md btn-third-col btn-w100">View Cart</a>
           </div>

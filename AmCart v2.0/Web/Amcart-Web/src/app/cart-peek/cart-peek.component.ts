@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { CartItem } from '../models/cart-item';
 
 @Component({
   selector: 'cart-peek',
@@ -10,8 +11,13 @@ export class CartPeekComponent implements OnInit {
   @Input() isLoggedIn: boolean
 
   isUserLoggedIn: boolean
+  cartItems: CartItem[]
+  totalPrice: number
 
-  constructor() { }
+  constructor() {
+    this.totalPrice = 0;
+    this.cartItems = [];
+  }
 
   ngOnInit() {
   }
