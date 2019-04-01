@@ -10,23 +10,25 @@ import { Product } from '../models/product-item';
 })
 export class HomeComponent implements OnInit {
 
-  featuredProducts: Array<Product>
   newArrivedProducts: Array<Product>
   specialProducts: Array<Product>
   bestSellingProducts: Array<Product>
 
   constructor(private productService: ProductService) {
-    this.getFeaturedProducts().subscribe(products => this.featuredProducts = products);
-    this.getNewArrivedProducts().subscribe(products => this.newArrivedProducts = products);
-    this.getSpecialProducts().subscribe(products => this.specialProducts = products);
-    this.getBestsellingProducts().subscribe(products => this.bestSellingProducts = products);
   }
 
   ngOnInit() {
-  }
-
-  getFeaturedProducts(): Observable<Array<Product>> {
-    return this.productService.getFeaturedProducts();
+    this.getNewArrivedProducts().subscribe(products => 
+      {
+        this.newArrivedProducts = products;
+      });
+      this.getSpecialProducts().subscribe(products => {
+        this.specialProducts = products
+      });
+      this.getBestsellingProducts().subscribe(products =>{
+  
+      this.bestSellingProducts = products
+      });
   }
 
   getNewArrivedProducts(): Observable<Array<Product>> {
@@ -38,6 +40,6 @@ export class HomeComponent implements OnInit {
   }
 
   getBestsellingProducts(): Observable<Array<Product>> {
-    return this.productService.getFeaturedProducts();
+    return this.productService.getBestsellingProducts();
   }
 }

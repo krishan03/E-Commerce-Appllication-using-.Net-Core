@@ -33,9 +33,6 @@ namespace AmCart.ProductModule.AppServices
 
         }
 
-       
-        
-
         public async System.Threading.Tasks.Task<OperationResult<IEnumerable<ProductDTO>>> GetAllProductsAsync()
         {
             //IEnumerable<Product> productList = productRepository.Get(x => x.IsActive).ToList<Product>();
@@ -52,5 +49,37 @@ namespace AmCart.ProductModule.AppServices
             throw new NotImplementedException();
         }
 
+        public async Task<OperationResult<IEnumerable<ProductDTO>>> GetAllNewProductsAsync()
+        {
+            //IEnumerable<Product> productList = productRepository.Get(x => x.IsActive).ToList<Product>();
+            //List<ProductDTO> prodcutDTOList = new List<ProductDTO>();
+            //prodcutDTOList = mapper.Map<IEnumerable<Product>, List<ProductDTO>>(productList);
+            IEnumerable<Product> productList = await productRepository.GetAllNew();
+            Message message = new Message(string.Empty, "Return Successfully");
+            List<ProductDTO> productDTOList = mapper.Map<IEnumerable<Product>, List<ProductDTO>>(productList);
+            return new OperationResult<IEnumerable<ProductDTO>>(productDTOList, true, message);
+        }
+
+        public async Task<OperationResult<IEnumerable<ProductDTO>>> GetAllPopularProductsAsync()
+        {
+            //IEnumerable<Product> productList = productRepository.Get(x => x.IsActive).ToList<Product>();
+            //List<ProductDTO> prodcutDTOList = new List<ProductDTO>();
+            //prodcutDTOList = mapper.Map<IEnumerable<Product>, List<ProductDTO>>(productList);
+            IEnumerable<Product> productList = await productRepository.GetAllPopular();
+            Message message = new Message(string.Empty, "Return Successfully");
+            List<ProductDTO> productDTOList = mapper.Map<IEnumerable<Product>, List<ProductDTO>>(productList);
+            return new OperationResult<IEnumerable<ProductDTO>>(productDTOList, true, message);
+        }
+
+        public async Task<OperationResult<IEnumerable<ProductDTO>>> GetAllBestsellerProductsAsync()
+        {
+            //IEnumerable<Product> productList = productRepository.Get(x => x.IsActive).ToList<Product>();
+            //List<ProductDTO> prodcutDTOList = new List<ProductDTO>();
+            //prodcutDTOList = mapper.Map<IEnumerable<Product>, List<ProductDTO>>(productList);
+            IEnumerable<Product> productList = await productRepository.GetAllBestselling();
+            Message message = new Message(string.Empty, "Return Successfully");
+            List<ProductDTO> productDTOList = mapper.Map<IEnumerable<Product>, List<ProductDTO>>(productList);
+            return new OperationResult<IEnumerable<ProductDTO>>(productDTOList, true, message);
+        }
     }
 }

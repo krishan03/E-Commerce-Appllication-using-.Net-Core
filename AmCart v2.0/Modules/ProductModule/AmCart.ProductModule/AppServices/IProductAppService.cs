@@ -13,6 +13,9 @@ namespace AmCart.ProductModule.AppServices
     {
         //OperationResult<ProductDTO> Create(ProductDTO item);
          Task<OperationResult<IEnumerable<ProductDTO>>> GetAllProductsAsync();
+         Task<OperationResult<IEnumerable<ProductDTO>>> GetAllNewProductsAsync();
+         Task<OperationResult<IEnumerable<ProductDTO>>> GetAllPopularProductsAsync();
+         Task<OperationResult<IEnumerable<ProductDTO>>> GetAllBestsellerProductsAsync();
 
         Task<OperationResult<IEnumerable<CategoryDTO>>> GetAllCategoriesAsync();
 

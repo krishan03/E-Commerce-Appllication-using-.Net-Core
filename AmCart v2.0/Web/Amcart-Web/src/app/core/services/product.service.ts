@@ -13,23 +13,18 @@ export class ProductService {
 
     constructor(private httpService: HttpService){ }
 
-    public getFeaturedProducts(): Observable<Array<Product>> {
-        let url = this.baseUrl + 'product';
-        return this.httpService.Get<Array<Product>>(url);
-    }
-    
     public getNewArrivedProducts(): Observable<any> {
-        let url = this.baseUrl + 'product';
+        let url = this.baseUrl + 'product/new';
         return this.httpService.Get<any>(url);
     }
     
     public getSpecialProducts(): Observable<Array<Product>> {
-        let url = this.baseUrl + 'product';
+        let url = this.baseUrl + 'product/popular';
         return this.httpService.Get<Array<Product>>(url);
     }
     
     public getBestsellingProducts(): Observable<Array<Product>> {
-        let url = this.baseUrl + 'product';
+        let url = this.baseUrl + 'product/bestseller';
         return this.httpService.Get<Array<Product>>(url);
     }
 }
