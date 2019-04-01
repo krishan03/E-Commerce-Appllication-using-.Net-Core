@@ -47,5 +47,12 @@ namespace AmCart.ProductModule.WebAPI.Controllers
         {
             return await tagGroupAppService.DeleteAsync(id);
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<OperationResult<TagGroupDTO>> GetById(string id)
+        {
+            return await tagGroupAppService.GetByIdAsync(id);
+        }
     }
 }

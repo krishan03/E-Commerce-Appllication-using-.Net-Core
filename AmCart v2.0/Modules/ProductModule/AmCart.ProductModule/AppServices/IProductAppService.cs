@@ -16,6 +16,8 @@ namespace AmCart.ProductModule.AppServices
 
         Task<OperationResult<IEnumerable<CategoryDTO>>> GetAllCategoriesAsync();
 
+        Task<OperationResult<ProductDTO>> GetByIdAsync(string id);
+
 
     }
 }
