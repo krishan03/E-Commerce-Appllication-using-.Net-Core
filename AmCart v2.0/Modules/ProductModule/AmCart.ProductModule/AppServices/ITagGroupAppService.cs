@@ -16,5 +16,7 @@ namespace AmCart.ProductModule.AppServices
 
         Task<OperationResult<IEnumerable<TagGroupDTO>>> DeleteAsync(string id);
 
+        Task<OperationResult<TagGroupDTO>> GetByIdAsync(string id);
+
     }
 }

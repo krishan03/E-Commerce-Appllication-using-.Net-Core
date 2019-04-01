@@ -38,6 +38,13 @@ namespace AmCart.ProductModule.WebAPI
         }
 
         [HttpGet]
+        [Route("{id}")]
+        public async Task<OperationResult<ProductDTO>> GetById(string id)
+        {
+            return await productAppService.GetByIdAsync(id);
+        }
+
+        [HttpGet]
         [AllowAnonymous]
         [ExceptionFilterWebApi]
         [Route("new")]

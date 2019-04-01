@@ -33,6 +33,9 @@ namespace AmCart.ProductModule.AppServices
 
         }
 
+       
+        
+
         public async System.Threading.Tasks.Task<OperationResult<IEnumerable<ProductDTO>>> GetAllProductsAsync()
         {
             //IEnumerable<Product> productList = productRepository.Get(x => x.IsActive).ToList<Product>();
@@ -48,6 +51,17 @@ namespace AmCart.ProductModule.AppServices
         {
             throw new NotImplementedException();
         }
+
+
+        public async Task<OperationResult<ProductDTO>> GetByIdAsync(string id)
+        {
+            IEnumerable<Product> productList = await mongoUnitOfWork.MongoDBRepository.GetById(id);
+            List<ProductDTO> productDTOList = mapper.Map<IEnumerable<Product>, List<ProductDTO>>(productList);
+            Message message = new Message(string.Empty, "Return Successfully");
+            return new OperationResult<ProductDTO>(productDTOList.First(), true, message);
+
+        }
+
 
         public async Task<OperationResult<IEnumerable<ProductDTO>>> GetAllNewProductsAsync()
         {
