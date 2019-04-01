@@ -12,6 +12,7 @@ import { ProductModule } from './product/product.module';
 import { AuthModule } from './auth/auth.module';
 import { MainComponent } from './main/main.component';
 import { CoreModule } from './core/core.module';
+import { CartPeekComponent } from './cart-peek/cart-peek.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CoreModule } from './core/core.module';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    MainComponent
+    MainComponent,
+    CartPeekComponent
   ],
   imports: [
     HttpClientModule,
