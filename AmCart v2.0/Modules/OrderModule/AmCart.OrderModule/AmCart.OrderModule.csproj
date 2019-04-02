@@ -9,12 +9,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="AppServices\DTOs\" />
+    <Folder Include="AppServices\Mapper\" />
     <Folder Include="Data\DBContext\" />
     <Folder Include="Data\UoW\" />
     <Folder Include="Data\Repositories\" />
-    <Folder Include="AppServices\Mapper\" />
-    <Folder Include="AppServices\DTOs\" />
-    <Folder Include="AppServices\" />
+    <Folder Include="Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
   </ItemGroup>
 
 </Project>
