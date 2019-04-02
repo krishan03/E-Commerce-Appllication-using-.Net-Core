@@ -6,3 +6,10 @@ services:
     build:
       context: .
       dockerfile: Modules\ProductModule\AmCart.ProductModule.WebAPI\Dockerfile
+
+  amcart.ordermodule.webapi:
+    image: ${DOCKER_REGISTRY}amcartordermodulewebapi
+    build:
+      context: .
+      dockerfile: Modules\OrderModule\AmCart.OrderModule.WebAPI\Dockerfile
+
