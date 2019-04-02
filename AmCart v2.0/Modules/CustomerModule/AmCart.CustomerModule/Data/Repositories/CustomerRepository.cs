@@ -16,6 +16,11 @@ namespace AmCart.CustomerModule
             dBContext = new CustomerDBContext(settings);
         }
 
+        public async Task<string> CreateAsync(Customer customer)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Customer> GetByUserId(string userId)
         {
             try

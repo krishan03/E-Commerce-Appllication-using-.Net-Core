@@ -25,19 +25,22 @@ namespace AmCart.IAMModule.IdentityProvider
         private readonly IClientStore _clientStore;
         private readonly IAuthenticationSchemeProvider _schemeProvider;
         private readonly IEventService _events;
+        private readonly IUserRepository userRepository;
 
         public AccountController(
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
             IAuthenticationSchemeProvider schemeProvider,
             IEventService events,
-            IUserStore<User> userStore)
+            IUserStore<User> userStore,
+            IUserRepository userRepository)
         {
             _userStore = userStore;
             _interaction = interaction;
             _clientStore = clientStore;
             _schemeProvider = schemeProvider;
             _events = events;
+            this.userRepository = userRepository;
         }
 
         #region Public Methods
@@ -166,7 +169,7 @@ namespace AmCart.IAMModule.IdentityProvider
                         IsActive = true,
                         Password = model.Password
                     };
-                    await _userStore.CreateAsync(userToRegister, new CancellationToken());
+                    string userId = await this.userRepository.CreateAsync(userToRegister);
                 }
             }
 

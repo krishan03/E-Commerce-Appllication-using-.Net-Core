@@ -10,6 +10,8 @@ namespace AmCart.CustomerModule
 
         public string Name { get; set; }
 
+        public List<string> ImageUrl { get; set; }
+
         public string ShortDescription { get; set; }
 
         public double Price { get; set; }

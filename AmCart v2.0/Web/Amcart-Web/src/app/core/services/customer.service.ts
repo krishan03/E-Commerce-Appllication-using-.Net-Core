@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
-import { CustomerContext } from "src/app/models/customer-context";
+import { CustomerContext } from "../../models/customer-context";
 import { HttpService } from "./http.service";
-import { Constants } from "src/app/app-settings";
-import { OperationResult } from "src/app/models/operation-result";
+import { Constants } from "../../app-settings";
+import { OperationResult } from "../../models/operation-result";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -14,13 +15,9 @@ export class CustomerService {
 
     constructor(private httpService: HttpService) { }
 
-    loadCustomerContext() {
-        this.httpService.Get<OperationResult<CustomerContext>>(`${Constants.AppConstants.customerApiRoot}customer/context`)
-        .subscribe(result => {
-            if(result.isSuccess) {
-                this.customerContext = result.data;
-            }
-        }, error => console.log(error));
+    loadCustomerContext() : Observable<OperationResult<CustomerContext>> {
+        return this.httpService.Get<OperationResult<CustomerContext>>(`${Constants.AppConstants.customerApiRoot}customer/context`);
+        
     }
 
     getCustomer() {
