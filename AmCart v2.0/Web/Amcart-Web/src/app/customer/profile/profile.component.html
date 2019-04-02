@@ -7,7 +7,7 @@
             <tr>
               <td class="picture">
                 <div class="img-cover"><img src="assets/images/av_2.jpg" alt=""></div>
-                <h6 class="name">Rahul Bansal</h6>
+                <h6 *ngIf="loggedInUser != null" class="name">{{loggedInUser.profile.name}}</h6>
                 <div class="change-picture">
                   <i class="icon-camera"></i>
                   <a href="#">Change picture</a>
@@ -16,7 +16,7 @@
               <td>
                 <div class="col-xs-12 wellcome">
                   <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-                    <h4>Good Morning <span>Rahul</span></h4>
+                    <h4 *ngIf="loggedInUser != null">Good Morning <span>{{loggedInUser.profile.given_name}}</span></h4>
                     <p>Welcome to your account. Here you can
                       manage all of your personal information.</p>
                   </div>

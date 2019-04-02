@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from 'src/app/core/services/customer.service';
-import { Customer } from 'src/app/models/customer';
+import { CustomerService } from '../../core/services/customer.service';
+import { Customer } from '../../models/customer';
+import { User } from 'oidc-client';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,12 +11,14 @@ import { Customer } from 'src/app/models/customer';
 })
 export class ProfileComponent implements OnInit {
 
+  loggedInUser: User
   private customer: Customer
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private authService: AuthService, private customerService: CustomerService) { }
 
   ngOnInit() {
     this.customer = this.customerService.getCustomer();
+    this.authService.getUserDetails().then(user => this.loggedInUser = user);
   }
 
 }

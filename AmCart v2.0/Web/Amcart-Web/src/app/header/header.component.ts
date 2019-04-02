@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/services/auth.service';
 import { Router } from '@angular/router';
 import { CartItem } from '../models/cart-item';
+import { User } from 'oidc-client';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,16 @@ import { CartItem } from '../models/cart-item';
 })
 export class HeaderComponent implements OnInit {
 
+  userDetails: User
+
   constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.authService.getUserDetails().then(user => {
+      this.userDetails = user;
+      console.log(this.userDetails);
+    });
+   }
 
   login() {
     this.authService.redirectToLogin();
