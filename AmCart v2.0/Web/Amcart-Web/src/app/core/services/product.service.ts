@@ -32,4 +32,9 @@ export class ProductService {
         let url = this.baseUrl + 'product';
         return this.httpService.Get<Array<Product>>(url);
     }
+
+    public getProductDetails(id): Observable<Product>{
+        let url = this.baseUrl + 'product/'+id;
+        return this.httpService.Get<Product>(url);
+    }
 }

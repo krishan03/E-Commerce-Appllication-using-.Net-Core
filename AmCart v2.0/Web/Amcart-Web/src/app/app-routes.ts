@@ -6,6 +6,7 @@ import { LogoutCallbackComponent } from "./auth/logout-callback/logout-callback.
 import { MainComponent } from "./main/main.component";
 import { AuthGuard } from "./core/auth.guard";
 import { SilentCallbackComponent } from "./auth/silent-callback/silent-callback.component";
+import { ProductDetailComponent } from "./product/product-detail/product-detail.component";
 
 export const ApplicationRoutes: Routes = [
     {
@@ -21,6 +22,10 @@ export const ApplicationRoutes: Routes = [
                 path:'profile', 
                 component: ProfileComponent, 
                 canActivate: [AuthGuard]
+            },
+            {
+                path:'product/:id', 
+                component: ProductDetailComponent
             }
         ]
     },

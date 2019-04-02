@@ -3,18 +3,23 @@ import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductCaptionComponent } from './product-caption/product-caption.component';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   declarations: [
     ProductListComponent, 
     ProductCaptionComponent, 
-    ProductItemComponent
+    ProductItemComponent,
+    ProductDetailComponent
   ],
   exports: [
-    ProductListComponent
+    ProductListComponent,
+    ProductDetailComponent
   ],
   bootstrap: [
     ProductListComponent

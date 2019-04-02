@@ -6,7 +6,7 @@
     <label *ngIf="product.DynamicCategories.indexOf('RecentlyAdded') !== -1" class="pl-badge">NEW</label>
     <label *ngIf="product.DynamicCategories.indexOf('Popular') !== -1" class="pl-badge">POPULAR</label>
     <label *ngIf="product.DynamicCategories.indexOf('BestSeller') !== -1" class="pl-badge">BESTSELLER</label>
-    <app-product-caption></app-product-caption>
+    <app-product-caption [id]="product.Id"></app-product-caption>
   </figure>
   <div class="pl-caption">
     <p class="pl-price-block">
