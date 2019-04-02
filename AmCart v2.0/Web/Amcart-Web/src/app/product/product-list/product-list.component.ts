@@ -1,8 +1,6 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Product } from 'src/app/models/product-item';
-import { ProductService } from 'src/app/core/services/product.service';
+import { Component, OnInit, Input, OnDestroy, SimpleChanges } from '@angular/core';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Product } from '../../models/product-item';
 
 @Component({
   selector: 'app-product-list',
@@ -11,19 +9,21 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class ProductListComponent implements OnInit, OnDestroy {
 
-  @Input() products: Array<Product>;
+  @Input() data: Array<Product>;
+
+  products: Product[]
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private _productService: ProductService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.products = [];
-    this._productService.getNewArrivedProducts()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((productList: Array<any>) => {
-        if (productList)
-          this.products = productList['Data'];
-      });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+  
+    if(changes['data']) {
+      this.products = this.data;
+    }
   }
 
   ngOnDestroy(): void {
