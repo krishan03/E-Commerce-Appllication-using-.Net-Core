@@ -9,5 +9,8 @@ namespace AmCart.ProductModule.Data.Repositories
     public interface IProductRepository
     {
         Task<IEnumerable<Product>> GetAllProductsAsync();
+        Task<IEnumerable<Product>> GetAllNew();
+        Task<IEnumerable<Product>> GetAllPopular();
+        Task<IEnumerable<Product>> GetAllBestselling();
     }
 }

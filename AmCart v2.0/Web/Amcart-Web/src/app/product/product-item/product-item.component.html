@@ -3,8 +3,10 @@
     <a href="product-page.html">
       <img alt="" src="{{product.ImageUrl[0]}}">
     </a>
-    <label class="pl-badge">NEW</label>
-    <app-product-caption></app-product-caption>
+    <label *ngIf="product.DynamicCategories.indexOf('RecentlyAdded') !== -1" class="pl-badge">NEW</label>
+    <label *ngIf="product.DynamicCategories.indexOf('Popular') !== -1" class="pl-badge">POPULAR</label>
+	<label *ngIf="product.DynamicCategories.indexOf('Bestseller') !== -1" class="pl-badge">BESTSELLER</label>
+    <app-product-caption [id]="product.Id"></app-product-caption>
   </figure>
   <div class="pl-caption">
     <p class="pl-price-block">
@@ -12,7 +14,7 @@
       <span class="pl-price">$ {{product?.Price}}</span>
     </p>
     <p class="pl-name">{{product?.Name}}</p>
-    <span class="stars-rating stars-4">
+    <span class="stars-rating stars-{{product.Rating}}">
       <span class="stars"></span>
     </span>
   </div>

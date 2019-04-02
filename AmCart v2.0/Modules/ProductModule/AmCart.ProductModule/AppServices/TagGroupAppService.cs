@@ -76,5 +76,14 @@ namespace AmCart.ProductModule.AppServices
                 return new OperationResult<IEnumerable<TagGroupDTO>>(new List<TagGroupDTO>(), false, new Message(String.Empty, "Error in deleting"));
             }
         }
+
+        public async Task<OperationResult<TagGroupDTO>> GetByIdAsync(string id)
+        {
+            IEnumerable<TagGroup> tagGroupList = await mongoUnitOfWork.MongoDBRepository.GetById(id);
+            List<TagGroupDTO> tagGroupDTOList = mapper.Map<IEnumerable<TagGroup>, List<TagGroupDTO>>(tagGroupList);
+            Message message = new Message(string.Empty, "Return Successfully");
+            return new OperationResult<TagGroupDTO>(tagGroupDTOList.First(), true, message);
+            
+        }
     }
 }

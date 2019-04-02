@@ -94,6 +94,9 @@ namespace AmCart.ProductModule.Domain
 
         public IList<TagGroup> TagGroups { get; set; }
 
-        public IList<string> ImageUrl { get; set; } 
+        public IList<string> ImageUrl { get; set; }
+
+        public int Rating { get; set; }
+
     }
 }

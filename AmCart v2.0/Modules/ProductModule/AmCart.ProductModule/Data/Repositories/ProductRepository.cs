@@ -44,8 +44,40 @@ namespace AmCart.ProductModule.Data.Repositories
             }
         }
 
+        public async Task<IEnumerable<Product>> GetAllNew()
+        {
+            try
+            {
+                return await _context.Products.Find(p => p.DynamicCategories.Contains("RecentlyAdded")).Limit(8).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        public async Task<IEnumerable<Product>> GetAllPopular()
+        {
+            try
+            {
+                return await _context.Products.Find(p => p.DynamicCategories.Contains("Popular")).Limit(8).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-
+        public async Task<IEnumerable<Product>> GetAllBestselling()
+        {
+            try
+            {
+                return await _context.Products.Find(p => p.DynamicCategories.Contains("Bestseller")).Limit(8).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

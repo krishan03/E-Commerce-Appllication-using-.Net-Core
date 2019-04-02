@@ -36,5 +36,54 @@ namespace AmCart.ProductModule.WebAPI
                 return await productAppService.GetAllProductsAsync();
 
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<OperationResult<ProductDTO>> GetById(string id)
+        {
+            return await productAppService.GetByIdAsync(id);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [ExceptionFilterWebApi]
+        [Route("new")]
+        public async Task<OperationResult<IEnumerable<ProductDTO>>> GetAllNewProductsAsync()
+        {
+            //Message msg = new Message("ExternalService", "error");
+            //return new OperationResult<IEnumerable<ProductDTO>>(null, false, msg);
+            // throw new DivideByZeroException();
+
+            return await productAppService.GetAllNewProductsAsync();
+
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [ExceptionFilterWebApi]
+        [Route("popular")]
+        public async Task<OperationResult<IEnumerable<ProductDTO>>> GetAllPopularProductsAsync()
+        {
+            //Message msg = new Message("ExternalService", "error");
+            //return new OperationResult<IEnumerable<ProductDTO>>(null, false, msg);
+            // throw new DivideByZeroException();
+
+            return await productAppService.GetAllPopularProductsAsync();
+
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [ExceptionFilterWebApi]
+        [Route("bestseller")]
+        public async Task<OperationResult<IEnumerable<ProductDTO>>> GetAllBestsellerProductsAsync()
+        {
+            //Message msg = new Message("ExternalService", "error");
+            //return new OperationResult<IEnumerable<ProductDTO>>(null, false, msg);
+            // throw new DivideByZeroException();
+
+            return await productAppService.GetAllBestsellerProductsAsync();
+
+        }
     }
 }

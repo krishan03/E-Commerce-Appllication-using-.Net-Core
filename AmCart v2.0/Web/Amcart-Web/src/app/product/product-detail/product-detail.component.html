@@ -1,0 +1,123 @@
+
+<!-- page body content begin -->
+<div class="pg-body clearfix">
+  <div class="container clearfix">
+    <div class="row">
+      <div class="container">
+        <div class="col-xs-12 product-top-line">
+          <!-- <a href="category.html" class="btn btn-yet-col col-xs-2 back-catalog pull-left">BACK IN CATALOG</a> -->
+          <div class="pull-right">
+            <!-- <div class="previous-product"><img src="images/prd-1.jpg" alt="#"><span class="arrow_carrot-left"></span></div> -->
+            <!-- <div class="next-product"><img src="images/prd-2.jpg" alt="#"><span class="arrow_carrot-right"></span></div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="productDetails">
+      <div class="col-md-6 col-lg-7 col-xs-12 product-images">
+        <div class="clearfix zoom-content">
+            <img src='{{productDetails.ImageUrl[0]}}' alt="#" class="img-zoom-container">
+          <!-- <product-image [productDetails]="productDetails"></product-image> -->
+
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-5 col-xs-12 product-info">
+        <div id="zoom-window-container" style="position: relative;"></div>
+        <div class="product-reviews">
+          <h3>{{productDetails.Name}}</h3><br>
+          <span class="stars-rating">
+            <span class="stars"></span>
+          </span>
+          <!-- <a href="#">20 Reviewer(s)</a>
+          <a href="#review-btn">Add Review</a> -->
+        </div>
+        <!-- <img src="images/brands/nike.png" alt="#" class="brand"> -->
+
+        <div class="hr"></div>
+        <div class="price">
+          ${{productDetails.Price}}
+          <!-- <span class="old-price">${{productDetails.OldCost}}</span> -->
+        </div>
+        
+        <div class="hr"></div>
+        <!-- <p class="data-info">Product Code:
+          <span>{{productDetails.ProductCode}}</span>
+        </p> -->
+        <!-- <p class="data-info">Product Tags:
+          <span>{{productDetails.ProductTags}}</span>
+        </p> -->
+        <p class="data-info">Category:
+          <span>{{productDetails.Categories}}</span>
+        </p>
+        <div class="hr"></div>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p> -->
+        <p>{{productDetails.ShortDescription}}</p>
+        
+        <!-- <div  *ngFor="let info of productDetails.InfoList">
+          <div class="col-xs-20 tech-info" >
+            <div class="col-sm-4 col-xs-12">
+              <span>{{info}}</span>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="hr"></div>
+        <span class="data-info secondary-font-family">COLOR:
+          <span>{{selectedColor}}</span>
+        </span>
+        &emsp;|&emsp;
+        <span class="availability">Availability:
+          <span *ngIf='Availability'><span class="out-stock"></span>In Stock</span>
+          <span *ngIf='!Availability'><span class="out-stock"></span>Not In Stock</span>
+          </span>
+          
+        <div class="color-blocks">
+          <div class="radio-inline color" *ngFor="let color of availableColors">
+            <input type="radio" name="color" value="{{color}}" id="radio-color-{{color}}" (change)="selectColor($event)">
+            <label for="radio-color-{{color}}" class="{{color}}" title="{{color}}"></label>
+          </div>
+        </div>
+        <div class="hr"></div>
+        <span class="data-info secondary-font-family">SELECT SIZE
+          <span>{{selectedSize}}</span>
+        </span>
+        <div class="size-blocks">
+          <div class="radio-inline size" *ngFor="let size of availableSizes">
+            <input type="radio" name="size" value="{{size}}" id="radio-size-{{size}}" (change)="selectSize($event)">
+            <label for="radio-size-{{size}}">{{size}}</label>
+          </div>
+        </div>
+        <div class="hr"></div>
+        <div class="cart_quantity_button clrfix product-count pull-left">
+          <a rel="nofollow" class="btn btn-default btn-minus" href="#" title="Subtract">&ndash;</a>
+          <input type="text" disabled="" size="2" autocomplete="off" class="cart_quantity_input form-control grey count" value="1"
+            name="quantity">
+          <a rel="nofollow" class="btn btn-default btn-plus" href="#" title="Add">+</a>
+        </div>
+        <button class="btn btn-sec-col pull-left add-cart">
+          <i class="icon-bag"></i>&nbsp;&nbsp;ADD TO CART</button>
+        <a href="#" class="btn btn-gray">
+          <span class="icon-heart"></span>
+        </a>
+        <a href="" class="btn btn-gray">
+          <span class="arrow_left-right_alt"></span>
+        </a>
+        <div class="hr"></div>
+        <div class="product-tabs">
+          <!-- Nav tabs -->
+          <ul role="tablist" class="nav nav-tabs">
+            <li class="active">
+              <a data-toggle="tab" role="tab" href="#tab-description">DESCRIPTION</a>
+              {{productDetails.LongDescription}}
+            </li>
+            <!-- <li>
+              <a data-toggle="tab" role="tab" href="#tab-additional-info">ADDITIONAL INFO</a>
+            </li>
+            <li>
+              <a data-toggle="tab" role="tab" href="#tab-review" id="review-btn">REVIEWS</a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </div>

@@ -12,4 +12,5 @@ export class Product {
     TagGroups: TagGroup[]
     Thumbnail: string
     ImageUrl: string[]
+    Rating: number
 }
