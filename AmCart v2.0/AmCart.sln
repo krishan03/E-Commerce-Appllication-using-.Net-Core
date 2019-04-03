@@ -83,11 +83,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.OrderModule", "Modul
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.CustomerModule.WebAPI", "Modules\CustomerModule\AmCart.CustomerModule.WebAPI\AmCart.CustomerModule.WebAPI.csproj", "{07479F61-2F72-4EAA-86EE-7E938832711C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmCart.ProductModule.UnitTest", "Modules\ProductModule\AmCart.ProductModule.UnitTest\AmCart.ProductModule.UnitTest.csproj", "{7399F77D-64C7-430F-BB61-59CC58854140}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.ProductModule.UnitTest", "Modules\ProductModule\AmCart.ProductModule.UnitTest\AmCart.ProductModule.UnitTest.csproj", "{7399F77D-64C7-430F-BB61-59CC58854140}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmCart.OrderModule.UnitTest", "Modules\OrderModule\AmCart.OrderModule.UnitTest\AmCart.OrderModule.UnitTest.csproj", "{C8922922-8A9E-4B1D-9D75-6471E7C81D29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.OrderModule.UnitTest", "Modules\OrderModule\AmCart.OrderModule.UnitTest\AmCart.OrderModule.UnitTest.csproj", "{C8922922-8A9E-4B1D-9D75-6471E7C81D29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmCart.CustomerModule.UnitTest", "Modules\CustomerModule\AmCart.CustomerModule.UnitTest\AmCart.CustomerModule.UnitTest.csproj", "{3757B3B7-C359-4164-8705-EE54B1A3379F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.CustomerModule.UnitTest", "Modules\CustomerModule\AmCart.CustomerModule.UnitTest\AmCart.CustomerModule.UnitTest.csproj", "{3757B3B7-C359-4164-8705-EE54B1A3379F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amcart.OrderModule.WebAPI", "..\Amcart.OrderModule.WebAPI\Amcart.OrderModule.WebAPI.csproj", "{BC997ADB-103C-4474-9C1E-9A2750EDF105}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -167,6 +169,10 @@ Global
 		{3757B3B7-C359-4164-8705-EE54B1A3379F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3757B3B7-C359-4164-8705-EE54B1A3379F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3757B3B7-C359-4164-8705-EE54B1A3379F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC997ADB-103C-4474-9C1E-9A2750EDF105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC997ADB-103C-4474-9C1E-9A2750EDF105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC997ADB-103C-4474-9C1E-9A2750EDF105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC997ADB-103C-4474-9C1E-9A2750EDF105}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -193,6 +199,7 @@ Global
 		{7399F77D-64C7-430F-BB61-59CC58854140} = {B2058C2A-71A6-4294-A492-5ECC5FD1802C}
 		{C8922922-8A9E-4B1D-9D75-6471E7C81D29} = {B46E43EE-460E-4328-A138-F1EC3A8305E0}
 		{3757B3B7-C359-4164-8705-EE54B1A3379F} = {161DCE7A-5F41-48AC-950E-40F85B432922}
+		{BC997ADB-103C-4474-9C1E-9A2750EDF105} = {B46E43EE-460E-4328-A138-F1EC3A8305E0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD081000-213D-4B6E-8961-7F95F16E9A36}

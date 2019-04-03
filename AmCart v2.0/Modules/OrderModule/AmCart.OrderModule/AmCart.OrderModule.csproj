@@ -5,16 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\AmCart.Core.AppServices\AmCart.Core.AppServices.csproj" />
+    <ProjectReference Include="..\..\..\Foundation\AmCart.Core.Data\AmCart.Core.Data.csproj" />
     <ProjectReference Include="..\..\..\Foundation\AmCart.Core.Domain\AmCart.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Foundation\AmCart.Core\AmCart.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\DBContext\" />
-    <Folder Include="Data\UoW\" />
-    <Folder Include="Data\Repositories\" />
-    <Folder Include="AppServices\Mapper\" />
-    <Folder Include="AppServices\DTOs\" />
-    <Folder Include="AppServices\" />
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\" />
   </ItemGroup>
 
 </Project>

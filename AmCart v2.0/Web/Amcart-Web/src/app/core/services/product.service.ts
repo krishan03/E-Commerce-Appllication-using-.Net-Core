@@ -3,6 +3,7 @@ import { HttpService } from "./http.service";
 import { Observable } from "rxjs";
 import { Constants } from "src/app/app-settings";
 import { APIResponse } from "../../models/response";
+import { Product } from "src/app/models/product-item";
 
 @Injectable({
     providedIn: 'root'
