@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AmCart.OrderModule
+namespace AmCart.OrderModule.Domain
 {
     public class Status : DomainBase
     {

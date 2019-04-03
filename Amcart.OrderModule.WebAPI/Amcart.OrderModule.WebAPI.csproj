@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AmCart v2.0\Foundation\AmCart.Core.AppServices\AmCart.Core.AppServices.csproj" />
+    <ProjectReference Include="..\AmCart v2.0\Foundation\AmCart.Core.Data\AmCart.Core.Data.csproj" />
+    <ProjectReference Include="..\AmCart v2.0\Foundation\AmCart.Core.WebMVC\AmCart.Core.WebMVC.csproj" />
+    <ProjectReference Include="..\AmCart v2.0\Foundation\AmCart.Core\AmCart.Core.csproj" />
+    <ProjectReference Include="..\AmCart v2.0\Modules\OrderModule\AmCart.OrderModule\AmCart.OrderModule.csproj" />
+    <ProjectReference Include="..\AmCart v2.0\PlugIn\AmCart.Logging.NLog\AmCart.Logging.NLog.csproj" />
+  </ItemGroup>
+
+</Project>

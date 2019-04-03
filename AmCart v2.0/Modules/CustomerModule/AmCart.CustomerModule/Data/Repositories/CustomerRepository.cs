@@ -16,11 +16,18 @@ namespace AmCart.CustomerModule
             dBContext = new CustomerDBContext(settings);
         }
 
+        public async Task<string> CreateAsync(Customer customer)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Customer> GetByUserId(string userId)
         {
             try
             {
-                return await dBContext.Customers.Find(_ => _.UserId == new ObjectId(userId)).FirstOrDefaultAsync();
+                var filter = Builders<Customer>.Filter.Eq("_id", ObjectId.Parse(userId));
+                return await dBContext.Customers.Find(filter).FirstOrDefaultAsync();
+               
             }
             catch (Exception ex)
             {

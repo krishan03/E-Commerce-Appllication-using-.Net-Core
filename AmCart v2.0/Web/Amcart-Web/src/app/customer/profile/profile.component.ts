@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../core/services/customer.service';
-import { Customer } from '../../models/customer';
 import { User } from 'oidc-client';
 import { AuthService } from '../../core/services/auth.service';
 
@@ -12,13 +11,41 @@ import { AuthService } from '../../core/services/auth.service';
 export class ProfileComponent implements OnInit {
 
   loggedInUser: User
-  private customer: Customer
+  context: any
 
-  constructor(private authService: AuthService, private customerService: CustomerService) { }
+  isProfileOpen: boolean
+  isWishlistOpen: boolean
+  isOrderHistoryOpen: boolean
 
-  ngOnInit() {
-    this.customer = this.customerService.getCustomer();
-    this.authService.getUserDetails().then(user => this.loggedInUser = user);
+  constructor(private authService: AuthService, private customerService: CustomerService) {
   }
 
+  ngOnInit() {
+    this.isProfileOpen = true;
+    this.isWishlistOpen = false;
+    this.isOrderHistoryOpen = false;
+
+    this.authService.getUserDetails().then(user => this.loggedInUser = user);
+    this.customerService.loadCustomerContext().subscribe(result => {
+      if (result.isSuccess) {
+        this.context = result.data;
+        console.log(this.context);
+      }
+    }, error => console.log(error));;
+  }
+
+  openProfile() {
+    this.isProfileOpen = true;
+    this.isWishlistOpen = this.isOrderHistoryOpen = false;
+  }
+
+  openWishlist() {
+    this.isWishlistOpen = true;
+    this.isProfileOpen = this.isOrderHistoryOpen = false;
+  }
+
+  openOrderHistory() {
+    this.isOrderHistoryOpen = true;
+    this.isProfileOpen = this.isWishlistOpen = false;
+  }
 }

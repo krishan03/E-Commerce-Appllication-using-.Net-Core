@@ -80,14 +80,28 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.CustomerModule", "Modules\CustomerModule\AmCart.CustomerModule\AmCart.CustomerModule.csproj", "{2F2229FA-9D9E-4B98-AB71-0BDD51F4EA58}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.OrderModule", "Modules\OrderModule\AmCart.OrderModule\AmCart.OrderModule.csproj", "{0C30646B-BE61-4B12-AB0B-D5ECF1897150}"
+	ProjectSection(ProjectDependencies) = postProject
+		{93A90664-4C1F-4D71-B554-D78EB473833B} = {93A90664-4C1F-4D71-B554-D78EB473833B}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.CustomerModule.WebAPI", "Modules\CustomerModule\AmCart.CustomerModule.WebAPI\AmCart.CustomerModule.WebAPI.csproj", "{07479F61-2F72-4EAA-86EE-7E938832711C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmCart.ProductModule.UnitTest", "Modules\ProductModule\AmCart.ProductModule.UnitTest\AmCart.ProductModule.UnitTest.csproj", "{7399F77D-64C7-430F-BB61-59CC58854140}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.ProductModule.UnitTest", "Modules\ProductModule\AmCart.ProductModule.UnitTest\AmCart.ProductModule.UnitTest.csproj", "{7399F77D-64C7-430F-BB61-59CC58854140}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmCart.OrderModule.UnitTest", "Modules\OrderModule\AmCart.OrderModule.UnitTest\AmCart.OrderModule.UnitTest.csproj", "{C8922922-8A9E-4B1D-9D75-6471E7C81D29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.OrderModule.UnitTest", "Modules\OrderModule\AmCart.OrderModule.UnitTest\AmCart.OrderModule.UnitTest.csproj", "{C8922922-8A9E-4B1D-9D75-6471E7C81D29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmCart.CustomerModule.UnitTest", "Modules\CustomerModule\AmCart.CustomerModule.UnitTest\AmCart.CustomerModule.UnitTest.csproj", "{3757B3B7-C359-4164-8705-EE54B1A3379F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.CustomerModule.UnitTest", "Modules\CustomerModule\AmCart.CustomerModule.UnitTest\AmCart.CustomerModule.UnitTest.csproj", "{3757B3B7-C359-4164-8705-EE54B1A3379F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.OrderModule.WebAPI", "Modules\OrderModule\AmCart.OrderModule.WebAPI\AmCart.OrderModule.WebAPI.csproj", "{DDD02B6C-E33B-41DA-9C5F-4B9BF15773D0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3A3FCF08-F0C9-4C94-A977-7674F605FC9E} = {3A3FCF08-F0C9-4C94-A977-7674F605FC9E}
+		{D2B1D43F-41B1-4A6A-BB33-7355AF5380FE} = {D2B1D43F-41B1-4A6A-BB33-7355AF5380FE}
+		{BCE39C63-554D-444C-B71D-7DDB854515BE} = {BCE39C63-554D-444C-B71D-7DDB854515BE}
+		{93A90664-4C1F-4D71-B554-D78EB473833B} = {93A90664-4C1F-4D71-B554-D78EB473833B}
+		{0C30646B-BE61-4B12-AB0B-D5ECF1897150} = {0C30646B-BE61-4B12-AB0B-D5ECF1897150}
+		{4655B586-3785-4354-93F2-09CF5F240FE7} = {4655B586-3785-4354-93F2-09CF5F240FE7}
+		{206C70BE-5EAB-497C-BBA6-D1A7D5395FFE} = {206C70BE-5EAB-497C-BBA6-D1A7D5395FFE}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -167,6 +181,10 @@ Global
 		{3757B3B7-C359-4164-8705-EE54B1A3379F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3757B3B7-C359-4164-8705-EE54B1A3379F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3757B3B7-C359-4164-8705-EE54B1A3379F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDD02B6C-E33B-41DA-9C5F-4B9BF15773D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDD02B6C-E33B-41DA-9C5F-4B9BF15773D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDD02B6C-E33B-41DA-9C5F-4B9BF15773D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDD02B6C-E33B-41DA-9C5F-4B9BF15773D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -193,6 +211,7 @@ Global
 		{7399F77D-64C7-430F-BB61-59CC58854140} = {B2058C2A-71A6-4294-A492-5ECC5FD1802C}
 		{C8922922-8A9E-4B1D-9D75-6471E7C81D29} = {B46E43EE-460E-4328-A138-F1EC3A8305E0}
 		{3757B3B7-C359-4164-8705-EE54B1A3379F} = {161DCE7A-5F41-48AC-950E-40F85B432922}
+		{DDD02B6C-E33B-41DA-9C5F-4B9BF15773D0} = {B46E43EE-460E-4328-A138-F1EC3A8305E0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD081000-213D-4B6E-8961-7F95F16E9A36}

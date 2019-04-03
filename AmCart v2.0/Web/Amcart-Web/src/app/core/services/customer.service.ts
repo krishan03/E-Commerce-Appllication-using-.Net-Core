@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
-import { CustomerContext } from "src/app/models/customer-context";
+import { CustomerContext } from "../../models/customer-context";
 import { HttpService } from "./http.service";
-import { Constants } from "src/app/app-settings";
-import { OperationResult } from "src/app/models/operation-result";
+import { Constants } from "../../app-settings";
+import { OperationResult } from "../../models/operation-result";
+import { Observable, BehaviorSubject } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -12,18 +13,28 @@ export class CustomerService {
     baseUrl = Constants.AppConstants.customerApiRoot;
     customerContext: CustomerContext
 
-    constructor(private httpService: HttpService) { }
+    totalPrice: BehaviorSubject<number>
+    cart: BehaviorSubject<Array<any>>
 
-    loadCustomerContext() {
-        this.httpService.Get<OperationResult<CustomerContext>>(`${Constants.AppConstants.customerApiRoot}customer/context`)
-        .subscribe(result => {
-            if(result.isSuccess) {
-                this.customerContext = result.data;
-            }
-        }, error => console.log(error));
+    constructor(private httpService: HttpService) {
+        this.cart = new BehaviorSubject<Array<any>>([]);
+        this.totalPrice = new BehaviorSubject<number>(0);
+    }
+
+    loadCustomerContext() : Observable<OperationResult<CustomerContext>> {
+        return this.httpService.Get<OperationResult<CustomerContext>>(`${Constants.AppConstants.customerApiRoot}customer/context`);
+        
     }
 
     getCustomer() {
         return this.customerContext && this.customerContext.Customer ? this.customerContext.Customer : null;
+    }
+
+    updateCart(value: any[]) {
+        this.cart.next(value);
+    }
+
+    updateTotalPrice(value: number) {
+        this.totalPrice.next(value);
     }
 }

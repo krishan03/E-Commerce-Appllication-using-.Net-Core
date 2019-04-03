@@ -1,0 +1,91 @@
+<div class="pg-body">
+  <div class="container">
+     <div class="row">
+        <div class="gap-60"></div>
+        <div class="col-md-8 col-xs-12">
+           <div class="table_block table-responsive mb-40" id="order-detail-content">
+              <table class="table table-bordered" id="cart_summary">
+                 <thead>
+                    <tr>
+                       <th colspan="2" class="cart_product first_item">Product name</th>
+                       <th class="cart_unit item">Price</th>
+                       <th class="cart_quantity item">QUANTITY</th>
+                       <th class="cart_delete last_item">SUBTOTAL</th>
+                    </tr>
+                 </thead>
+                 <tfoot *ngIf="cartItems != null && cartItems.length == 0" class="dd-list-empty"><tr><td colspan="5">There is no product in it!</td></tr></tfoot>
+                   <tbody *ngIf="cartItems != null && cartItems.length > 0" class="dropdown-product-list">
+                    <tr *ngFor="let item of cartItems" class="cart_item first_item address_0 odd dd-product-group">
+                       <td class="cart_product">
+                          <a>
+                             <img alt="{{item.product.name}}" src="{{item.product.imageUrl[0]}}">
+                          </a>
+                       </td>
+                       <td class="cart_description">
+                          <p class="product-name">
+                             <a>{{item.product.name}}</a>
+                          </p>
+                          <small>Size: <span>XL</span></small>
+                          <small>Color: <span>Red</span></small>
+                       </td>
+                       <td data-title="PRICE" class="cart_unit">
+                          <span class="price">${{item.product.price}}.00</span>
+                       </td>
+
+                       <td class="cart_quantity text-center">
+                          <div class="cart_quantity_button clrfix">
+                             <a title="Subtract" (click)="subtractQuantity(item)" class="cart_quantity_down btn btn-default btn-minus" rel="nofollow">-</a>
+                             <input type="text" name="quantity" value="{{item.quantity}}" class="cart_quantity_input form-control grey count" autocomplete="off" size="2" disabled="">
+                             <a title="Add" (click)="addQuantity(item)" class="cart_quantity_up btn btn-default btn-plus" rel="nofollow">+</a>
+                          </div>
+                       </td>
+                       <td class="subtotal text-center" data-title="SUBTOTAL">
+                          <a class="close-btn ddr" href="#"><i class="icon_close"></i></a>
+                          <p>$ {{item.product.price * item.quantity}}.00</p>
+                       </td>
+                    </tr>
+                 </tbody>
+              </table>
+           </div>
+        </div>
+        <div class="col-md-4 col-xs-12 pull-right">
+           <div class="row">
+              <div class="container col-xs-12 cart-detail">
+                 <h6 class="gold-header">CART DETAIL</h6>
+                 <p class="info"><span class="pull-left col-xs-6">Cart Subtotal:</span><span class="pull-right col-xs-6 text-right">${{totalPrice}}.00</span></p>
+                 <p class="info"><span class="pull-left col-xs-6">Shipping:</span>
+                  <span *ngIf="shippingPrice > 0" class="pull-right col-xs-6 text-right gray">{{shippingPrice}}</span>
+                  <span *ngIf="shippingPrice == 0" class="pull-right col-xs-6 text-right gray">Free Shipping</span>
+                 </p>
+                 <p class="info total"><span class="pull-left col-xs-6">ORDER TOTAL:</span><span class="col-xs-6 pull-right text-right">${{totalPrice + shippingPrice}}.00</span></p>
+              </div>
+           </div>
+        </div>
+        <div class="col-md-8 col-xs-12">
+           <div class="row">
+              <form action="#" class="form-inline bottom-buttons">
+                 <div class="col-lg-6 col-xs-12">
+                    <div class="row">
+                       <div class="form-group col-xs-7 col-sm-8">
+                          <input type="text" name="coupon" placeholder="Enter coupon" class="form-control placeholder-fix">
+                       </div>
+                       <div class="col-xs-5 col-sm-4">
+                          <button class="btn btn-md btn-third-col">APPLY</button>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-lg-6 col-xs-12">
+                    <div class="row">
+                       <div class="col-sm-7 col-xs-12">
+                          <button class="btn btn-md btn-sec-col">PROCEED TO CHECKOUT</button>
+                       </div>
+                    </div>
+                 </div>
+              </form>
+           </div>
+        </div>
+
+        <div class="gap-70 col-xs-12"></div>
+     </div>
+  </div>
+</div>
