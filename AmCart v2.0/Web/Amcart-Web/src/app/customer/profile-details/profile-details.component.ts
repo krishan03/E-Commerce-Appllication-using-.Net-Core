@@ -27,8 +27,10 @@ export class ProfileDetailsComponent implements OnInit {
       this.loggedInUser = this.loggedInUserData;
     }
     if(changes['customerContextData']) {
-      this.context = this.customerContextData;
-      this.billingAddress = this.context.customer.addresses.find(a => a.isDefault);
+      if(this.customerContextData){
+        this.context = this.customerContextData;
+        this.billingAddress = this.context.customer.addresses.find(a => a.isDefault);
+      }
     }
   }
 

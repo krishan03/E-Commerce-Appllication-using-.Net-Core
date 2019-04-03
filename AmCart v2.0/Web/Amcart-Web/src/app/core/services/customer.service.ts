@@ -15,9 +15,11 @@ export class CustomerService {
 
     totalPrice: BehaviorSubject<number>
     cart: BehaviorSubject<Array<any>>
+    addedInCart: BehaviorSubject<any>
 
     constructor(private httpService: HttpService) {
         this.cart = new BehaviorSubject<Array<any>>([]);
+        this.addedInCart = new BehaviorSubject<Array<any>>(null);
         this.totalPrice = new BehaviorSubject<number>(0);
     }
 
@@ -28,6 +30,41 @@ export class CustomerService {
 
     getCustomer() {
         return this.customerContext && this.customerContext.Customer ? this.customerContext.Customer : null;
+    }
+
+    addInWishlist(value: any) {
+        var itemToAdd: any = {
+            id: value.Id,
+            imageUrl: value.ImageUrl,
+            inStock: false,
+            isActive: value.IsActive,
+            name: value.Name,
+            price: value.Price,
+            shortDescription: value.ShortDescription,
+            tagGroups: value.TagGroups
+        }
+        this.httpService.Post(`${Constants.AppConstants.customerApiRoot}customer/wishlist`, itemToAdd).subscribe(data => {});
+    }
+
+    addInCart(value: any) {
+        var itemToAdd: any = {
+            dynamicCategories: value.DynamicCategories,
+            isActive: value.IsActive,
+            quantity: 1,
+            product: {
+                id: value.Id,
+                imageUrl: value.ImageUrl,
+                inStock: value.InStock,
+                isActive: value.IsActive,
+                name: value.Name,
+                price: value.Price,
+                shortDescription: value.ShortDescription,
+                tagGroups: value.TagGroups
+            }
+        }
+        this.httpService.Post(`${Constants.AppConstants.customerApiRoot}customer/cart`, itemToAdd).subscribe(data => {
+            this.addedInCart.next(itemToAdd);
+        });
     }
 
     updateCart(value: any[]) {
