@@ -9,6 +9,7 @@ import { SilentCallbackComponent } from "./auth/silent-callback/silent-callback.
 import { ProductDetailComponent } from "./product/product-detail/product-detail.component";
 import { SearchProductComponent } from "./product/search-product/search-product.component";
 import { CartComponent } from "./customer/cart/cart.component";
+import { CheckoutComponent } from "./customer/checkout/checkout.component";
 
 export const ApplicationRoutes: Routes = [
     {
@@ -37,6 +38,10 @@ export const ApplicationRoutes: Routes = [
             {
                 path: 'cart',
                 component: CartComponent
+            },
+            {
+                path: 'checkout',
+                component: CheckoutComponent
             }
         ]
     },

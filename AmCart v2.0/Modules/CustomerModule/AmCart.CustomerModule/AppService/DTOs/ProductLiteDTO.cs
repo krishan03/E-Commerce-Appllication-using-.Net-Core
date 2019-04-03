@@ -18,5 +18,7 @@ namespace AmCart.CustomerModule.AppService.DTOs
         public IList<TagGroupDTO> TagGroups { get; set; }
 
         public string Thumbnail { get; set; }
+
+        public List<string> ImageUrl { get; set; }
     }
 }

@@ -18,9 +18,26 @@ export class CartPeekComponent implements OnInit {
   totalQty: number
 
   constructor(private customerService: CustomerService) {
+    this.cartItems = []
   }
 
   ngOnInit() {
+    this.customerService.addedInCart.subscribe(item => {
+      if(item != null && this.isUserLoggedIn){
+        this.cartItems.push(item);
+        this.totalPrice = 0;
+        this.totalQty = 0;
+        this.cartItems.forEach(c => {
+          this.totalQty+= c.quantity
+          this.totalPrice += c.quantity * c.product.price
+        });
+        
+        if(this.totalPrice < 2000) {
+          this.totalPrice += 100;
+        }
+      }
+    });
+
     this.customerService.totalPrice.subscribe(price => {
       this.totalPrice = price;
     })

@@ -5,13 +5,13 @@
     <!-- </a> -->
     <label *ngIf="product.DynamicCategories.indexOf('RecentlyAdded') !== -1" class="pl-badge">NEW</label>
     <label *ngIf="product.DynamicCategories.indexOf('Popular') !== -1" class="pl-badge">POPULAR</label>
-    <label *ngIf="product.DynamicCategories.indexOf('Bestseller') !== -1" class="pl-badge">BESTSELLER</label>
-    <app-product-caption [id]="product.Id"></app-product-caption>
+	<label *ngIf="product.DynamicCategories.indexOf('Bestseller') !== -1" class="pl-badge">BESTSELLER</label>
+    <app-product-caption [product]="product"></app-product-caption>
   </figure>
   <div class="pl-caption">
     <p class="pl-price-block">
-      <!-- <span class="pl-price-old">$ 950.00</span> -->
-      <span class="pl-price">$ {{product?.Price}}</span>
+      <!-- <span class="pl-price-old">₹ 950.00</span> -->
+      <span class="pl-price">₹ {{product?.Price}}</span>
     </p>
     <p class="pl-name">{{product?.Name}}</p>
     <span class="stars-rating stars-{{product.Rating}}">
