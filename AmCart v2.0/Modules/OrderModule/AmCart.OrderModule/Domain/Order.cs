@@ -26,7 +26,6 @@ namespace AmCart.OrderModule.Domain
 
         public IList<Status> Status { get; set; }
 
-        public IList<string> ImageUrl { get; set; }
 
         [BsonRepresentation(BsonType.ObjectId)]
         public string UserId { get; set; }
