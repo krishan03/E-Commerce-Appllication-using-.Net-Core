@@ -464,6 +464,11 @@
           </a>
           <div *ngIf="isLoggedIn()" class="sub-nav">
             <ul class="sub-nav-group">
+                <li *ngIf="true">
+                    <a href="admin">
+                      <span>Add Product</span>
+                    </a>
+                  </li>
               <li>
                 <a (click)="navigateToProfile()">
                   <span>Profile</span>

@@ -33,16 +33,19 @@ namespace AmCart.OrderModule.WebAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [ExceptionFilterWebApi]
         public async Task<OperationResult<IEnumerable<OrderDTO>>> GetAllOrdersAsync()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier);
             IList<Order> orders = await this.orderRepository.GetOrdersByUserId(userId.Value);
+            var orderDtos = mapper.Map<IList<Order>, IList<OrderDTO>>(orders);
             // use the above aid as userId.Value for sending the user id in order to fetch the orders.
-            return await orderAppService.GetAllOrderssAsync(userId.Value);
+            return new OperationResult<IEnumerable<OrderDTO>>(orderDtos, true, new Message("", ""));
         }
 
         [HttpPost]
+        [Authorize]
         [ExceptionFilterWebApi]
         public async Task<OperationResult<OrderDTO>> Create(OrderDTO orderDTO)
         {
@@ -50,7 +53,9 @@ namespace AmCart.OrderModule.WebAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("{id}")]
+        [ExceptionFilterWebApi]
         public async Task<OperationResult<OrderDTO>> GetById(string id)
         {
             return await orderAppService.GetByIdAsync(id);
