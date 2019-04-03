@@ -28,6 +28,15 @@ namespace AmCart.OrderModule.AppServices
             this.mongoUnitOfWork = mongoUnitOfWork;
         }
 
+        public async Task<OperationResult<OrderDTO>> CreateAsync(OrderDTO orderDTO)
+        {
+            Order order = mapper.Map<OrderDTO, Order>(orderDTO);
+
+            await mongoUnitOfWork.MongoDBRepository.Add(order);
+            Message message = new Message(string.Empty, "Inserted Successfully");
+            return new OperationResult<OrderDTO>(orderDTO, true, message);
+        }
+
         public async System.Threading.Tasks.Task<OperationResult<IEnumerable<OrderDTO>>> GetAllOrderssAsync(string userid)
         {
             IEnumerable<Order> orderList = await mongoUnitOfWork.MongoDBRepository.GetById(userid);

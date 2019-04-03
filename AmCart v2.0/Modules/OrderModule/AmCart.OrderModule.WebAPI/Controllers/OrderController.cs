@@ -43,6 +43,14 @@ namespace AmCart.OrderModule.WebAPI.Controllers
             return await orderAppService.GetAllOrderssAsync(userId.Value);
         }
 
+        [HttpPost]
+        [Authorize]
+        [ExceptionFilterWebApi]
+        public async Task<OperationResult<OrderDTO>> Create(OrderDTO orderDTO)
+        {
+            return await orderAppService.CreateAsync(orderDTO);
+        }
+
     }
 
 }
