@@ -24,10 +24,10 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-6">
                         <p class="my-orders">My Orders:</p>
-                        <p *ngIf="context != null">You have {{context.customer.cart.length}} item in your cart</p>
+                        <p *ngIf="context != null">You have {{cartItemLength}} item in your cart</p>
                       </div>
                       <div class="col-xs-12 col-sm-6 view-cart">
-                        <button class="btn btn-sec-col"><i class="icon-bag"></i>&nbsp;&nbsp;VIEW CART</button>
+                        <button (click)="navigateToCart()" class="btn btn-sec-col"><i class="icon-bag"></i>&nbsp;&nbsp;VIEW CART</button>
                       </div>
                     </div>
                   </div>

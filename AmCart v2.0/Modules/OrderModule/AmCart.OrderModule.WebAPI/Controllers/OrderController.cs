@@ -33,7 +33,6 @@ namespace AmCart.OrderModule.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         [ExceptionFilterWebApi]
         public async Task<OperationResult<IEnumerable<OrderDTO>>> GetAllOrdersAsync()
         {
@@ -44,7 +43,6 @@ namespace AmCart.OrderModule.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         [ExceptionFilterWebApi]
         public async Task<OperationResult<OrderDTO>> Create(OrderDTO orderDTO)
         {

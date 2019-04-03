@@ -5,11 +5,12 @@ import { ProfileDetailsComponent } from './profile-details/profile-details.compo
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [ProfileComponent, ProfileDetailsComponent, WishlistComponent, CartComponent, CheckoutComponent]
+  declarations: [ProfileComponent, ProfileDetailsComponent, WishlistComponent, CartComponent, CheckoutComponent, OrderDetailsComponent]
 })
 export class CustomerModule { }

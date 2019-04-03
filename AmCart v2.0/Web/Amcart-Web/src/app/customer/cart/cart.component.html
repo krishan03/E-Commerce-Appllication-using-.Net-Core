@@ -54,7 +54,7 @@
                  <h6 class="gold-header">CART DETAIL</h6>
                  <p class="info"><span class="pull-left col-xs-6">Cart Subtotal:</span><span class="pull-right col-xs-6 text-right">₹{{totalPrice}}.00</span></p>
                  <p class="info"><span class="pull-left col-xs-6">Shipping:</span>
-                  <span *ngIf="shippingPrice > 0" class="pull-right col-xs-6 text-right gray">{{shippingPrice}}</span>
+                  <span *ngIf="shippingPrice > 0" class="pull-right col-xs-6 text-right gray">₹{{shippingPrice}}</span>
                   <span *ngIf="shippingPrice == 0" class="pull-right col-xs-6 text-right gray">Free Shipping</span>
                  </p>
                  <p class="info total"><span class="pull-left col-xs-6">ORDER TOTAL:</span><span class="col-xs-6 pull-right text-right">₹{{totalPrice + shippingPrice}}.00</span></p>

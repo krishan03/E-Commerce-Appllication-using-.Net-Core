@@ -35,6 +35,7 @@ namespace AmCart.OrderModule.AppServices
 
             await mongoUnitOfWork.MongoDBRepository.Add(order);
             Message message = new Message(string.Empty, "Inserted Successfully");
+            orderDTO.Id = order.Id;
             return new OperationResult<OrderDTO>(orderDTO, true, message);
         }
 
