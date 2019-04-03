@@ -14,6 +14,7 @@ import { MainComponent } from './main/main.component';
 import { CoreModule } from './core/core.module';
 import { CartPeekComponent } from './cart-peek/cart-peek.component';
 import { FormsModule } from '@angular/forms';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     HomeComponent,
     MainComponent,
-    CartPeekComponent
+    CartPeekComponent,
+    ContactUsComponent
   ],
   imports: [
     HttpClientModule,
