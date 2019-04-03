@@ -25,5 +25,7 @@ namespace AmCart.OrderModule.AppServices.DTOs
         public IList<string> ImageUrl { get; set; }
 
         public int Rating { get; set; }
+
+        public int Quantity { get; set; }
     }
 }
