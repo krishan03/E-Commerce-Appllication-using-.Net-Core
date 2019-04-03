@@ -11,7 +11,6 @@ export class ProductCaptionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.productId);
   }
 
 }
