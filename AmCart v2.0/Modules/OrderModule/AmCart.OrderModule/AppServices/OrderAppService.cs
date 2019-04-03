@@ -28,9 +28,9 @@ namespace AmCart.OrderModule.AppServices
             this.mongoUnitOfWork = mongoUnitOfWork;
         }
 
-        public async System.Threading.Tasks.Task<OperationResult<IEnumerable<OrderDTO>>> GetAllOrderssAsync()
+        public async System.Threading.Tasks.Task<OperationResult<IEnumerable<OrderDTO>>> GetAllOrderssAsync(string userid)
         {
-            IEnumerable<Order> orderList = await mongoUnitOfWork.MongoDBRepository.GetAll();
+            IEnumerable<Order> orderList = await mongoUnitOfWork.MongoDBRepository.GetById(userid);
             Message message = new Message(string.Empty, "Return Successfully");
             List<OrderDTO> orderDTOList = mapper.Map<IEnumerable<Order>, List<OrderDTO>>(orderList);
             return new OperationResult<IEnumerable<OrderDTO>>(orderDTOList, true, message);

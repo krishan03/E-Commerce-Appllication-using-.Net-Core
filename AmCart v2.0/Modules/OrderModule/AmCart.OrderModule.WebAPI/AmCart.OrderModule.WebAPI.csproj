@@ -9,7 +9,36 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="NLog" Version="4.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AmCart.Core">
+      <HintPath>..\..\..\Lib\Foundation\AmCart.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AmCart.Core.AppServices">
+      <HintPath>..\..\..\Lib\Foundation\AmCart.Core.AppServices.dll</HintPath>
+    </Reference>
+    <Reference Include="AmCart.Core.Data">
+      <HintPath>..\..\..\Lib\Foundation\AmCart.Core.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="AmCart.Core.Domain">
+      <HintPath>..\..\..\Lib\Foundation\AmCart.Core.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="AmCart.Core.WebMVC">
+      <HintPath>..\..\..\Lib\Foundation\AmCart.Core.WebMVC.dll</HintPath>
+    </Reference>
+    <Reference Include="AmCart.Logging.NLog">
+      <HintPath>..\..\..\Lib\PlugIn\AmCart.Logging.NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="AmCart.OrderModule">
+      <HintPath>..\AmCart.OrderModule\bin\Debug\netcoreapp2.1\AmCart.OrderModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

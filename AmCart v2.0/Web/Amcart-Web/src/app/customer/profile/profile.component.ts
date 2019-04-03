@@ -11,7 +11,7 @@ import { AuthService } from '../../core/services/auth.service';
 export class ProfileComponent implements OnInit {
 
   loggedInUser: User
-  private context: any
+  context: any
 
   isProfileOpen: boolean
   isWishlistOpen: boolean
@@ -27,11 +27,11 @@ export class ProfileComponent implements OnInit {
 
     this.authService.getUserDetails().then(user => this.loggedInUser = user);
     this.customerService.loadCustomerContext().subscribe(result => {
-      if(result.isSuccess) {
-          this.context = result.data;
-          console.log(this.context);
-        }
-      }, error => console.log(error));;
+      if (result.isSuccess) {
+        this.context = result.data;
+        console.log(this.context);
+      }
+    }, error => console.log(error));;
   }
 
   openProfile() {

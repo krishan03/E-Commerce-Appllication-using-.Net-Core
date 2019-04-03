@@ -11,6 +11,6 @@ namespace AmCart.OrderModule.AppServices
     public interface IOrderAppService : IAppService
     {
         //OperationResult<ProductDTO> Create(ProductDTO item);
-        Task<OperationResult<IEnumerable<OrderDTO>>> GetAllOrderssAsync();
+        Task<OperationResult<IEnumerable<OrderDTO>>> GetAllOrderssAsync(string userid);
     }
 }
