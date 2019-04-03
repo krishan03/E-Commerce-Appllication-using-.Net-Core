@@ -1,0 +1,282 @@
+<div class="pg-body">
+    <div class="container">
+       <div class="gap-70 hidden-xs"></div>
+       <div class="row">
+          <div class="col-md-9 col-md-push-3 cat-content">
+             <a href="#"><img src="images/category/banner.jpg" alt=""></a>
+
+             <div class="cat-view-options">
+                <div class="row">
+                   <div class="col-md-4">
+                      <div class="row no-gutter form-group">
+                         <div class="col-md-4">
+                            <label class="cvo-label">Sort By</label>
+                         </div>
+                         <div class="col-md-8">
+                            <select class="form-control cvo-control s-styled hasCustomSelect" name="sortby">
+                               <option value="default">Default Sorting</option>
+                               <option value="price">Price</option>
+                               <option value="rating">Rating</option>
+                               <option value="popularity">Popularity</option>
+                            </select>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-md-3 col-lg-2">
+                      <div class="row no-gutter form-group">
+                         <div class="col-md-6">
+                            <label class="cvo-label">Show</label>
+                         </div>
+                         <div class="col-md-6">
+                            <select class="form-control cvo-control s-styled hasCustomSelect" name="items-per-page">
+                               <option value="8">8</option>
+                               <option value="12">12</option>
+                               <option value="24">24</option>
+                            </select>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-md-2 col-lg-2 cvo-availability-col">
+                      <div class="form-group">
+                         <select class="form-control cvo-control s-styled hasCustomSelect" name="avilability">
+                            <option value="Availability">Availability</option>
+                            <option value="Coming">Coming</option>
+                         </select>
+                      </div>
+                   </div>
+                </div>
+             </div> 
+
+             <div class="cat-pagination">
+                <div class="row">
+                   <div class="col-sm-6">
+                      Items {{pageInfo.from}} to {{pageInfo.to}} of {{pageInfo.total}} total
+                   </div>
+                   <div class="col-sm-6 text-right">
+                      <ul class="pagination">
+                         <li class="active"><a href="#" (click)="paginate(1)">1</a></li>
+                         <li><a href="#" (click)="paginate(2)">2</a></li>
+                         <!-- <li><a href="#">3</a></li>
+                         <li><a href="#">4</a></li>
+                         <li><a href="#">5</a></li> -->
+                         <li><a href="#"><i class="arrow_carrot-right"></i></a></li>
+                      </ul>
+                   </div>
+                </div>
+             </div>
+
+             <div class="tab-content tab-no-style">
+                <div class="tab-pane fade in active" id="pl-grid">
+                   <div class="products-list">
+                        <app-product-list [data]="products"></app-product-list>
+                   </div>
+                </div> <!-- grid list -->
+                 <!-- tab pl-list -->
+             </div>
+
+             <div class="cat-pagination">
+                <div class="row">
+                   <div class="col-sm-6">
+                      Items 1 to 15 of 150 total
+                   </div>
+                   <div class="col-sm-6 text-right">
+                      <ul class="pagination">
+                         <li class="active"><a href="#">1</a></li>
+                         <li><a href="#">2</a></li>
+                         <li><a href="#">3</a></li>
+                         <li><a href="#">4</a></li>
+                         <li><a href="#">5</a></li>
+                         <li><a href="#"><i class="arrow_carrot-right"></i></a></li>
+                      </ul>
+                   </div>
+                </div>
+             </div>
+
+
+          </div> <!-- cat-content -->
+          <div class="col-md-3 col-md-pull-9 cat-sidebar">
+             <aside>
+
+                <div class="widget wg-active-fiters">
+                   <h3 class="wg-title">Enabled filters</h3>
+                   <div class="wg-body">
+                      <ul class="wg-af-list">
+                         <li><label>Color:</label> <span class="wg-afl-val">Orange</span><a class="wg-afl-del"><i class="icon_close"></i></a></li>
+                         <li><label>Availability:</label> <span class="wg-afl-val">In Stock</span><a class="wg-afl-del"><i class="icon_close"></i></a></li>
+                         <li><label>Size:</label> <span class="wg-afl-val">M</span><a class="wg-afl-del"><i class="icon_close"></i></a></li>
+                         <li><label>Price:</label> <span class="wg-afl-val">$100 - $350</span><a class="wg-afl-del"><i class="icon_close"></i></a></li>
+                      </ul>
+                      <div class="text-center">
+                         <a href="#" class="close-btn"><i class="icon_close"></i><span>Clear all</span></a>
+                      </div>
+                   </div>
+                </div> <!-- widget -->
+
+                <div class="widget wg-filterslist">
+                   <h3 class="wg-title">Brands</h3>
+                   <div class="wg-body">
+                      <ul class="wgfl-list">
+                         <li>
+                            <input id="brand-checkbox1" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="brand-checkbox1" class="stl"><span></span>Diesel <em class="wgfl-count"></em></label><br/>
+                         </li>
+                         <li>
+                            <input id="brand-checkbox2" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="brand-checkbox2" class="stl"><span></span>Nike <em class="wgfl-count"></em></label><br/>
+                         </li>
+                         <li>
+                            <input id="brand-checkbox3" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="brand-checkbox3" class="stl"><span></span>Adidas <em class="wgfl-count"></em></label><br/>
+                         </li>
+                         <li>
+                            <input id="brand-checkbox4" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="brand-checkbox4" class="stl"><span></span>Tommy Holifiger <em class="wgfl-count"></em></label><br/>
+                         </li>
+                         <li>
+                            <input id="brand-checkbox5" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="brand-checkbox5" class="stl"><span></span>Converse <em class="wgfl-count"></em></label><br/>
+                         </li>
+                         <li>
+                            <input id="brand-checkbox6" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="brand-checkbox6" class="stl"><span></span>Gucci <em class="wgfl-count"></em></label><br/>
+                         </li>
+                      </ul>
+                   </div>
+                </div> <!-- widget -->
+
+                <div class="widget wg-filterslist">
+                   <h3 class="wg-title">Product Tags</h3>
+                   <div class="wg-body">
+                      <ul class="wgfl-list">
+                         <li>
+                            <input id="tag-checkbox1" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="tag-checkbox1" class="stl"><span></span>Men </label><br/>
+                         </li>
+                         <li>
+                            <input id="tag-checkbox2" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="tag-checkbox2" class="stl"><span></span>Accessories </label><br/>
+                         </li>
+                         <li>
+                            <input id="tag-checkbox3" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="tag-checkbox3" class="stl"><span></span>Clother </label><br/>
+                         </li>
+                         <li>
+                            <input id="tag-checkbox4" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="tag-checkbox4" class="stl"><span></span>Jacket </label><br/>
+                         </li>
+                         <li>
+                            <input id="tag-checkbox5" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="tag-checkbox5" class="stl"><span></span>Shoes </label><br/>
+                         </li>
+                         <li>
+                            <input id="tag-checkbox6" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="tag-checkbox6" class="stl"><span></span>Ipad case </label><br/>
+                         </li>
+                      </ul>
+                      <ul class="wgfl-list">
+                         <li>
+                            <input id="tag-checkbox7" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="tag-checkbox7" class="stl"><span></span>Sunglass </label><br/>
+                         </li>
+                         <li>
+                            <input id="tag-checkbox8" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="tag-checkbox8" class="stl"><span></span>Fabric </label><br/>
+                         </li>
+                         <li>
+                            <input id="tag-checkbox9" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="tag-checkbox9" class="stl"><span></span>Jeans </label><br/>
+                         </li>
+                         <li>
+                            <input id="tag-checkbox10" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="tag-checkbox10" class="stl"><span></span>Woman </label><br/>
+                         </li>
+                         <li>
+                            <input id="tag-checkbox11" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="tag-checkbox11" class="stl"><span></span>Fashion </label><br/>
+                         </li>
+                         <li>
+                            <input id="tag-checkbox12" type="checkbox" name="checkbox" value="" class="stl">
+                            <label for="tag-checkbox12" class="stl"><span></span>Sport wear </label><br/>
+                         </li>
+                      </ul>
+                   </div>
+                </div> <!-- widget -->
+                
+                <div class="widget wg-filterslist">
+                   <h3 class="wg-title">Color</h3>
+                   <div class="wg-body">
+                      <ul class="wgfl-list">
+                         <li>
+                            <input class="color-option" type="button" name="f1" value=" " style="background: #FFFFFF;">
+                            <a href="#">White <em class="wgfl-count"></em></a>
+                         </li>
+                         <li>
+                            <input class="color-option" type="button" name="f2" value=" " style="background: #ff6c00;">
+                            <a href="#">Orange <em class="wgfl-count"></em></a>
+                         </li>
+                         <li>
+                            <input class="color-option" type="button" name="f3" value=" " style="background: #93ca6c;">
+                            <a href="#">Green <em class="wgfl-count"></em></a>
+                         </li>
+                         <li>
+                            <input class="color-option" type="button" name="f3" value=" " style="background: #25b9d4;">
+                            <a href="#">Blue <em class="wgfl-count"></em></a>
+                         </li>
+                         <li>
+                            <input class="color-option" type="button" name="f5" value=" " style="background: #ffcb05;">
+                            <a href="#">Yellow <em class="wgfl-count"></em></a>
+                         </li>
+                         <li>
+                            <input class="color-option" type="button" name="f6" value=" " style="background: #d6d6d6;">
+                            <a href="#">Silver <em class="wgfl-count"></em></a>
+                         </li>
+                      </ul>
+                      <ul class="wgfl-list">
+                         <li>
+                            <input class="color-option" type="button" name="f7" value=" " style="background: #a47e42;">
+                            <a href="#">Brown <em class="wgfl-count"></em></a>
+                         </li>
+                         <li>
+                            <input class="color-option" type="button" name="f8" value=" " style="background: #c7c7c7;">
+                            <a href="#">Gray <em class="wgfl-count"></em></a>
+                         </li>
+                         <li>
+                            <input class="color-option" type="button" name="f9" value=" " style="background: #000000;">
+                            <a href="#">Black <em class="wgfl-count"></em></a>
+                         </li>
+                         <li>
+                            <input class="color-option" type="button" name="f10" value=" " style="background: #a873b8;">
+                            <a href="#">Purple <em class="wgfl-count"></em></a>
+                         </li>
+                         <li>
+                            <input class="color-option" type="button" name="f11" value=" " style="background: #ff84b8;">
+                            <a href="#">Pink <em class="wgfl-count"></em></a>
+                         </li>
+                         <li>
+                            <input class="color-option" type="button" name="f12" value=" " style="background: #fc0100;">
+                            <a href="#">Red <em class="wgfl-count"></em></a>
+                         </li>
+                      </ul>
+                   </div>
+                </div> 
+                <div class="widget wg-links mobile-collapse">
+                   <h3 class="wg-title mobile-collapse-header">Information</h3>
+                   <div class="wg-body mobile-collapse-body">
+                      <ul class="wg-links-list">
+                         <li><a href="#">About Us</a></li>
+                         <li><a href="#">My Account</a></li>
+                         <li><a href="#">Free Shipping</a></li>
+                         <li><a href="#">Clother</a></li>
+                         <li><a href="#">Blog</a></li>
+                         <li><a href="#">Newsletter</a></li>
+                         <li><a href="#">Contact</a></li>
+                         <li><a href="#">Disconunts</a></li>
+                      </ul>
+                   </div>
+                </div> 
+             </aside>
+          </div> <!-- sidebar -->
+       </div>
+       <div class="gap-70"></div>
+    </div> <!-- container -->
+ </div> <!-- pg-body -->
