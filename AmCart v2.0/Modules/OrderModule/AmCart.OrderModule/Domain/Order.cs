@@ -23,5 +23,7 @@ namespace AmCart.OrderModule.Domain
         public double TaxPercentage { get; set; }
 
         public IList<Status> Status { get; set; }
+
+        public IList<string> ImageUrl { get; set; }
     }
 }

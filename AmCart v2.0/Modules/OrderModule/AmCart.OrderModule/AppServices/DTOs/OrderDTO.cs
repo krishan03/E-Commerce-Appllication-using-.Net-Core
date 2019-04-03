@@ -23,5 +23,8 @@ namespace AmCart.OrderModule.AppServices.DTOs
         public double TaxPercentage { get; set; }
 
         public IList<StatusDTO> Status { get; set; }
+
+
+        public IList<string> ImageUrl { get; set; }
     }
 }
