@@ -1,11 +1,11 @@
 <div *ngIf='product' class="col-md-3 col-sm-6 pl-item">
   <figure>
-    <a href="product-page.html">
-      <img alt="" src="{{product.ImageUrl[0]}}">
-    </a>
+    <!-- <a href="#"> -->
+    <img alt="" src="{{product.ImageUrl[0]}}">
+    <!-- </a> -->
     <label *ngIf="product.DynamicCategories.indexOf('RecentlyAdded') !== -1" class="pl-badge">NEW</label>
     <label *ngIf="product.DynamicCategories.indexOf('Popular') !== -1" class="pl-badge">POPULAR</label>
-	<label *ngIf="product.DynamicCategories.indexOf('Bestseller') !== -1" class="pl-badge">BESTSELLER</label>
+    <label *ngIf="product.DynamicCategories.indexOf('Bestseller') !== -1" class="pl-badge">BESTSELLER</label>
     <app-product-caption [id]="product.Id"></app-product-caption>
   </figure>
   <div class="pl-caption">
