@@ -21,3 +21,11 @@
 .Silver{
     background-color: rgb(221, 223, 224)
 }
+
+.Sky{
+    background-color: rgb(137, 190, 216) !important;
+}
+
+.onesize{
+    width: 100% !important;
+}
