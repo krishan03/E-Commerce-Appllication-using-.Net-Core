@@ -11,7 +11,7 @@ import { User } from 'oidc-client';
 })
 export class HeaderComponent implements OnInit {
 
-  userDetails: User
+  userDetails: User;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -37,4 +37,10 @@ export class HeaderComponent implements OnInit {
   navigateToProfile() {
     this.router.navigate(['profile']);
   }
+
+  searchProducts(event){
+    localStorage.setItem('search',event.target.value);
+    this.router.navigate(['search']);
+  }
+  
 }

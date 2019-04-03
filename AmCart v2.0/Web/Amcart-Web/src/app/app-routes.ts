@@ -7,6 +7,8 @@ import { MainComponent } from "./main/main.component";
 import { AuthGuard } from "./core/auth.guard";
 import { SilentCallbackComponent } from "./auth/silent-callback/silent-callback.component";
 import { ProductDetailComponent } from "./product/product-detail/product-detail.component";
+import { SearchProductComponent } from "./product/search-product/search-product.component";
+import { CartComponent } from "./customer/cart/cart.component";
 
 export const ApplicationRoutes: Routes = [
     {
@@ -19,6 +21,11 @@ export const ApplicationRoutes: Routes = [
                 pathMatch: 'full'
             },
             {
+                path: 'search',
+                component: SearchProductComponent,
+                pathMatch: 'full'
+            },
+            {
                 path:'profile', 
                 component: ProfileComponent, 
                 canActivate: [AuthGuard]
@@ -26,6 +33,10 @@ export const ApplicationRoutes: Routes = [
             {
                 path:'product/:id', 
                 component: ProductDetailComponent
+            },
+            {
+                path: 'cart',
+                component: CartComponent
             }
         ]
     },

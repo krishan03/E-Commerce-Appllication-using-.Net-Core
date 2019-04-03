@@ -1,3 +1,10 @@
-<div class="row">
-  <app-product-item *ngFor="let product of products" [product]="product"></app-product-item>
+<div *ngFor="let product of products;let i=index">
+  <div *ngIf="( (i+1) % 4 == 1 )" class="row">
+    <app-product-item [product]="products[i]"></app-product-item>
+    <app-product-item *ngIf="products[i+1] !== null" [product]="products[i+1]"></app-product-item>
+    <app-product-item *ngIf="products[i+2] !== null" [product]="products[i+2]"></app-product-item>
+    <app-product-item *ngIf="products[i+3] !== null" [product]="products[i+3]"></app-product-item>
+  </div>
+  
+
 </div>

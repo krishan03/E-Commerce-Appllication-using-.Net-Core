@@ -13,6 +13,7 @@ import { AuthModule } from './auth/auth.module';
 import { MainComponent } from './main/main.component';
 import { CoreModule } from './core/core.module';
 import { CartPeekComponent } from './cart-peek/cart-peek.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CartPeekComponent } from './cart-peek/cart-peek.component';
     CustomerModule,
     ProductModule,
     AuthModule,
-    CoreModule
+    CoreModule,
+    FormsModule
   ],
   providers: [
   ],

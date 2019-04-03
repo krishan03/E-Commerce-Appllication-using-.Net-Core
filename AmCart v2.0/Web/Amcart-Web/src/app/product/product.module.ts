@@ -5,18 +5,24 @@ import { ProductCaptionComponent } from './product-caption/product-caption.compo
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { RouterModule } from '@angular/router';
+import { ProductElasticSearchService } from '../core/services/product-elasticsearch.service';
+import { SearchProductComponent } from './search-product/search-product.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   declarations: [
-    ProductListComponent, 
-    ProductCaptionComponent, 
+    ProductListComponent,
+    ProductCaptionComponent,
     ProductItemComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    SearchProductComponent
   ],
+  providers: [ProductElasticSearchService],
   exports: [
     ProductListComponent,
     ProductDetailComponent
