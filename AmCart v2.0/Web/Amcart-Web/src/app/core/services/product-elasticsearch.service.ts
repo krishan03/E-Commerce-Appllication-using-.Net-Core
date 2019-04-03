@@ -1,12 +1,18 @@
 import * as elasticsearch from 'elasticsearch-browser';
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProductElasticSearchService {
     private client: elasticsearch.Client
+    searchText$: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
+    updateSearchText(searchText) {
+        this.searchText$.next(searchText);
+    }
 
     constructor(private _http: HttpService) {
         if (!this.client) {

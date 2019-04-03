@@ -31,8 +31,14 @@ export class SearchProductComponent implements OnInit, OnDestroy {
   ngOnInit() {
     console.log(this._pes.isAvailable());
 
-    let searchString = localStorage.getItem("search") ? localStorage.getItem("search") : 'women';
-    this.search('women', 0, 8);
+    // let searchString = localStorage.getItem("search") ? localStorage.getItem("search") : 'women';
+    // this.search('women', 0, 8);
+    this._pes.searchText$.subscribe(text => {
+      if (text)
+        this.search(text, 0, 8);
+      else
+        this.search('women', 0, 8);
+    });
   }
 
   ngOnDestroy() {
