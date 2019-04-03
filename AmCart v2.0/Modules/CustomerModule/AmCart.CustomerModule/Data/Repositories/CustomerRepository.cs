@@ -20,7 +20,9 @@ namespace AmCart.CustomerModule
         {
             try
             {
-                return await dBContext.Customers.Find(_ => _.UserId == new ObjectId(userId)).FirstOrDefaultAsync();
+                var filter = Builders<Customer>.Filter.Eq("_id", ObjectId.Parse(userId));
+                return await dBContext.Customers.Find(filter).FirstOrDefaultAsync();
+               
             }
             catch (Exception ex)
             {

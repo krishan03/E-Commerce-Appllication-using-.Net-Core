@@ -2,7 +2,7 @@
 
 namespace AmCart.CustomerModule
 {
-    public class Address : DomainBase
+    public class Address :DomainBase
     {
         public string Name { get; set; }
 

@@ -89,6 +89,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.OrderModule", "Modul
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.CustomerModule.WebAPI", "Modules\CustomerModule\AmCart.CustomerModule.WebAPI\AmCart.CustomerModule.WebAPI.csproj", "{07479F61-2F72-4EAA-86EE-7E938832711C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D2B1D43F-41B1-4A6A-BB33-7355AF5380FE} = {D2B1D43F-41B1-4A6A-BB33-7355AF5380FE}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.ProductModule.UnitTest", "Modules\ProductModule\AmCart.ProductModule.UnitTest\AmCart.ProductModule.UnitTest.csproj", "{7399F77D-64C7-430F-BB61-59CC58854140}"
 EndProject
