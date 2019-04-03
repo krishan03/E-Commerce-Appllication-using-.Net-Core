@@ -1,0 +1,51 @@
+<div class="col-md-10 col-sm-12 col-xs-12">
+  <h6 class="account-table-head">YOUR WISHLIST</h6>
+
+  <div class="table_block table-responsive" id="order-detail-content">
+     <table class="table table-bordered" id="cart_summary">
+        <thead>
+           <tr>
+              <th colspan="2" class="cart_product first_item">Product name</th>
+              <th class="cart_unit item">Price</th>
+              <th class="cart_quantity item">QUANTITY</th>
+              <th class="cart_delete last_item">ACTION</th>
+           </tr>
+        </thead>
+        <tfoot class="dd-list-empty"><tr><td>There is no product in wishlist!</td></tr></tfoot>
+        <tbody class="dropdown-product-list">
+           <tr *ngFor="let item of wishlistItems" class="cart_item first_item address_0 odd dd-product-group">
+              <td class="cart_product">
+                 <a><!--Linnk for details page-->
+                    <img alt="Faded Short Sleeve T-shirts" src="{{item.imageUrl}}">
+                 </a>
+              </td>
+              <td class="cart_description">
+                 <p class="product-name">
+                    <a>{{item.name}}</a> <!--Linnk for details page-->
+                 </p>
+                 <small>Size: <span>XL</span></small>
+                 <small>Color: <span>Red</span></small>
+                 <small>Product Code: <span>12658472</span></small>
+              </td>
+              <td data-title="PRICE" class="cart_unit">
+                 <span class="price">${{item.price}}</span>
+              </td>
+
+              <td class="cart_quantity text-center">
+                 <div class="cart_quantity_button clrfix">
+                    <a title="Subtract" href="#" class="cart_quantity_down btn btn-default btn-minus" rel="nofollow">-</a>
+                    <input type="text" name="quantity" value="1" class="cart_quantity_input form-control grey count" autocomplete="off" size="2" disabled="">
+                    <a title="Add" href="#" class="cart_quantity_up btn btn-default btn-plus" rel="nofollow">+</a>
+                 </div>
+              </td>
+              <td class="cart_delete text-center">
+                 <div>
+                    <a href="#" title="Buy" class="btn btn-sec-col">ADD TO CART</a><br>
+                    <a href="#" title="Remove" rel="nofollow" class="btn remove ddr"><i class="icon_close"></i> Remove</a>
+                 </div>
+              </td>
+           </tr>
+        </tbody>
+     </table>
+  </div>
+</div>

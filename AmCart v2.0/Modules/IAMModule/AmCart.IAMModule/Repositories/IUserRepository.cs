@@ -4,7 +4,7 @@ namespace AmCart.IAMModule
 {
     public interface IUserRepository
     {
-        Task CreateAsync(User user);
+        Task<string> CreateAsync(User user);
 
         Task<User> GetUserAsync(string id);
 
