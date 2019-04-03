@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnDestroy, SimpleChanges } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Product } from '../../models/product-item';
+import { ProductElasticSearchService } from 'src/app/core/services/product-elasticsearch.service';
 
 @Component({
   selector: 'app-product-list',
@@ -14,14 +15,15 @@ export class ProductListComponent implements OnInit, OnDestroy {
   products: Product[]
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor() { }
+  constructor(private productService: ProductElasticSearchService) { }
 
   ngOnInit() {
+    console.log(this.productService.isAvailable());
   }
 
   ngOnChanges(changes: SimpleChanges) {
-  
-    if(changes['data']) {
+
+    if (changes['data']) {
       this.products = this.data;
     }
   }
