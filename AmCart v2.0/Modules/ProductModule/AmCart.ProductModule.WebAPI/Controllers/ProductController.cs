@@ -85,5 +85,22 @@ namespace AmCart.ProductModule.WebAPI
             return await productAppService.GetAllBestsellerProductsAsync();
 
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ExceptionFilterWebApi]
+        public async Task<OperationResult<ProductDTO>> Create(ProductDTO productDTO)
+        {
+            return await productAppService.CreateAsync(productDTO);
+        }
+
+
+        [HttpDelete]
+        [AllowAnonymous]
+        [ExceptionFilterWebApi]
+        public async Task<OperationResult<IEnumerable<ProductDTO>>> Delete(string id)
+        {
+            return await productAppService.DeleteAsync(id);
+        }
     }
 }

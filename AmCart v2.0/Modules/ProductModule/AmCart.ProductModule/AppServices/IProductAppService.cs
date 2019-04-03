@@ -21,6 +21,10 @@ namespace AmCart.ProductModule.AppServices
 
         Task<OperationResult<ProductDTO>> GetByIdAsync(string id);
 
+        Task<OperationResult<ProductDTO>> CreateAsync(ProductDTO productDTO);
+
+        Task<OperationResult<IEnumerable<ProductDTO>>> DeleteAsync(string id);
+
 
     }
 }
