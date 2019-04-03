@@ -1,4 +1,5 @@
 ﻿using AmCart.OrderModule.Data.DBContext;
+using AmCart.OrderModule.Domain;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;

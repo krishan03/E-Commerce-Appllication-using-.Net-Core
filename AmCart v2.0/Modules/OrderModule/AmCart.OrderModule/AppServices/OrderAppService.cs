@@ -4,6 +4,7 @@ using AmCart.Core.ValueObjects;
 using AmCart.OrderModule.AppServices.DTOs;
 using AmCart.OrderModule.Data.Repositories;
 using AmCart.OrderModule.Data.UoW;
+using AmCart.OrderModule.Domain;
 using AutoMapper;
 using System;
 using System.Collections.Generic;

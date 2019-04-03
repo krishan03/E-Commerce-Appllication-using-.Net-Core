@@ -4,6 +4,7 @@ using System;
 using AmCart.Core.Data;
 using System.Collections.Generic;
 using System.Text;
+using AmCart.OrderModule.Domain;
 
 namespace AmCart.OrderModule.Data.UoW
 {

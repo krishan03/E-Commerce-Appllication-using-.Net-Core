@@ -1,14 +1,14 @@
-﻿using AmCart.Core.AppServices;
+﻿using AmCart.Core.Domain;
 using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AmCart.OrderModule.AppServices.DTOs
+namespace AmCart.OrderModule.Domain
 {
-    public class OrderDTO : DtoBase
+    public class Order : DomainBase
     {
-        public AddressDTO DeliveryAddress { get; set; }
+        public Address DeliveryAddress { get; set; }
 
         public ObjectId CustomerId { get; set; }
 
@@ -16,12 +16,12 @@ namespace AmCart.OrderModule.AppServices.DTOs
 
         public string TrackingNumber { get; set; }
 
-        public IList<ProductDTO> OrderedProducts { get; set; }
+        public IList<Product> OrderedProducts { get; set; }
 
         public double TotalAmountPayable { get; set; }
 
         public double TaxPercentage { get; set; }
 
-        public IList<StatusDTO> Status { get; set; }
+        public IList<Status> Status { get; set; }
     }
 }

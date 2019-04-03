@@ -1,4 +1,5 @@
 ﻿using AmCart.OrderModule.AppServices.DTOs;
+using AmCart.OrderModule.Domain;
 using AutoMapper;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,5 @@
 ﻿using AmCart.Core.ExceptionManagement.CustomException;
+using AmCart.OrderModule.Domain;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

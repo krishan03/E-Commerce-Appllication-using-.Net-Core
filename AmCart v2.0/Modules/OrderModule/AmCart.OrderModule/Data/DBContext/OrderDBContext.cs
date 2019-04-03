@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using AmCart.OrderModule.Domain;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
