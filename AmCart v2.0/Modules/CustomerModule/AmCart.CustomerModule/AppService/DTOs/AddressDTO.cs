@@ -1,8 +1,11 @@
-﻿using AmCart.Core.Domain;
+﻿using AmCart.Core.AppServices;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace AmCart.OrderModule
+namespace AmCart.CustomerModule.AppService.DTOs
 {
-    public class Address : DomainBase
+    public class AddressDTO:DtoBase
     {
         public string Name { get; set; }
 

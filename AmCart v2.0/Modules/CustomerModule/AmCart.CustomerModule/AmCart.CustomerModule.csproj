@@ -5,8 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\AmCart.Core.AppServices\AmCart.Core.AppServices.csproj" />
     <ProjectReference Include="..\..\..\Foundation\AmCart.Core.Data\AmCart.Core.Data.csproj" />
     <ProjectReference Include="..\..\..\Foundation\AmCart.Core.Domain\AmCart.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Foundation\AmCart.Core\AmCart.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
   </ItemGroup>
 
 </Project>

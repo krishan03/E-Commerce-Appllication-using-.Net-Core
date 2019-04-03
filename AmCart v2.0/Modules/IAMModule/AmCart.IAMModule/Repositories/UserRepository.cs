@@ -19,7 +19,7 @@ namespace AmCart.IAMModule
             this.roleRepository = roleRepository;
         }
 
-        public async Task CreateAsync(User user)
+        public async Task<string> CreateAsync(User user)
         {
             try
             {
@@ -27,6 +27,7 @@ namespace AmCart.IAMModule
                 user.Role = role;
                 user.Permissions = new List<string>() { "Read" };
                 await dbContext.Users.InsertOneAsync(user);
+                return user.Id;
             }
             catch (Exception ex)
             {
