@@ -51,6 +51,13 @@ namespace AmCart.OrderModule.WebAPI.Controllers
             return await orderAppService.CreateAsync(orderDTO);
         }
 
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<OperationResult<OrderDTO>> GetById(string id)
+        {
+            return await orderAppService.GetByIdAsync(id);
+        }
+
     }
 
 }
