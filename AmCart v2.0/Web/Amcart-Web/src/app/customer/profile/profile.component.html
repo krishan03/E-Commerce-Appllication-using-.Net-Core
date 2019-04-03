@@ -24,10 +24,10 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-6">
                         <p class="my-orders">My Orders:</p>
-                        <p *ngIf="context != null">You have {{context.customer.cart.length}} item in your cart</p>
+                        <p *ngIf="context != null">You have {{cartItemLength}} item in your cart</p>
                       </div>
                       <div class="col-xs-12 col-sm-6 view-cart">
-                        <button class="btn btn-sec-col"><i class="icon-bag"></i>&nbsp;&nbsp;VIEW CART</button>
+                        <button (click)="navigateToCart()" class="btn btn-sec-col"><i class="icon-bag"></i>&nbsp;&nbsp;VIEW CART</button>
                       </div>
                     </div>
                   </div>
@@ -38,7 +38,7 @@
                   </div>
                   <div class="col-lg-5 col-xs-12 col-sm-6 pull-right">
                     <div class="row">
-                      <p class="col-xs-12">Last item ordered:<span> Majestic Beecroft Sweater</span> <span class="price">$800</span></p>
+                      <p class="col-xs-12">Last item ordered:<span> Majestic Beecroft Sweater</span> <span class="price">₹800</span></p>
                     </div>
                   </div>
                 </div>

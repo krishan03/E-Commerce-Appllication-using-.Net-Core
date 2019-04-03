@@ -27,7 +27,9 @@ namespace AmCart.Core.Data.DataAccess
         public async Task Delete(string id)
         {
             var filter = Builders<TEntity>.Filter.Eq("_id", ObjectId.Parse(id));
-            await collection.DeleteOneAsync(filter);
+            await collection.FindOneAndUpdateAsync(filter, Builders<TEntity>.Update.Set("IsActive", false));
+           
+           
         }
 
         public async Task<IEnumerable<TEntity>> GetAll()

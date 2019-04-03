@@ -1,0 +1,84 @@
+<div class="pg-body">
+    <div class="container">
+       <div class="row">
+          <div class="container checkout-menu">
+             <a href="" class="btn btn-third-col col-sm-3 col-xs-12">ORDER COMPLETE</a>
+             <a href="" class="btn btn-yet-col col-sm-3 col-xs-12">PAYMENT METHOD</a>
+             <a href="" class="btn btn-yet-col col-sm-3 col-xs-12">BILLING &amp; SHIPPING</a>
+             <a href="" class="btn btn-yet-col col-sm-3 col-xs-12">CHECKOUT OPTION</a>
+          </div>
+          <h2 class="col-xs-12 thank-you">Thank you. Your order has been received</h2>
+          <div class="col-md-8 col-xs-12">
+             <div *ngIf="orderDetails != null" class="table_block table-responsive mb-40 clearfix" id="order-detail-content">
+                <table class="table table-bordered" id="cart_summary">
+                   <thead>
+                      <tr>
+                         <th colspan="2" class="cart_product first_item">Product name</th>
+                         <th class="cart_unit item">Price</th>
+                         <th class="cart_quantity item">QUANTITY</th>
+                         <th class="cart_delete last_item">SUBTOTAL</th>
+                      </tr>
+                   </thead>
+                   <tfoot class="dd-list-empty"><tr><td colspan="5">There is no product in it!</td></tr></tfoot>
+                   <tbody class="dropdown-product-list">
+                      <tr *ngFor="let product of orderDetails.OrderedProducts" class="cart_item first_item address_0 odd dd-product-group">
+                         <td class="cart_product">
+                            <a>
+                               <img alt="{{product.Name}}" src="{{product.ImageUrl[0]}}">
+                            </a>
+                         </td>
+                         <td class="cart_description">
+                            <p class="product-name">
+                               <a>{{product.Name}}</a>
+                            </p>
+                            <small>Size: <span>XL</span></small>
+                            <small>Color: <span>Red</span></small>
+                         </td>
+                         <td data-title="PRICE" class="cart_unit">
+                            <span class="price">${{product.Price}}.00</span>
+                         </td>
+
+                         <td data-title="QUANTITY" class="cart_quantity text-center">
+                            <div class="cart_quantity_button clrfix">
+                               <span class="count">{{product.Quantity}}</span>
+                            </div>
+                         </td>
+                         <td class="subtotal text-center no-cls-btn" data-title="SUBTOTAL">
+                            <p>${{product.Quantity * product.Price}}.00</p>
+                         </td>
+                      </tr>
+                   </tbody>
+                </table>
+                <div class="container col-xs-12 tfoot">
+                   <p class="row info"><span class="pull-left col-xs-6">Cart Subtotal:</span><span class="pull-right col-xs-6 text-right">${{totalPrice}}.00</span></p>
+                   <p class="row info"><span class="pull-left col-xs-6">Shipping:</span>
+                    <span *ngIf="shippingPrice == 0" class="pull-right col-xs-6 text-right gray">Free Shipping</span>
+                    <span *ngIf="shippingPrice > 0" class="pull-right col-xs-6 text-right gray">Free Shipping</span>
+                  </p>
+                   <p class="row info total"><span class="pull-left col-xs-6">ORDER TOTAL:</span><span class="col-xs-6 pull-right text-right">${{totalPrice + shippingPrice}}.00</span></p>
+                </div>
+             </div>
+          </div>
+          <div *ngIf="orderDetails != null" class="col-md-4 col-xs-12 pull-right">
+             <div class="row">
+                <div class="col-xs-12">
+                   <div class="contact-info">
+                      <h6><span class="icon-users"></span>CUSTOMERS DETAIL</h6>
+                      <p>Name: {{userDetails.profile.name}}</p>
+                      <p>Phone: <span>+1(800)2364 322 23 16</span></p>
+                      <div class="hr"></div>
+                      <h6><span class="icon-plane"></span>SHIPPING ADDRESS</h6>
+                      <p>{{orderDetails.DeliveryAddress.CompanyName}} <br>
+                         {{orderDetails.DeliveryAddress.HouseStreetNumber}} <br>
+                         {{orderDetails.DeliveryAddress.Locality}} <br>
+                         {{orderDetails.DeliveryAddress.City}}, {{orderDetails.DeliveryAddress.State}}<br>
+                         {{orderDetails.DeliveryAddress.Pincode}} </p>
+                      <div class="hr"></div>
+                   </div>
+                </div>
+             </div>
+          </div>         
+          <div class="gap-70 col-xs-12"></div>
+       </div>
+    </div>
+ </div>

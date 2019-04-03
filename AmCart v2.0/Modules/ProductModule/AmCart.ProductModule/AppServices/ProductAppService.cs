@@ -85,5 +85,32 @@ namespace AmCart.ProductModule.AppServices
             List<ProductDTO> productDTOList = mapper.Map<IEnumerable<Product>, List<ProductDTO>>(productList);
             return new OperationResult<IEnumerable<ProductDTO>>(productDTOList, true, message);
         }
+
+        public async Task<OperationResult<ProductDTO>> CreateAsync(ProductDTO productDTO)
+        {
+
+            Product product = mapper.Map<ProductDTO, Product>(productDTO);
+            product.IsActive = true;
+            await mongoUnitOfWork.MongoDBRepository.Add(product);
+            Message message = new Message(string.Empty, "Inserted Successfully");
+            return new OperationResult<ProductDTO>(productDTO, true, message);
+        }
+
+        public async Task<OperationResult<IEnumerable<ProductDTO>>> DeleteAsync(string id)
+        {
+            IEnumerable<Product> productList = await mongoUnitOfWork.MongoDBRepository.GetById(id);
+            if (productList.ToList().Count > 0)
+            {
+                Message message = new Message(string.Empty, "Deleted Successfully");
+                List<ProductDTO> productDTOList = mapper.Map<IEnumerable<Product>, List<ProductDTO>>(productList);
+                await mongoUnitOfWork.MongoDBRepository.Delete(id);
+                return new OperationResult<IEnumerable<ProductDTO>>(productDTOList, true, message);
+
+            }
+            else
+            {
+                return new OperationResult<IEnumerable<ProductDTO>>(new List<ProductDTO>(), false, new Message(String.Empty, "Error in deleting"));
+            }
+        }
     }
 }

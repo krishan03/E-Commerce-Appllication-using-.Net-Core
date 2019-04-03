@@ -5,6 +5,8 @@ import { HttpService } from './services/http.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { AuthGuard } from './auth.guard';
+import { OrderService } from './services/order-service';
+import { CustomerService } from './services/customer.service';
 
 @NgModule({
   imports: [
@@ -14,6 +16,8 @@ import { AuthGuard } from './auth.guard';
   providers: [
     AuthService,
     HttpService,
+    OrderService,
+    CustomerService,
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,

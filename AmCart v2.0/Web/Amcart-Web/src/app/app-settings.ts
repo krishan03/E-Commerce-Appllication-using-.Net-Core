@@ -8,6 +8,7 @@ export namespace Constants {
         // public static readonly productApiRoot = 'http://localhost:4100/api/';
         public static readonly productApiRoot = 'https://productapi-dot-prefab-clover-225309.appspot.com/api/';
         public static readonly customerApiRoot = 'http://localhost:4000/api/';
+        public static readonly orderApiRoot = 'http://localhost:4200/api/';
     }
     export class Urls {
         public static readonly ProductList = 'product';

@@ -1,5 +1,6 @@
 ﻿using AmCart.Core.AppServices;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +11,8 @@ namespace AmCart.OrderModule.AppServices.DTOs
     {
         public AddressDTO DeliveryAddress { get; set; }
 
-        public ObjectId CustomerId { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string CustomerId { get; set; }
 
         public string PaymentType { get; set; }
 
@@ -23,5 +25,10 @@ namespace AmCart.OrderModule.AppServices.DTOs
         public double TaxPercentage { get; set; }
 
         public IList<StatusDTO> Status { get; set; }
+
+
+
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string UserId { get; set; }
     }
 }

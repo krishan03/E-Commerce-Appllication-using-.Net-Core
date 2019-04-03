@@ -98,5 +98,7 @@ namespace AmCart.OrderModule.Domain
 
         public int Rating { get; set; }
 
+        public int Quantity { get; set; }
+
     }
 }

@@ -6,7 +6,7 @@
       </div>
       <div class="s-cart-pan">
         <div *ngIf="isUserLoggedIn" class="s-bag-2">
-          <span class="dd-products-count">{{totalQty}}</span> item(s) <span class="active dd-products-price">/ ${{totalPrice}}.00</span>
+          <span class="dd-products-count">{{totalQty}}</span> item(s) <span class="active dd-products-price">/ ₹{{totalPrice}}.00</span>
         </div>
         <div *ngIf="!isUserLoggedIn" class="s-bag-2">
           Please Login to shop.
@@ -30,13 +30,13 @@
             </div>
             <div class="dd-product-desc pull-left">
               <a class="title">{{item.product.name}}</a>
-              <div class="qty">{{item.quantity}} x <span class="active">${{item.product.price}}.00</span></div>
+              <div class="qty">{{item.quantity}} x <span class="active">₹{{item.product.price}}.00</span></div>
               <a href="#" class="close-btn ddr"><i class="icon_close"></i></a>
             </div>
           </div>
           <div class="text-center clear-all-btn">
             <span class="cart-block-subtotal">
-              Cart Subtotal: ${{totalPrice}}.00
+              Cart Subtotal: ₹{{totalPrice}}.00
             </span>
           </div>
         </div>
@@ -45,7 +45,7 @@
             <a href="cart" class="btn btn-md btn-third-col btn-w100">View Cart</a>
           </div>
           <div class="col-xs-6">
-            <a href="checkout.html" class="btn btn-md btn-third-col btn-w100">Procced to Checkout</a>
+            <a href="checkout" class="btn btn-md btn-third-col btn-w100">Procced to Checkout</a>
           </div>
         </div>
       </div>

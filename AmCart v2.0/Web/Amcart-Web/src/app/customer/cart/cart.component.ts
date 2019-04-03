@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 import { CustomerService } from '../../core/services/customer.service';
 import { toDate } from '@angular/common/src/i18n/format_date';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +17,7 @@ export class CartComponent implements OnInit {
   totalPrice: number
   shippingPrice: number
 
-  constructor(private customerService: CustomerService, private authService: AuthService) { }
+  constructor(private customerService: CustomerService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.isUserLoggedIn = this.authService.isLoggedIn();
@@ -55,5 +56,9 @@ export class CartComponent implements OnInit {
       this.customerService.updateCart(this.cartItems);
       this.customerService.updateTotalPrice(this.totalPrice + this.shippingPrice);
     }
+  }
+
+  proceedToCheckout() {
+    this.router.navigate(['checkout']);
   }
 }

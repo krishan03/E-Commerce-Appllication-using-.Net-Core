@@ -1,14 +1,11 @@
 <figcaption>
-    <a class="pl-button pl-addcart" data-placement="top" data-toggle="tooltip" href="#" title="" data-original-title="Add To Cart">
+    <a class="pl-button pl-addcart" data-placement="top" data-toggle="tooltip" (click)="addToCart()" title="" data-original-title="Add To Cart">
       <i class="icon-bag"></i>
     </a>
-    <a class="pl-button pl-qview" [routerLink]="['/product/',productId]" data-placement="top" data-toggle="tooltip" href="#" title="" data-original-title="Quick View">
+    <a class="pl-button pl-qview" [routerLink]="['/product/',product.Id]" data-placement="top" data-toggle="tooltip" title="" data-original-title="Quick View">
       <i class="icon-eye"></i>
     </a>
-    <a class="pl-button pl-compare" data-placement="top" data-toggle="tooltip" href="#" title="" data-original-title="Compare">
-      <i class="arrow_left-right_alt"></i>
-    </a>
-    <a class="pl-button pl-wishlist" data-placement="top" data-toggle="tooltip" href="#" title="" data-original-title="Add To Wish List">
+    <a class="pl-button pl-wishlist" data-placement="top" data-toggle="tooltip" (click)="addToWishlist()" title="" data-original-title="Add To Wish List">
       <i class="icon-heart"></i>
     </a>
   </figcaption>

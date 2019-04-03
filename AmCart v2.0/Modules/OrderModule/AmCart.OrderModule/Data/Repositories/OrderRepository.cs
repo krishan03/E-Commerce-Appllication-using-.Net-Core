@@ -1,6 +1,7 @@
 ﻿using AmCart.OrderModule.Data.DBContext;
 using AmCart.OrderModule.Domain;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,19 @@ namespace AmCart.OrderModule.Data.Repositories
                     .Find(_ => true).ToListAsync();
             }
             catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<IList<Order>> GetOrdersByUserId(string id)
+        {
+            try
+            {
+                var filter = Builders<Order>.Filter.Eq("UserId", ObjectId.Parse(id));
+                return await _context.Orders.Find(filter).ToListAsync();
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

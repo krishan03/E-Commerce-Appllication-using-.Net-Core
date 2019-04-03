@@ -7,6 +7,8 @@ namespace AmCart.OrderModule.AppServices.DTOs
 {
     public class AddressDTO : DtoBase
     {
+        public string CompanyName { get; set; }
+
         public string Name { get; set; }
 
         public string Mobile { get; set; }
@@ -20,6 +22,8 @@ namespace AmCart.OrderModule.AppServices.DTOs
         public string Locality { get; set; }
 
         public string City { get; set; }
+
+        public string Country { get; set; }
 
         public string TypeOfAddress { get; set; }
 

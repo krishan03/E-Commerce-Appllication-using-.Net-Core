@@ -12,5 +12,9 @@ namespace AmCart.OrderModule.AppServices
     {
         //OperationResult<ProductDTO> Create(ProductDTO item);
         Task<OperationResult<IEnumerable<OrderDTO>>> GetAllOrderssAsync(string userid);
+
+        Task<OperationResult<OrderDTO>> CreateAsync(OrderDTO orderDTO);
+
+        Task<OperationResult<OrderDTO>> GetByIdAsync(string id);
     }
 }

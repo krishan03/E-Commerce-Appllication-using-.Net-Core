@@ -1,0 +1,172 @@
+<div class="container">
+  <div class="row">
+     <div class="container checkout-menu">
+        <a href="" class="btn btn-yet-col col-sm-3 col-xs-12">ORDER COMPLETE</a>
+        <a href="" class="btn btn-yet-col col-sm-3 col-xs-12">PAYMENT METHOD</a>
+        <a href="" class="btn btn-yet-col col-sm-3 col-xs-12">BILLING &amp; SHIPPING</a>
+        <a href="" class="btn btn-third-col col-sm-3 col-xs-12">CHECKOUT OPTION</a>
+     </div>
+  </div>
+  <div class="row">
+     <div class="you-order mobile-collapse col-md-5 col-xs-12 pull-right clearfix">
+        <div class="mobile-collapse-header">YOUR ORDER</div>
+        <div class="table_block table-responsive clearfix mobile-collapse-body" id="order-detail-content">
+           <div *ngIf = "cartItems != null && cartItems.length == 0" class="dd-list-empty">There is no product in it!</div>
+           <div *ngIf = "cartItems != null && cartItems.length > 0" class="dropdown-product-list">
+              <table class="table" id="cart_summary">
+                 <tbody>
+                    <tr *ngFor="let item of cartItems" class="cart_item first_item address_0 odd dd-product-group">
+                       <td class="cart_product">
+                          <a>
+                             <img alt="{{item.product.name}}" src="{{item.product.imageUrl[0]}}">
+                          </a>
+                       </td>
+                       <td class="cart_description">
+                          <p class="product-name">
+                             <a>{{item.product.name}}</a>
+                          </p>
+                          <div class="qty">{{item.quantity}} x <span>${{item.product.price}}.00</span></div>
+                          <small>Color: <span>Red</span></small>
+                          <small>Product Code: <span>12658472</span></small>
+                          <a class="close-btn ddr" href="#"><i class="icon_close"></i></a>
+                       </td>
+                    </tr>
+                 </tbody>
+              </table>
+              <div class="container col-xs-12 tfoot">
+                <p class="row info"><span class="pull-left col-xs-6">Cart Subtotal:</span><span class="pull-right col-xs-6 text-right">₹{{totalPrice}}.00</span></p>
+                 <p class="row info"><span class="pull-left col-xs-6">Shipping:</span>
+                  <span *ngIf="shippingPrice > 0" class="pull-right col-xs-6 text-right gray">₹{{shippingPrice}}</span>
+                  <span *ngIf="shippingPrice == 0" class="pull-right col-xs-6 text-right gray">Free Shipping</span>
+                </p>
+                 <p class="row info total"><span class="pull-left col-xs-6">ORDER TOTAL:</span><span class="col-xs-6 pull-right text-right">₹{{totalPrice + shippingPrice}}.00</span></p>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="col-md-7 col-xs-12 pull-left">
+        <div id="accordion-order">
+           <div *ngIf="shippingAddress != null" class="accordion-group panel">
+              <a href="#collapse-2" data-parent="#accordion-order" data-toggle="collapse" class="accordion-header">
+                 BILLING INFORMATION
+              </a>
+              <div class="collapse in" id="collapse-2" style="">
+                 <div class="accordion-body">
+                    <div class="row">
+                       <div class="col-xs-12">
+                          <br><h6>SHIPPING ADDRESS</h6><br>
+                          <div class="row">
+                             <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                   <input type="text" placeholder="First Name *" value="{{shippingAddress.name.split(' ')[0]}}" class="placeholder-fix form-control" name="f_name">
+                                </div>
+                                <div class="form-group">
+                                   <input type="email" placeholder="E-mail Address *" value="{{shippingAddress.name}}" class="placeholder-fix form-control" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" placeholder="Country *" value="{{shippingAddress.country}}" class="placeholder-fix form-control" name="email">
+                                 </div>
+                                <div class="form-group">
+                                   <input type="text" placeholder="State / Province * " value="{{shippingAddress.state}}" class="placeholder-fix form-control" name="state">
+                                </div>
+                             </div>
+                             <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                   <input type="text" placeholder="Last Name *" value="{{shippingAddress.name.split(' ')[1]}}" class="placeholder-fix form-control" name="l_name">
+                                </div>
+                                <div class="form-group">
+                                   <input type="text" placeholder="Company " value="{{shippingAddress.companyName}}" class="placeholder-fix form-control" name="company">
+                                </div>
+                                <div class="form-group">
+                                   <input type="text" placeholder="Town / City * " value="{{shippingAddress.city}}" class="placeholder-fix form-control" name="city">
+                                </div>
+                                <div class="form-group">
+                                   <input type="text" placeholder="Postcode / Zip * " value="{{shippingAddress.pincode}}" class="placeholder-fix form-control" name="zip_code">
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="accordion-group panel">
+              <a href="#collapse-3" data-parent="#accordion-order" data-toggle="collapse" class="accordion-header collapsed">
+                 SHIPPING METHOD
+              </a>
+              <div class="collapse" id="collapse-3" style="height: 0px;">
+                 <div class="accordion-body">
+                    <div class="row">
+                       <div class="col-xs-12">
+                          <div class="form-group radio">
+                             <input type="radio" class="stl" (change)="updateShippingMethod('Airplane')" 
+                              [checked]="shippingMethod == 'Airplane'"
+                              name="shipping_method" id="airplane" value="Airplane">
+                             <label for="airplane" class="stl"><span><span></span></span>Airplane</label>
+                          </div>
+                          <div class="form-group radio">
+                             <input type="radio" class="stl" (change)="updateShippingMethod('Transport')" 
+                             [checked]="shippingMethod == 'Transport'"
+                             name="shipping_method" id="transport" value="Transport">
+                             <label for="transport" class="stl"><span><span></span></span>Transport</label>
+                          </div>
+                          <div class="form-group radio">
+                             <input type="radio" class="stl" (change)="updateShippingMethod('Train')" 
+                             [checked]="shippingMethod == 'Train'"
+                             name="shipping_method" id="train" value="Train">
+                             <label for="train" class="stl"><span><span></span></span>Train</label>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="accordion-group panel">
+              <a href="#collapse-4" data-parent="#accordion-order" data-toggle="collapse" class="accordion-header collapsed">
+                 PAYMENT METHOD
+              </a>
+              <div class="collapse" id="collapse-4" style="height: 0px;">
+                 <div class="accordion-body">
+                    <div class="row">
+                       <div class="col-xs-12">
+                          <div class="form-group radio">
+                             <input type="radio" class="stl" (change)="updatePaymentMethod('Transfer')"
+                              [checked]="paymentMethod == 'Transfer'"
+                               name="payment_method" id="transfer" value="transfer">
+                             <label for="transfer" class="stl"><span><span></span></span>Direct Bank Transfer</label>
+                          </div>
+                          <div class="form-group radio">
+                             <input type="radio" class="stl" (change)="updatePaymentMethod('Cheque')" 
+                             [checked]="paymentMethod == 'Cheque'"
+                             name="payment_method" id="cheque" value="Cheque">
+                             <label for="cheque" class="stl"><span><span></span></span>Cheque payment</label>
+                          </div>
+                          <div class="form-group radio">
+                             <input type="radio" class="stl" (change)="updatePaymentMethod('Paypal')" 
+                             [checked]="paymentMethod == 'PayPal'"
+                             name="payment_method" id="PayPal" value="PayPal">
+                             <label for="PayPal" class="stl"><span><span></span></span>PayPal <img src="images/paypal_icon.jpg" alt="paypal"></label>
+                          </div>
+                       </div>
+                    </div>
+                    <br>
+                    <div class="row big-button">
+                       <div class="col-xs-12 clearfix">
+                          <button (click)="placeOrder()" class="btn btn-lg btn-third-col" type="submit">PLACE ORDER</button>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="row">
+           <div class="col-xs-12">
+              <h6 class="accordion-h6">ORDER NOTES</h6>
+              <div class="required form-group">
+                 <textarea rows="3" class="form-control placeholder-fix" value="{{orderNotes}}" placeholder="Notes about your order"></textarea>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>

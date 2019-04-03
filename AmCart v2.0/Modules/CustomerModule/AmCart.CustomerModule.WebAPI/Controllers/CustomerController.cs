@@ -1,5 +1,7 @@
 ﻿using AmCart.Core.ValueObjects;
 using AmCart.Core.WebMVC.Filters;
+using AmCart.CustomerModule.AppService.DTOs;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -15,9 +17,12 @@ namespace AmCart.CustomerModule.WebAPI
     {
         private readonly ICustomerRepository customerRepository;
 
-        public CustomerController(ICustomerRepository repository)
+        private readonly IMapper mapper;
+
+        public CustomerController(ICustomerRepository repository, IMapper mapper)
         {
             this.customerRepository = repository;
+            this.mapper = mapper;
         }
 
         [HttpGet]
@@ -42,6 +47,26 @@ namespace AmCart.CustomerModule.WebAPI
             };
 
             return new OperationResult<CustomerContext>(customerContext, true, new Message("", ""));
+        }
+
+        [HttpPost]
+        [Route("cart")]
+        public async Task<OperationResult> AddItemInCart(CartProductDTO cartProduct)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier);
+            CartProduct product = mapper.Map<CartProductDTO, CartProduct>(cartProduct);
+            await this.customerRepository.AddItemInCart(userId.Value, product);
+            return new OperationResult(true, new Message("", ""));
+        }
+
+        [HttpPost]
+        [Route("wishlist")]
+        public async Task<OperationResult> AddItemInWishlist(ProductLiteDTO wishlistProduct)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier);
+            ProductLite product = mapper.Map<ProductLiteDTO, ProductLite>(wishlistProduct);
+            await this.customerRepository.AddItemInWishlist(userId.Value, product);
+            return new OperationResult(true, new Message("", ""));
         }
     }
 }
