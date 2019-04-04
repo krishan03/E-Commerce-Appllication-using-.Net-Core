@@ -13,13 +13,14 @@ import { ProductElasticSearchService } from '../core/services/product-elasticsea
 export class HeaderComponent implements OnInit {
 
   userDetails: User;
+  isAdmin: boolean
 
   constructor(private authService: AuthService, private router: Router, private _pes: ProductElasticSearchService) { }
 
   ngOnInit() {
     this.authService.getUserDetails().then(user => {
       this.userDetails = user;
-      console.log(this.userDetails);
+      this.isAdmin = this.userDetails.profile.sub == "5c0a5ba3e54cce9c38588e70";
     });
   }
 

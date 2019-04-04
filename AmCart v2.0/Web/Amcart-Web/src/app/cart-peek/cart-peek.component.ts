@@ -56,17 +56,19 @@ export class CartPeekComponent implements OnInit {
       this.isUserLoggedIn = this.isLoggedIn;
       if(this.isLoggedIn){
         this.customerService.loadCustomerContext().subscribe(result => {
-          this.context = result.data;
-          this.cartItems = this.context.customer.cart;
-          this.totalPrice = 0;
-          this.totalQty = 0;
-          this.cartItems.forEach(c => {
-            this.totalQty+= c.quantity
-            this.totalPrice+= c.product.price*c.quantity
-          });
+          if(result){
+            this.context = result.data;
+            this.cartItems = this.context.customer.cart;
+            this.totalPrice = 0;
+            this.totalQty = 0;
+            this.cartItems.forEach(c => {
+              this.totalQty+= c.quantity
+              this.totalPrice+= c.product.price*c.quantity
+            });
 
-          if(this.totalPrice > 0 && this.totalPrice < 2000) {
-            this.totalPrice += 100;
+            if(this.totalPrice > 0 && this.totalPrice < 2000) {
+              this.totalPrice += 100;
+            }
           }
         })
       }

@@ -46,11 +46,11 @@ export class CustomerService {
         this.httpService.Post(`${Constants.AppConstants.customerApiRoot}customer/wishlist`, itemToAdd).subscribe(data => {});
     }
 
-    addInCart(value: any) {
+    addInCart(value: any, quantity: number) {
         var itemToAdd: any = {
             dynamicCategories: value.DynamicCategories,
             isActive: value.IsActive,
-            quantity: 1,
+            quantity: quantity,
             product: {
                 id: value.Id,
                 imageUrl: value.ImageUrl,

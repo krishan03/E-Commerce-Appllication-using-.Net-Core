@@ -23,7 +23,7 @@ export class ProductCaptionComponent implements OnInit {
       this.authService.redirectToLogin();
     }
     else{
-    this.customerService.addInCart(this.product);
+    this.customerService.addInCart(this.product, 1);
     }
   }
 

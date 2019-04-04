@@ -97,14 +97,14 @@
         </div>
         <div class="hr"></div>
         <div class="cart_quantity_button clrfix product-count pull-left">
-          <a rel="nofollow" class="btn btn-default btn-minus" href="#" title="Subtract">&ndash;</a>
+          <a rel="nofollow" class="btn btn-default btn-minus" (click)="decreaseQuantity()" title="Subtract">&ndash;</a>
           <input type="text" disabled="" size="2" autocomplete="off" class="cart_quantity_input form-control grey count"
-            value="1" name="quantity">
-          <a rel="nofollow" class="btn btn-default btn-plus" href="#" title="Add">+</a>
+            value="{{quantity}}" name="quantity">
+          <a rel="nofollow" class="btn btn-default btn-plus" (click)="increaseQuantity()" title="Add">+</a>
         </div>
-        <button class="btn btn-sec-col pull-left add-cart">
+        <button (click)="addToCart()" class="btn btn-sec-col pull-left add-cart">
           <i class="icon-bag"></i>&nbsp;&nbsp;ADD TO CART</button>
-        <a href="#" class="btn btn-gray">
+        <a (click)="addToWishlist()" class="btn btn-gray">
           <span class="icon-heart"></span>
         </a>
         <a href="" class="btn btn-gray">

@@ -13,7 +13,7 @@ export class LoginCallbackComponent implements OnInit {
 
   ngOnInit() {
     this.authService.loginCallback().then(user => {
-      let returnUrl = sessionStorage.getItem('returnUrl') || '';
+      let returnUrl = '';
       this.router.navigate([returnUrl]);
     }, error => {
         console.error(error);
