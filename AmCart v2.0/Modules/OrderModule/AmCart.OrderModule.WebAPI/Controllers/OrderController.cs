@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AmCart.Core.ValueObjects;
@@ -49,7 +50,11 @@ namespace AmCart.OrderModule.WebAPI.Controllers
         [ExceptionFilterWebApi]
         public async Task<OperationResult<OrderDTO>> Create(OrderDTO orderDTO)
         {
-            return await orderAppService.CreateAsync(orderDTO);
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier);
+            var result = await orderAppService.CreateAsync(orderDTO);
+            HttpClient client = new HttpClient();
+            await client.GetStringAsync("http://localhost:4000/api/customer/emptyCart?userId=" + userId.Value);
+            return result;
         }
 
         [HttpGet]

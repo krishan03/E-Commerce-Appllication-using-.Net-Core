@@ -5,6 +5,7 @@ import { CONTEXT } from '@angular/core/src/render3/interfaces/view';
 import { User } from 'oidc-client';
 import { OrderService } from '../../core/services/order-service';
 import { Router } from '@angular/router';
+import { CustomerAddress } from '../../models/customer-address';
 
 @Component({
   selector: 'app-checkout',
@@ -41,7 +42,24 @@ export class CheckoutComponent implements OnInit {
           this.totalPrice = 0;
           this.cartItems.forEach(ci => this.totalPrice += ci.product.price * ci.quantity);
           this.shippingPrice = this.totalPrice >= 2000 ? 0 : 100;
-          this.shippingAddress = this.context.customer.addresses[0];
+          this.shippingAddress = this.context.customer.addresses.find(a => a.isDefault);
+          if(!this.shippingAddress){
+            this.shippingAddress = {
+              companyName: "",
+              name: "",
+              pincode: "",
+              state: "",
+              email: "",
+              houseStreetNumber: "",
+              locality: "",
+              city: "",
+              country: "",
+              isDefault: true
+            };
+          }
+          else{
+            this.shippingAddress.email = "";
+          }
         }
       })
     }
@@ -83,6 +101,8 @@ export class CheckoutComponent implements OnInit {
     console.log(orderDetails);
     this.orderService.placeOrder(orderDetails).subscribe(response => {
       console.log(response);
+      this.customerService.updateCart([]);
+      this.customerService.updateTotalPrice(0);
       this.router.navigate(['orderDetails/' + response.Data.Id]);
     });
   }

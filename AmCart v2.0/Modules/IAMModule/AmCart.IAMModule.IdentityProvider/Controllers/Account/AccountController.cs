@@ -1,3 +1,4 @@
+using AmCart.IAMModule.AppService;
 using IdentityModel;
 using IdentityServer4.Events;
 using IdentityServer4.Extensions;
@@ -11,6 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -170,6 +173,19 @@ namespace AmCart.IAMModule.IdentityProvider
                         Password = model.Password
                     };
                     string userId = await this.userRepository.CreateAsync(userToRegister);
+
+                    Customer customer = new Customer()
+                    {
+                        Addresses = new List<AddressDTO>(),
+                        Cart = new List<CartProductDTO>(),
+                        DOB = null,
+                        IsActive = true,
+                        UserId = userId,
+                        Wishlist = new List<ProductLiteDTO>()
+                    };
+
+                    HttpClient client = new HttpClient();
+                    await client.PostAsJsonAsync("http://localhost:4000/api/newcustomer", customer);
                 }
             }
 

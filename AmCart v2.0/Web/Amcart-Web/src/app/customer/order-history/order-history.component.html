@@ -1,6 +1,8 @@
 <div class="col-md-10 col-sm-12 col-xs-12">
     <h6 class="account-table-head">Order History</h6>
-
+    <div *ngIf="(orders != null && orders.length == 0)">
+      <h4>No previous orders.</h4>
+    </div>
     <div *ngFor="let order of orders" class="table_block table-responsive clearfix" id="order-detail-content">
        <table class="table table-bordered" id="cart_summary">
           <thead>

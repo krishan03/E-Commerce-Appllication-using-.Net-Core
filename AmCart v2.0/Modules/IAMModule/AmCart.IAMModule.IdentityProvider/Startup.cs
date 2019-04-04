@@ -43,7 +43,7 @@ namespace AmCart.IAMModule.IdentityProvider
 
             services.AddCors(o => o.AddPolicy("AMCartIAMCorsPolicy", builder =>
             {
-                builder.WithOrigins("http://localhost:5200").AllowAnyMethod().AllowAnyHeader();
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             }));
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
