@@ -11,8 +11,8 @@
               <th class="cart_delete last_item">ACTION</th>
            </tr>
         </thead>
-        <tfoot class="dd-list-empty"><tr><td>There is no product in wishlist!</td></tr></tfoot>
-        <tbody class="dropdown-product-list">
+        <tbody *ngIf="wishlistItems.length == 0" class=""><tr><td colspan="12">There is no product in wishlist!</td></tr></tbody>
+        <tbody *ngIf="wishlistItems.length > 0" class="dropdown-product-list">
            <tr *ngFor="let item of wishlistItems" class="cart_item first_item address_0 odd dd-product-group">
               <td class="cart_product">
                  <a><!--Linnk for details page-->

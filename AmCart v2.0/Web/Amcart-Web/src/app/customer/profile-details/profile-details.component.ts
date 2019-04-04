@@ -30,6 +30,9 @@ export class ProfileDetailsComponent implements OnInit {
       if(this.customerContextData){
         this.context = this.customerContextData;
         this.billingAddress = this.context.customer.addresses.find(a => a.isDefault);
+        if(!this.billingAddress){
+          this.billingAddress = new CustomerAddress();
+        }
       }
     }
   }

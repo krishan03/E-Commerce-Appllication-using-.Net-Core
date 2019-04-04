@@ -32,7 +32,7 @@ export class ProductCaptionComponent implements OnInit {
       this.authService.redirectToLogin();
     }
     else{
-      this.customerService.addInCart(this.product);
+      this.customerService.addInWishlist(this.product);
     }
   }
 }

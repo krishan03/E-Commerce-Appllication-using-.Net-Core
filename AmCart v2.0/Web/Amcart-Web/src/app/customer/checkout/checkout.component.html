@@ -58,30 +58,30 @@
                           <div class="row">
                              <div class="col-md-6 col-xs-12">
                                 <div class="form-group">
-                                   <input type="text" placeholder="First Name *" value="{{shippingAddress.name.split(' ')[0]}}" class="placeholder-fix form-control" name="f_name">
+                                   <input type="text" placeholder="First Name *" [(ngModel)]="shippingAddress.name.split(' ')[0]" class="placeholder-fix form-control" name="f_name">
                                 </div>
                                 <div class="form-group">
-                                   <input type="email" placeholder="E-mail Address *" value="{{shippingAddress.name}}" class="placeholder-fix form-control" name="email">
+                                   <input type="email" placeholder="E-mail Address *" [(ngModel)]="shippingAddress.email" class="placeholder-fix form-control" name="email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" placeholder="Country *" value="{{shippingAddress.country}}" class="placeholder-fix form-control" name="email">
+                                    <input type="email" placeholder="Country *" [(ngModel)]="shippingAddress.country" class="placeholder-fix form-control" name="email">
                                  </div>
                                 <div class="form-group">
-                                   <input type="text" placeholder="State / Province * " value="{{shippingAddress.state}}" class="placeholder-fix form-control" name="state">
+                                   <input type="text" placeholder="State / Province * " [(ngModel)]="shippingAddress.state" class="placeholder-fix form-control" name="state">
                                 </div>
                              </div>
                              <div class="col-md-6 col-xs-12">
                                 <div class="form-group">
-                                   <input type="text" placeholder="Last Name *" value="{{shippingAddress.name.split(' ')[1]}}" class="placeholder-fix form-control" name="l_name">
+                                   <input type="text" placeholder="Last Name *" [(ngModel)]="shippingAddress.name.split(' ')[1]" class="placeholder-fix form-control" name="l_name">
                                 </div>
                                 <div class="form-group">
-                                   <input type="text" placeholder="Company " value="{{shippingAddress.companyName}}" class="placeholder-fix form-control" name="company">
+                                   <input type="text" placeholder="Company " [(ngModel)]="shippingAddress.companyName" class="placeholder-fix form-control" name="company">
                                 </div>
                                 <div class="form-group">
-                                   <input type="text" placeholder="Town / City * " value="{{shippingAddress.city}}" class="placeholder-fix form-control" name="city">
+                                   <input type="text" placeholder="Town / City * " [(ngModel)]="shippingAddress.city" class="placeholder-fix form-control" name="city">
                                 </div>
                                 <div class="form-group">
-                                   <input type="text" placeholder="Postcode / Zip * " value="{{shippingAddress.pincode}}" class="placeholder-fix form-control" name="zip_code">
+                                   <input type="text" placeholder="Postcode / Zip * " [(ngModel)]="shippingAddress.pincode" class="placeholder-fix form-control" name="zip_code">
                                 </div>
                              </div>
                           </div>
