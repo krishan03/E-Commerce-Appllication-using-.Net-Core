@@ -1,6 +1,6 @@
 <div class="col-md-3 hidden-sm hidden-xs">
   <div *ngIf="!isUserLoggedIn || (isUserLoggedIn && context != null)" id="shopping-cart-wrapper" class="dropdown">
-    <a href="#" class="shp-ca" attr.data-toggle="{{isUserLoggedIn && cartItems != null && cartItems.length > 0 ? 'dropdown' : ''}}">
+    <a class="shp-ca" attr.data-toggle="{{isUserLoggedIn && cartItems != null ? 'dropdown' : ''}}">
       <div class="s-bag-1">
         <i class="icon-bag"></i>
       </div>
@@ -13,14 +13,13 @@
         </div>
       </div>
     </a>
-    <div *ngIf="cartItems != null && cartItems.length > 0" class="dropdown-menu dropdown-menu-right larger text-left" role="menu">
+    <div *ngIf="cartItems != null" class="dropdown-menu dropdown-menu-right larger text-left" role="menu">
       <span class="dropdown-triangle-up"></span>
       <a href="#" class="dd-close-btn"><i class="icon_close"></i></a>
       <div class="dropdown-head">
         <h4 class="pull-left">{{totalQty}} items in the shopping bag</h4>
       </div>
       <div class="dd-wrapper">
-        <div *ngIf="cartItems != null && cartItems.length == 0" class="dd-list-empty">There is no product in shopping cart!</div>
         <div *ngIf="cartItems != null && cartItems.length > 0" id="cart-product-group" class="dropdown-product-list">
           <div *ngFor="let item of cartItems" class="dd-product-group" id="pr5">
             <div class="dd-product-box pull-left">

@@ -1,0 +1,74 @@
+<div>
+    <h3>Add Product</h3>
+    <form #form="ngForm">
+    <div class="row">
+      <div class="col-md-4">
+          <div class="form-group">
+              <label class="type-text">Name<br><input type="text" name="productName" class="form-control placeholder-fix"  required ngModel></label>
+           </div>
+           <div class="form-group">
+              <label class="type-text">Code<br><input type="text" name="productCode" class="form-control placeholder-fix"  required ngModel></label>
+           </div>
+           <div class="form-group">
+              <label class="type-text">Price<br><input type="number" name="price" class="form-control placeholder-fix"   required ngModel></label>
+           </div>
+           <div class="form-group">
+              <label class="type-text">Category<br>
+                <select  class="form-control placeholder-fix" name="categoryId"  required ngModel>
+                    <option *ngFor="let c of categories"  [value]="c.id">{{c.name}} ({{c.path}})</option>
+                  </select>
+              </label>
+           </div>
+           <div class="form-group" >
+              <label class="type-text">Specifications<br></label>
+              <div class="input-group" ngModelGroup="specifications" *ngFor="let spec of specifications;let i=index">
+                  <input type="text" class="form-control" name="key{{i}}" placeholder="Specification" [(ngModel)]="spec.key" required/>
+                  <span class="input-group-addon">-</span>
+                  <input type="text" class="form-control" name="value{{i}}" placeholder="Description" [(ngModel)]="spec.value"  required/>
+              </div>
+              <br>
+              <button class="btn" (click)="specifications.push({});">Add Spec</button>
+            </div>
+      </div>
+      <div class="col-md-4">
+          <div class="form-group">
+              <label class="type-text">Description<br><textarea type="text" name="description" class="form-control placeholder-fix" required ngModel></textarea></label>
+           </div>
+           <label class="type-text">Variants<br></label>
+           <div class="form-group">
+              <div class="input-group"  ngModelGroup="variants" *ngFor="let variant of variants;let i=index">
+                  <input type="text" class="form-control" name="color{{i}}" placeholder="Color" [(ngModel)]="variant.color" required/>
+                  <span class="input-group-addon"></span>
+                  <input type="text" class="form-control" name="size{{i}}" placeholder="Size"  [(ngModel)]="variant.size"  required/>
+                  <span class="input-group-addon"></span>
+                  <input type="number" class="form-control" name="quantity{{i}}" placeholder="Qty."  [(ngModel)]="variant.quantity"  required/>
+              </div>
+              <br>
+              <button class="btn" (click)="variants.push({});">Add Variant</button>
+            </div>
+      </div>
+      <div class="col-md-4">
+  
+        <div>
+            <label class="type-text">Main Display Photo<br></label>
+            <img [src]="displayPicUrl" *ngIf="displayPicUrl"/>
+            <input class="btn" type="file" value="Upload Display Picture" (change)="uploadDisplayPhoto($event)"/>
+        </div>
+        <br><br>
+        <div>
+              <div *ngFor="let additionalPhoto of additionalPhotoUrls">
+              <img [src]="additionalPhoto" />
+              </div>
+           <label class="type-text">Additional Photos (multiple)<br></label>
+           <input class="btn" type="file" value="Add" (change)="uploadAdditionalPhoto($event)"/>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <button type="submit" *ngIf="!editProductId" [disabled]="form.invalid" class="btn btn-warning pull-right"  (click)="submitForm(form.value)">Add Product</button>
+        <button type="submit" *ngIf="editProductId"  [disabled]="form.invalid" class="btn btn-warning pull-right"  (click)="submitEdit(form.value)">Save Product</button>
+  
+      </div>
+  </form>
+  </div>
+  

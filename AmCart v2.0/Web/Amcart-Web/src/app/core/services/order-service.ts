@@ -18,4 +18,8 @@ export class OrderService {
     getOrderDetails(id: string) {
         return this.httpService.Get<any>(`${Constants.AppConstants.orderApiRoot}order/${id}`);
     }
+
+    getOrders() {
+        return this.httpService.Get<any>(`${Constants.AppConstants.orderApiRoot}order`);
+    }
 }

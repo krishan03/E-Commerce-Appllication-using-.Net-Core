@@ -62,7 +62,7 @@
       </div>
       <div *ngIf="isProfileOpen"><profile-details [customerContextData]="context" [loggedInUserData]="loggedInUser"></profile-details></div>
       <div *ngIf="isWishlistOpen"><wishlist [customerContextData]="context"></wishlist></div>
-      <div *ngIf="isOrderHistoryOpen"><profile-details [customerContextData]="context" [loggedInUserData]="loggedInUser"></profile-details></div>
+      <div *ngIf="isOrderHistoryOpen"><app-order-history [customerContextData]="context" [loggedInUserData]="loggedInUser"></app-order-history></div>
     </div>
   </div>
 </div>

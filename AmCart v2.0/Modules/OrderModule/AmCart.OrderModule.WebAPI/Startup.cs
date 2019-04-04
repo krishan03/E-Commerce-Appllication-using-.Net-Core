@@ -10,6 +10,7 @@ using AmCart.OrderModule.Configuration;
 using AmCart.OrderModule.Data.DBContext;
 using AmCart.OrderModule.Data.UoW;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -54,6 +55,13 @@ namespace AmCart.OrderModule.WebAPI
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.Authority = "http://localhost:5000";
+                    options.RequireHttpsMetadata = false;
+                    options.Audience = "http://localhost:5000/resources";
+                });
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -110,7 +118,7 @@ namespace AmCart.OrderModule.WebAPI
             }
 
             app.UseCors("OrderServicePolicy");
-            app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseMvc();
         }
 

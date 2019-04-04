@@ -23,6 +23,21 @@ namespace AmCart.CustomerModule
             throw new NotImplementedException();
         }
 
+        public async Task EmptyCart(string userId)
+        {
+            try
+            {
+                var filter = Builders<Customer>.Filter.Eq("UserId", ObjectId.Parse(userId));
+                var customer = await dBContext.Customers.Find(filter).FirstOrDefaultAsync();
+                customer.Cart = new List<CartProduct>();
+                await dBContext.Customers.ReplaceOneAsync(filter, customer);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task AddItemInWishlist(string userId, ProductLite product)
         {
             try

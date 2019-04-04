@@ -15,6 +15,7 @@ import { CoreModule } from './core/core.module';
 import { CartPeekComponent } from './cart-peek/cart-peek.component';
 import { FormsModule } from '@angular/forms';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     HomeComponent,
     MainComponent,
     CartPeekComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    AddProductComponent
   ],
   imports: [
     HttpClientModule,

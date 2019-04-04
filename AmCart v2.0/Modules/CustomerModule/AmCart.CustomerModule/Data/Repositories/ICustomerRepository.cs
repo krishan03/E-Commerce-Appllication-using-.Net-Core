@@ -4,6 +4,8 @@ namespace AmCart.CustomerModule
 {
     public interface ICustomerRepository
     {
+        Task EmptyCart(string userId);
+
         Task<string> CreateAsync(Customer customer);
 
         Task<Customer> GetByUserId(string id);

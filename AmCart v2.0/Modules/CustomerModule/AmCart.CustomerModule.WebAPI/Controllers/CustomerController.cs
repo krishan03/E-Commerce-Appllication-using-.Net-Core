@@ -68,5 +68,14 @@ namespace AmCart.CustomerModule.WebAPI
             await this.customerRepository.AddItemInWishlist(userId.Value, product);
             return new OperationResult(true, new Message("", ""));
         }
+
+        [HttpGet]
+        [Route("emptyCart")]
+        [AllowAnonymous]
+        public async Task<OperationResult> EmptyCart(string userId)
+        {
+            await this.customerRepository.EmptyCart(userId);
+            return new OperationResult(true, new Message("", ""));
+        }
     }
 }

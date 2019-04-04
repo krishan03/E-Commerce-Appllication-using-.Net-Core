@@ -1,12 +1,18 @@
 import * as elasticsearch from 'elasticsearch-browser';
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProductElasticSearchService {
     private client: elasticsearch.Client
+    searchText$: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
+    updateSearchText(searchText) {
+        this.searchText$.next(searchText);
+    }
 
     constructor(private _http: HttpService) {
         if (!this.client) {
@@ -58,7 +64,96 @@ export class ProductElasticSearchService {
       `;
 
         let result = this.client.search({ body: query });
-        debugger;
+        return result;
+    }
+
+    public Search(tags, color, from, size): any {
+        let query = '';
+        if (tags && color) {
+            query = `{                
+            "from":${from},
+            "size":${size},
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "match": {
+              "Categories": {
+                "query": "${tags}",
+                "analyzer": "pipe"
+              }
+            }
+          },
+          {
+            "nested": {
+              "path": "TagGroups",
+              "query": {
+                "bool": {
+                  "should": [
+                    {
+                      "match": {
+                        "TagGroups.Tags": "${color}"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+  `;
+        } else if (tags) {
+            query = `{
+            "from":${from},
+            "size":${size},
+            "query": {
+                "bool": {
+                    "must": [
+                        {
+                            "match": {
+                                "Categories": {
+                                    "query": "${tags}",
+                                    "analyzer": "pipe"
+                                }
+                            }
+                        }]
+                }
+            }
+        }`;
+        } else if (color) {
+            query = `{
+                "from":${from},
+                "size":${size},
+                "query": {
+                  "bool": {
+                    "must": [
+                      {
+                        "nested": {
+                          "path": "TagGroups",
+                          "query": {
+                            "bool": {
+                              "should": [
+                                {
+                                  "match": {
+                                    "TagGroups.Tags": "${color}"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+              `;
+        }
+        this.client.search({ body: query });
+        let result = this.client.search({ body: query });
         return result;
     }
 

@@ -32,7 +32,7 @@ export class CartPeekComponent implements OnInit {
           this.totalPrice += c.quantity * c.product.price
         });
         
-        if(this.totalPrice < 2000) {
+        if(this.totalPrice > 0 && this.totalPrice < 2000) {
           this.totalPrice += 100;
         }
       }
@@ -65,7 +65,7 @@ export class CartPeekComponent implements OnInit {
             this.totalPrice+= c.product.price*c.quantity
           });
 
-          if(this.totalPrice < 2000) {
+          if(this.totalPrice > 0 && this.totalPrice < 2000) {
             this.totalPrice += 100;
           }
         })

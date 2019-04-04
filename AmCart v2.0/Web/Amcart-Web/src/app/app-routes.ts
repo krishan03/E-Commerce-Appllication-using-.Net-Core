@@ -11,6 +11,8 @@ import { SearchProductComponent } from "./product/search-product/search-product.
 import { CartComponent } from "./customer/cart/cart.component";
 import { CheckoutComponent } from "./customer/checkout/checkout.component";
 import { OrderDetailsComponent } from './customer/order-details/order-details.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import {AddProductComponent } from './add-product/add-product.component';
 
 export const ApplicationRoutes: Routes = [
     {
@@ -47,6 +49,14 @@ export const ApplicationRoutes: Routes = [
             {
                 path: 'orderDetails/:id',
                 component: OrderDetailsComponent
+            },
+            {
+                path: 'contact',
+                component: ContactUsComponent
+            },
+            {
+                path: 'admin',
+                component: AddProductComponent
             }
         ]
     },
