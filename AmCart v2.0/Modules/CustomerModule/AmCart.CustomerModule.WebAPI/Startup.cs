@@ -59,9 +59,10 @@ namespace AmCart.CustomerModule.WebAPI
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => 
                 {
-                    options.Authority = "http://localhost:5000";
+                    
+                    options.Authority = "http://iam-dot-regal-yew-236623.appspot.com";
                     options.RequireHttpsMetadata = false;
-                    options.Audience = "http://localhost:5000/resources";
+                    options.Audience = "http://iam-dot-regal-yew-236623.appspot.com/resources";
                 });
 
             services.AddDbContext<CustomerModuleDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
