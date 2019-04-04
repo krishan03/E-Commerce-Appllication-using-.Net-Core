@@ -16,6 +16,9 @@ import { CartPeekComponent } from './cart-peek/cart-peek.component';
 import { FormsModule } from '@angular/forms';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { MultiSelectModule } from 'primeng/multiselect';
+import {ChipsModule} from 'primeng/chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { AddProductComponent } from './add-product/add-product.component';
     ProductModule,
     AuthModule,
     CoreModule,
-    FormsModule
+    FormsModule,
+    MultiSelectModule,
+    BrowserAnimationsModule,
+    ChipsModule
   ],
   providers: [
   ],

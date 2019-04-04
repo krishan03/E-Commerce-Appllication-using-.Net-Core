@@ -71,7 +71,7 @@ export class SearchProductComponent implements OnInit, OnDestroy {
       let items = response.hits.hits;
       for (let i = 0; i < items.length; i++) {
         this.products.push({
-          id: items[i]._id,
+          Id: items[i]._id,
           Categories: items[i]._source.Categories[0],
           DynamicCategories: items[i]._source.DynamicCategories,
           ImageUrl: items[i]._source.ImageUrl,
@@ -106,7 +106,7 @@ export class SearchProductComponent implements OnInit, OnDestroy {
       let items = response.hits.hits;
       for (let i = 0; i < items.length; i++) {
         this.products.push({
-          id: items[i]._id,
+          Id: items[i]._id,
           Categories: items[i]._source.Categories[0],
           DynamicCategories: items[i]._source.DynamicCategories,
           ImageUrl: items[i]._source.ImageUrl,
@@ -142,7 +142,7 @@ export class SearchProductComponent implements OnInit, OnDestroy {
       let items = response.hits.hits;
       for (let i = 0; i < items.length; i++) {
         this.products.push({
-          id: items[i]._id,
+          Id: items[i]._id,
           Categories: items[i]._source.Categories[0],
           DynamicCategories: items[i]._source.DynamicCategories,
           ImageUrl: items[i]._source.ImageUrl,
