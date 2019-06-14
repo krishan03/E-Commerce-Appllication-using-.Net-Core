@@ -1,2 +1,2 @@
-# AmCart_E-Commerce
+# E-Commerce
 Sample Shopping Website
